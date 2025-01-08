@@ -1,0 +1,56 @@
+---
+
+- name: Test example tasks
+  hosts: '{{ target | default("all") }}'
+  vars:
+    test_cases:
+      - url: https://example.org/tool.tgz
+      - github_repo: go-task/task
+        release_file: v3.40.1/task_linux_amd64.tar.gz
+      - xxx: Error
+  tasks:
+    - name: Test url detection
+      vars:
+        tool_deploy_file_url: >-
+          {%- if tool.url is defined -%}
+            {{ tool.url }}
+          {%- else -%}
+            {%- if tool.github_repo is defined -%}
+              https://github.com/{{ tool.github_repo }}/
+              {%- if tool.release_file is defined -%}
+                releases/download/{{ tool.release_file }}
+              {%- else -%}
+                {# NOT A VALID CONFIG #}{{ None[0] }}
+              {%- endif -%}
+            {%- else -%}
+              {# NOT A VALID CONFIG #}{{ None[0] }}
+            {%- endif -%}
+          {%- endif -%}
+      ansible.builtin.debug:
+        var: tool_deploy_file_url
+      loop: "{{ test_cases }}"
+      loop_control:
+        loop_var: tool
+
+- name: Test role deploying tools
+  hosts: '{{ target | default("all") }}'
+  vars:
+    task_version: 3.40.1
+    tool_deploy_list:
+      task:
+        # force_install: true
+        action: download_archive
+        github_repo: go-task/task
+        release_file: v{{ task_version }}/task_linux_amd64.tar.gz
+        version:
+          args: --version
+          match: "Task version: v{{ task_version }}"
+        bash_completion:
+          src: "completion/bash/task.bash"
+        zsh_completion:
+          src: "completion/zsh/_task"
+
+  roles:
+    - role: tool_deploy
+
+...

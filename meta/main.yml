@@ -1,0 +1,20 @@
+---
+
+galaxy_info:
+  role_name: tool_deploy
+  author: dreknix
+  description: Ansible role for deploying tools from GitHub, GitLab, and other sources
+  license: MIT
+  min_ansible_version: "2.4"
+  platforms:
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - debian
+    - ubuntu
+
+...

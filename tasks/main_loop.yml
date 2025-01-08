@@ -1,0 +1,113 @@
+---
+
+# - name: Inside loop - {{ tool.key }}
+#   ansible.builtin.debug:
+#     msg: Current item {{ tool.value }}
+
+- name: Set tool specific variables - {{ tool.key }}
+  ansible.builtin.set_fact:
+    tool_deploy_binary_path: "{{ (tool_deploy_bin_path | mandatory, tool.key) | ansible.builtin.path_join }}"
+    tool_deploy_action: "{{ tool.value.action | mandatory('Action is not defined for tool ' ~ tool.key) }}"
+    tool_deploy_file_url: >-
+      {%- if tool.value.url is defined -%}
+        {{ tool.value.url }}
+      {%- else -%}
+        {%- if tool.value.github_repo is defined -%}
+          https://github.com/{{ tool.value.github_repo }}/
+          {%- if tool.value.release_file is defined -%}
+            releases/download/{{ tool.value.release_file }}
+          {%- else -%}
+            {# NOT A VALID CONFIG #}{{ None['ERROR: unknown GitHub path'][0] }}
+          {%- endif -%}
+        {%- else -%}
+          {# NOT A VALID CONFIG #}{{ None['ERROR: not a valid config'][0] }}
+        {%- endif -%}
+      {%- endif -%}
+
+# - name: Current variables - {{ tool.key }}
+#   vars:
+#     debug_vars:
+#       - "{{ tool_deploy_action | mandatory }}"
+#       - "{{ tool_deploy_bin_path | mandatory }}"
+#       - "{{ tool_deploy_binary_path | mandatory }}"
+#       - "{{ tool_deploy_file_url | mandatory }}"
+#   ansible.builtin.debug:
+#     var: debug_vars
+
+- name: Check if tool needs to be installed - {{ tool.key }}
+  when: not tool.value.force_install | default(false) | bool
+  block:
+
+    - name: Check if binary is installed - {{ tool_deploy_binary_path }}
+      ansible.builtin.stat:
+        path: "{{ tool_deploy_binary_path }}"
+      register:
+        tool_deploy_binary
+
+    # - name: Show variable tool_deploy_binary
+    #   ansible.builtin.debug:
+    #     var: tool_deploy_binary
+
+    - name: Check which version is installed - {{ tool.key }}
+      when: tool_deploy_binary.stat.exists
+            and tool_deploy_binary.stat.executable
+            and tool.value.version.match is defined
+      block:
+
+        - name: Get current installed version - {{ tool.key }}
+          ansible.builtin.shell: |
+            {{ tool_deploy_binary_path }} {{ tool.value.version.args | default("") }}
+          register: tool_deploy_binary_version
+          check_mode: false
+          changed_when: false
+
+- name: Install tool - {{ tool.key }}
+  when: tool.value.force_install | default(false) | bool
+        or not(tool_deploy_binary.stat.exists and tool_deploy_binary.stat.executable)
+        or tool.value.version.match is defined
+           and tool_deploy_binary_version.stdout
+           and tool.value.version.match not in tool_deploy_binary_version.stdout
+  block:
+
+    - name: Create temporary directory
+      ansible.builtin.tempfile:
+        state: directory
+        prefix: ansible_dreknix.tool_deploy_
+      register: tool_deploy_tmp
+
+    - name: Run install action - {{ tool.key ~ '/' ~ tool_deploy_action }}
+      ansible.builtin.include_tasks: install_{{ tool_deploy_action }}.yml
+
+    - name: Copy binary into place - {{ tool.key }}
+      become: true
+      ansible.builtin.copy:
+        src: "{{ (tool_deploy_tmp_prefix | mandatory, tool.key) | ansible.builtin.path_join }}"
+        remote_src: true
+        dest: "{{ tool_deploy_binary_path }}"
+        mode: u=rwx,go=rx
+      when: not ansible_check_mode
+
+    - name: Copy bash completion
+      become: true
+      ansible.builtin.copy:
+        src: "{{ (tool_deploy_tmp_prefix | mandatory, tool.value.bash_completion.src) | ansible.builtin.path_join }}"
+        remote_src: true
+        dest: "{{ (tool_deploy_bash_completion_path, tool.key) | ansible.builtin.path_join }}"
+        mode: u=rw,go=r
+      when: tool.value.bash_completion.src is defined
+
+    - name: Copy zsh completion
+      become: true
+      ansible.builtin.copy:
+        src: "{{ (tool_deploy_tmp_prefix | mandatory, tool.value.zsh_completion.src) | ansible.builtin.path_join }}"
+        remote_src: true
+        dest: "{{ (tool_deploy_zsh_completion_path, '_' ~ tool.key) | ansible.builtin.path_join }}"
+        mode: u=rw,go=r
+      when: tool.value.zsh_completion.src is defined
+
+    - name: Remove temporary directory
+      ansible.builtin.file:
+        path: "{{ tool_deploy_tmp.path }}"
+        state: absent
+
+...

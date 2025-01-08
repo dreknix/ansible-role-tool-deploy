@@ -1,0 +1,20 @@
+---
+
+- name: Download archive - {{ tool.key }}
+  ansible.builtin.unarchive:
+    src: "{{ tool_deploy_file_url }}"
+    dest: "{{ tool_deploy_tmp.path }}"
+    remote_src: true
+    list_files: true
+  register: tool_deploy_archive
+
+- name: Set temporary prefix
+  ansible.builtin.set_fact:
+    tool_deploy_tmp_prefix: >-
+      {%- if tool_deploy_archive.files[0].split('/')[0] == tool_deploy_archive.files[0] -%}
+        {{ tool_deploy_tmp.path }}
+      {%- else -%}
+        {{ (tool_deploy_tmp.path, tool_deploy_archive.files[0].split('/')[0]) | ansible.builtin.path_join }}
+      {%- endif -%}
+
+...

@@ -1,0 +1,33 @@
+---
+
+# - name: Role tool_deploy
+#   ansible.builtin.debug:
+#     msg: Inside role tool_deploy
+
+- name: Set tool deploy variables
+  ansible.builtin.set_fact:
+    tool_deploy_bin_path: >-
+      {{ (tool_deploy_prefix | mandatory, 'bin') | ansible.builtin.path_join }}
+    tool_deploy_bash_completion_path: >-
+      {{ (tool_deploy_prefix | mandatory, 'share', 'bash-completion', 'completions') | ansible.builtin.path_join }}
+    tool_deploy_zsh_completion_path: >-
+      {{ (tool_deploy_prefix | mandatory, 'share', 'zsh', 'site-functions') | ansible.builtin.path_join }}
+
+- name: Ensure directories are existing
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: u=rwx,go=rx
+  loop:
+    - "{{ tool_deploy_bin_path }}"
+    - "{{ tool_deploy_bash_completion_path }}"
+    - "{{ tool_deploy_zsh_completion_path }}"
+
+- name: Loop over tools
+  ansible.builtin.include_tasks: main_loop.yml
+  loop: "{{ tool_deploy_list | dict2items }}"
+  loop_control:
+    loop_var: tool
+    label: "{{ tool.key }}"
+
+...

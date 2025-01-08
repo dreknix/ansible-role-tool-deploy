@@ -1,0 +1,8 @@
+---
+
+# list of tools for deployment
+tool_deploy_list: []
+
+tool_deploy_prefix: /usr/local
+
+...
