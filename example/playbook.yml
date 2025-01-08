@@ -5,8 +5,9 @@
   vars:
     test_cases:
       - url: https://example.org/tool.tgz
-      - github_repo: go-task/task
-        release_file: v3.40.1/task_linux_amd64.tar.gz
+      - github:
+          repo: go-task/task
+          file: v3.40.1/task_linux_amd64.tar.gz
       - xxx: Error
   tasks:
     - name: Test url detection
@@ -15,10 +16,10 @@
           {%- if tool.url is defined -%}
             {{ tool.url }}
           {%- else -%}
-            {%- if tool.github_repo is defined -%}
-              https://github.com/{{ tool.github_repo }}/
-              {%- if tool.release_file is defined -%}
-                releases/download/{{ tool.release_file }}
+            {%- if tool.github.repo is defined -%}
+              https://github.com/{{ tool.github.repo }}/
+              {%- if tool.github.file is defined -%}
+                releases/download/{{ tool.github.file }}
               {%- else -%}
                 {# NOT A VALID CONFIG #}{{ None[0] }}
               {%- endif -%}
@@ -43,9 +44,10 @@
       delta:
         # force_install: true
         action: download_archive
-        github_repo: dandavison/delta
-        release_file: >-
-          {{ delta_version }}/delta-{{ delta_version }}-x86_64-unknown-linux-gnu.tar.gz
+        github:
+          repo: dandavison/delta
+          file: >-
+            {{ delta_version }}/delta-{{ delta_version }}-x86_64-unknown-linux-gnu.tar.gz
         version:
           args: --version
           match: "delta {{ delta_version }}"
@@ -55,26 +57,29 @@
           generate_args: --generate-completion zsh
       direnv:
         action: download_binary
-        github_repo: direnv/direnv
-        release_file: >-
-          v{{ direnv_version }}/direnv.linux-amd64
+        github:
+          repo: direnv/direnv
+          file: >-
+            v{{ direnv_version }}/direnv.linux-amd64
         version:
           args: version
           match: "{{ direnv_version }}"
       jq:
         action: download_binary
-        github_repo: jqlang/jq
-        release_file: >-
-          jq-{{ jq_version }}/jq-linux-amd64
+        github:
+          repo: jqlang/jq
+          file: >-
+            jq-{{ jq_version }}/jq-linux-amd64
         version:
           args: --version
           match: "jq-{{ jq_version }}"
       task:
         # force_install: true
         action: download_archive
-        github_repo: go-task/task
-        release_file: >-
-          v{{ task_version }}/task_linux_amd64.tar.gz
+        github:
+          repo: go-task/task
+          file: >-
+            v{{ task_version }}/task_linux_amd64.tar.gz
         version:
           args: --version
           match: "Task version: v{{ task_version }}"

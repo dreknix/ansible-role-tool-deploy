@@ -12,10 +12,10 @@
       {%- if tool.value.url is defined -%}
         {{ tool.value.url }}
       {%- else -%}
-        {%- if tool.value.github_repo is defined -%}
-          https://github.com/{{ tool.value.github_repo }}/
-          {%- if tool.value.release_file is defined -%}
-            releases/download/{{ tool.value.release_file }}
+        {%- if tool.value.github.repo is defined -%}
+          https://github.com/{{ tool.value.github.repo }}/
+          {%- if tool.value.github.file is defined -%}
+            releases/download/{{ tool.value.github.file }}
           {%- else -%}
             {# NOT A VALID CONFIG #}{{ None['ERROR: unknown GitHub path'][0] }}
           {%- endif -%}
