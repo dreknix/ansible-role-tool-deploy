@@ -1,0 +1,15 @@
+---
+
+- name: Set temporary prefix
+  ansible.builtin.set_fact:
+    tool_deploy_tmp_prefix: >-
+        {{ tool_deploy_tmp.path }}
+
+- name: Download binary - {{ tool.key }}
+  ansible.builtin.get_url:
+    url: "{{ tool_deploy_file_url }}"
+    dest: "{{ (tool_deploy_tmp_prefix, tool.key) | ansible.builtin.path_join }}"
+    force: true
+    mode: u=rwx,go=rx
+
+...
