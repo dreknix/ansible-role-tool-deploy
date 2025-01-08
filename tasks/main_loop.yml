@@ -96,6 +96,25 @@
         mode: u=rw,go=r
       when: tool.value.bash_completion.src is defined
 
+    - name: Generate bash completion
+      when: tool.value.bash_completion.generate_args is defined
+      block:
+
+        - name: Create bash completion
+          ansible.builtin.command: >-
+            {{ tool_deploy_binary_path }} {{ tool.value.bash_completion.generate_args }}
+          check_mode: false
+          changed_when: false
+          register: tool_deploy_bash_completion
+
+        - name: Save bash completion
+          become: true
+          ansible.builtin.copy:
+            content: "{{ tool_deploy_bash_completion.stdout }}"
+            dest: "{{ (tool_deploy_bash_completion_path, tool.key) | ansible.builtin.path_join }}"
+            mode: u=rw,go=r
+          when: tool_deploy_bash_completion.rc == 0
+
     - name: Copy zsh completion
       become: true
       ansible.builtin.copy:
@@ -104,6 +123,25 @@
         dest: "{{ (tool_deploy_zsh_completion_path, '_' ~ tool.key) | ansible.builtin.path_join }}"
         mode: u=rw,go=r
       when: tool.value.zsh_completion.src is defined
+
+    - name: Generate zsh completion
+      when: tool.value.zsh_completion.generate_args is defined
+      block:
+
+        - name: Create zsh completion
+          ansible.builtin.command: >-
+            {{ tool_deploy_binary_path }} {{ tool.value.zsh_completion.generate_args }}
+          check_mode: false
+          changed_when: false
+          register: tool_deploy_zsh_completion
+
+        - name: Save zsh completion
+          become: true
+          ansible.builtin.copy:
+            content: "{{ tool_deploy_zsh_completion.stdout }}"
+            dest: "{{ (tool_deploy_zsh_completion_path, '_' ~ tool.key) | ansible.builtin.path_join }}"
+            mode: u=rw,go=r
+          when: tool_deploy_zsh_completion.rc == 0
 
     - name: Remove temporary directory
       ansible.builtin.file:
