@@ -96,9 +96,9 @@
         remote_src: true
         dest: "{{ (tool_deploy_man_path, 'man' ~ man_suffix) | ansible.builtin.path_join }}"
         mode: u=rw,go=r
-      loop: "{{ tool.value.man_pages is string | ternary([tool.value.man_pages], tool.value.man_pages) }}"
+      loop: "{{ tool.value.man_pages.src is string | ternary([tool.value.man_pages.src], tool.value.man_pages.src) }}"
       when: not ansible_check_mode
-            and tool.value.man_pages is defined
+            and tool.value.man_pages.src is defined
 
     - name: Download man pages
       become: true
@@ -109,10 +109,10 @@
         dest: "{{ (tool_deploy_man_path, 'man' ~ man_suffix) | ansible.builtin.path_join }}"
         mode: u=rw,go=r
       loop: >-
-        {{ tool.value.man_pages_download is string
-           | ternary([tool.value.man_pages_download], tool.value.man_pages_download) }}
+        {{ tool.value.man_pages.url is string
+           | ternary([tool.value.man_pages.url], tool.value.man_pages.url) }}
       when: not ansible_check_mode
-            and tool.value.man_pages_download is defined
+            and tool.value.man_pages.url is defined
 
     - name: Copy bash completion
       become: true
@@ -123,6 +123,15 @@
         mode: u=rw,go=r
       when: not ansible_check_mode
             and tool.value.bash_completion.src is defined
+
+    - name: Download bash completion
+      become: true
+      ansible.builtin.get_url:
+        url: "{{ tool.value.bash_completion.url }}"
+        dest: "{{ (tool_deploy_bash_completion_path, tool.key) | ansible.builtin.path_join }}"
+        mode: u=rw,go=r
+      when: not ansible_check_mode
+            and tool.value.bash_completion.url is defined
 
     - name: Generate bash completion
       when: not ansible_check_mode
@@ -153,6 +162,15 @@
         mode: u=rw,go=r
       when: not ansible_check_mode
             and tool.value.zsh_completion.src is defined
+
+    - name: Download zsh completion
+      become: true
+      ansible.builtin.get_url:
+        url: "{{ tool.value.zsh_completion.url }}"
+        dest: "{{ (tool_deploy_zsh_completion_path, '_' ~ tool.key) | ansible.builtin.path_join }}"
+        mode: u=rw,go=r
+      when: not ansible_check_mode
+            and tool.value.zsh_completion.url is defined
 
     - name: Generate zsh completion
       when: tool.value.zsh_completion.generate_args is defined
