@@ -1,0 +1,17 @@
+---
+
+tool_deploy_default_config_task:
+  task:
+    action: download_archive
+    github:
+      repo: go-task/task
+      file: "v{{ task_version | mandatory }}/task_linux_amd64.tar.gz"
+    version:
+      args: --version
+      match: "Task version: v{{ task_version | mandatory }}"
+    bash_completion:
+      src: "completion/bash/task.bash"
+    zsh_completion:
+      src: "completion/zsh/_task"
+
+...

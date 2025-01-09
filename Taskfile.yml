@@ -6,13 +6,75 @@ version: '3'
 tasks:
 
   lint:
+    desc: Lint all files
     cmds:
       - yamllint .
       - mdl README.md
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-lint
 
   test:
+    desc: Test deployment of all tools defined in playbook
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook example/playbook.yml
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag tools example/playbook.yml
+
+  test:readme:
+    desc: Test deployment with example in README
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag readme example/playbook.yml
+
+  test:bat:
+    desc: Test deployment of tool bat
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag bat example/playbook.yml
+
+  test:delta:
+    desc: Test deployment of tool delta
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag delta example/playbook.yml
+
+  test:direnv:
+    desc: Test deployment of tool direnv
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag direnv example/playbook.yml
+
+  test:eza:
+    desc: Test deployment of tool eza
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag eza example/playbook.yml
+
+  test:fd:
+    desc: Test deployment of tool fd
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag fd example/playbook.yml
+
+  test:fzf:
+    desc: Test deployment of tool fzf
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag fzf example/playbook.yml
+
+  test:jq:
+    desc: Test deployment of tool jq
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag jq example/playbook.yml
+
+  test:lsd:
+    desc: Test deployment of tool lsd
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag lsd example/playbook.yml
+
+  test:rg:
+    desc: Test deployment of tool rg
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag rg example/playbook.yml
+
+  test:task:
+    desc: Test deployment of tool task
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag task example/playbook.yml
+
+  test:zoxide:
+    desc: Test deployment of tool zoxide
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag zoxide example/playbook.yml
 
 ...

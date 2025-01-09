@@ -1,0 +1,19 @@
+---
+
+tool_deploy_default_config_bat:
+  bat:
+    action: download_archive
+    github:
+      repo: sharkdp/bat
+      file: "v{{ bat_version | mandatory }}/bat-v{{ bat_version | mandatory }}-x86_64-unknown-linux-gnu.tar.gz"
+    version:
+      args: --version
+      match: "bat {{ bat_version | mandatory }}"
+    man_pages:
+      src: "bat.1"
+    bash_completion:
+      src: "autocomplete/bat.bash"
+    zsh_completion:
+      src: "autocomplete/bat.zsh"
+
+...

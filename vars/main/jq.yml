@@ -1,0 +1,13 @@
+---
+
+tool_deploy_default_config_jq:
+  jq:
+    action: download_binary
+    github:
+      repo: jqlang/jq
+      file: "jq-{{ jq_version | mandatory }}/jq-linux-amd64"
+    version:
+      args: --version
+      match: "jq-{{ jq_version | mandatory }}"
+
+...

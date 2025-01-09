@@ -1,0 +1,19 @@
+---
+
+tool_deploy_default_config_rg:
+  rg:
+    action: download_archive
+    github:
+      repo: BurntSushi/ripgrep
+      file: "{{ rg_version | mandatory }}/ripgrep-{{ rg_version | mandatory }}-x86_64-unknown-linux-musl.tar.gz"
+    version:
+      args: --version
+      match: "ripgrep {{ rg_version | mandatory }} ("
+    man_pages:
+      src: doc/rg.1
+    bash_completion:
+      src: complete/rg.bash
+    zsh_completion:
+      src: complete/_rg
+
+...

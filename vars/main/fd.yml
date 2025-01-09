@@ -1,0 +1,19 @@
+---
+
+tool_deploy_default_config_fd:
+  fd:
+    action: download_archive
+    github:
+      repo: sharkdp/fd
+      file: "v{{ fd_version | mandatory }}/fd-v{{ fd_version | mandatory }}-x86_64-unknown-linux-gnu.tar.gz"
+    version:
+      args: --version
+      match: "fd {{ fd_version | mandatory }}"
+    man_pages:
+      src: "fd.1"
+    bash_completion:
+      src: "autocomplete/fd.bash"
+    zsh_completion:
+      src: "autocomplete/_fd"
+
+...

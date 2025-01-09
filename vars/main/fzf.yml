@@ -1,0 +1,19 @@
+---
+
+tool_deploy_default_config_fzf:
+  fzf:
+    action: download_archive
+    github:
+      repo: junegunn/fzf
+      file: "v{{ fzf_version | mandatory }}/fzf-{{ fzf_version | mandatory }}-linux_amd64.tar.gz"
+    version:
+      args: --version
+      match: "{{ fzf_version | mandatory }} ("
+    man_pages:
+      url: https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/man/man1/fzf.1
+    bash_completion:
+      url: https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/shell/completion.bash
+    zsh_completion:
+      url: https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/shell/completion.zsh
+
+...

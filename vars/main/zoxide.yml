@@ -1,0 +1,25 @@
+---
+
+tool_deploy_default_config_zoxide:
+  zoxide:
+    action: download_archive
+    github:
+      repo: ajeetdsouza/zoxide
+      file: "v{{ zoxide_version | mandatory }}/zoxide-{{ zoxide_version | mandatory }}-x86_64-unknown-linux-musl.tar.gz"
+    version:
+      args: --version
+      match: "zoxide {{ zoxide_version | mandatory }}"
+    man_pages:
+      src:
+        - man/man1/zoxide.1
+        - man/man1/zoxide-add.1
+        - man/man1/zoxide-import.1
+        - man/man1/zoxide-init.1
+        - man/man1/zoxide-query.1
+        - man/man1/zoxide-remove.1
+    bash_completion:
+      src: completions/zoxide.bash
+    zsh_completion:
+      src: completions/_zoxide
+
+...

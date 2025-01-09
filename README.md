@@ -72,6 +72,28 @@ The variable `tool_deploy_list` is a dictionary, so that this dictionary can be
 defined in `group_vars`, but also be overwritten partially in `host_vars`. This
 allows different versions of tools to be installed.
 
+All tools described in the [example](#configuration-examples) section can be
+referenced with `tool_deploy_default_config_XXXX`. The above playbook is
+equivalent to the following playbook definition:
+
+``` yaml
+- name: Deploying tools
+  hosts: '{{ target | default("all") }}'
+  vars:
+
+    delta_version: 0.18.2
+    jq_version: 1.7.1
+    task_version: 3.40.1
+
+    tool_deploy_list: >-
+      {{ tool_deploy_default_config_delta
+         | combine(tool_deploy_default_config_jq)
+         | combine(tool_deploy_default_config_task) }}
+
+  roles:
+    - role: tool_deploy
+```
+
 ## Install role via `roles/requirements.yml`
 
 ### Read-Only copy
@@ -114,6 +136,9 @@ ansible-galaxy role install --force --keep-scm-meta -r roles/requirements.yml
 
 ## Configuration Examples
 
+All this configuration examples are also defined in `vars/main/` for referencing
+in playbooks.
+
 ### bat
 
 [sharkdp / bat](https://github.com/sharkdp/bat)
@@ -130,12 +155,12 @@ tool_deploy_list:
     version:
       args: --version
       match: "bat {{ bat_version }}"
+    man_pages:
+      src: "bat.1"
     bash_completion:
       src: "autocomplete/bat.bash"
     zsh_completion:
       src: "autocomplete/bat.zsh"
-    man_pages:
-      src: "bat.1"
 ```
 
 ### delta
@@ -220,12 +245,12 @@ tool_deploy_list:
     version:
       args: --version
       match: "fd {{ fd_version }}"
+    man_pages:
+      src: "fd.1"
     bash_completion:
       src: "autocomplete/fd.bash"
     zsh_completion:
       src: "autocomplete/_fd"
-    man_pages:
-      src: "fd.1"
 ```
 
 ### fzf
@@ -244,12 +269,12 @@ tool_deploy_list:
     version:
       args: --version
       match: "{{ fzf_version }} ("
+    man_pages:
+      url: https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/man/man1/fzf.1
     bash_completion:
       url: https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/shell/completion.bash
     zsh_completion:
       url: https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/shell/completion.zsh
-    man_pages:
-      url: https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/man/man1/fzf.1
 ```
 
 ### jq
@@ -268,6 +293,58 @@ tool_deploy_list:
     version:
       args: --version
       match: "jq-{{ jq_version }}"
+```
+
+### less
+
+**TODO:** download archive and compile tools
+
+### lsd
+
+[lsd-rs / lsd](https://github.com/lsd-rs/lsd)
+
+``` yaml
+lsd_version: 1.1.5
+
+tool_deploy_list:
+  lsd:
+    action: download_archive
+    github:
+      repo: lsd-rs/lsd
+      file: v{{ lsd_version }}/lsd-v{{ lsd_version }}-x86_64-unknown-linux-gnu.tar.gz
+    version:
+      args: --version
+      match: "lsd {{ lsd_version }}"
+    man_pages:
+      src: lsd.1
+    bash_completion:
+      src: autocomplete/lsd.bash-completion
+    zsh_completion:
+      src: autocomplete/_lsd
+```
+
+### ripgrep
+
+[BurntSushi / ripgrep](https://github.com/BurntSushi/ripgrep)
+
+``` yaml
+rg_version: 14.1.1
+
+tool_deploy_list:
+  rg:
+    action: download_archive
+    github:
+      repo: BurntSushi/ripgrep
+      file: "{{ rg_version }}/ripgrep-{{ rg_version }}-x86_64-unknown-linux-musl.tar.gz"
+    version:
+      args: --version
+      match: "ripgrep {{ rg_version }} ("
+    man_pages:
+      src: doc/rg.1
+    bash_completion:
+      src: complete/rg.bash
+    zsh_completion:
+      src: complete/_rg
 ```
 
 ### task
@@ -290,6 +367,36 @@ tool_deploy_list:
       src: "completion/bash/task.bash"
     zsh_completion:
       src: "completion/zsh/_task"
+```
+
+### zoxide
+
+[ajeetdsouza / zoxide](https://github.com/ajeetdsouza/zoxide)
+
+``` yaml
+zoxide_version: 0.9.6
+
+tool_deploy_list:
+  zoxide:
+    action: download_archive
+    github:
+      repo: ajeetdsouza/zoxide
+      file: "v{{ zoxide_version }}/zoxide-{{ zoxide_version }}-x86_64-unknown-linux-musl.tar.gz"
+    version:
+      args: --version
+      match: "zoxide {{ zoxide_version }}"
+    man_pages:
+      src:
+        - man/man1/zoxide.1
+        - man/man1/zoxide-add.1
+        - man/man1/zoxide-import.1
+        - man/man1/zoxide-init.1
+        - man/man1/zoxide-query.1
+        - man/man1/zoxide-remove.1
+    bash_completion:
+      src: completions/zoxide.bash
+    zsh_completion:
+      src: completions/_zoxide
 ```
 
 ## License

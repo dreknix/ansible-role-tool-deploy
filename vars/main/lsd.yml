@@ -1,0 +1,19 @@
+---
+
+tool_deploy_default_config_lsd:
+  lsd:
+    action: download_archive
+    github:
+      repo: lsd-rs/lsd
+      file: v{{ lsd_version | mandatory }}/lsd-v{{ lsd_version | mandatory }}-x86_64-unknown-linux-gnu.tar.gz
+    version:
+      args: --version
+      match: "lsd {{ lsd_version | mandatory }}"
+    man_pages:
+      src: lsd.1
+    bash_completion:
+      src: autocomplete/lsd.bash-completion
+    zsh_completion:
+      src: autocomplete/_lsd
+
+...

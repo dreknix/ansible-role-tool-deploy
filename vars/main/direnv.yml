@@ -1,0 +1,19 @@
+---
+
+tool_deploy_default_config_direnv:
+  direnv:
+    action: download_binary
+    github:
+      repo: direnv/direnv
+      file: "v{{ direnv_version | mandatory }}/direnv.linux-amd64"
+    version:
+      args: version
+      match: "{{ direnv_version | mandatory }}"
+    man_pages:
+      url:
+        - https://raw.githubusercontent.com/direnv/direnv/refs/heads/master/man/direnv.1
+        - https://raw.githubusercontent.com/direnv/direnv/refs/heads/master/man/direnv-fetchurl.1
+        - https://raw.githubusercontent.com/direnv/direnv/refs/heads/master/man/direnv-stdlib.1
+        - https://raw.githubusercontent.com/direnv/direnv/refs/heads/master/man/direnv.toml.1
+
+...

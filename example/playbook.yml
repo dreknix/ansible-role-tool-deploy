@@ -1,94 +1,140 @@
 ---
 
-- name: Test example tasks
-  hosts: '{{ target | default("all") }}'
-  vars:
-    test_cases:
-      - url: https://example.org/tool.tgz
-      - github:
-          repo: go-task/task
-          file: v3.40.1/task_linux_amd64.tar.gz
-      - xxx: Error
-  tasks:
-    - name: Test url detection
-      vars:
-        tool_deploy_file_url: >-
-          {%- if tool.url is defined -%}
-            {{ tool.url }}
-          {%- else -%}
-            {%- if tool.github.repo is defined -%}
-              https://github.com/{{ tool.github.repo }}/
-              {%- if tool.github.file is defined -%}
-                releases/download/{{ tool.github.file }}
-              {%- else -%}
-                {# NOT A VALID CONFIG #}{{ None[0] }}
-              {%- endif -%}
-            {%- else -%}
-              {# NOT A VALID CONFIG #}{{ None[0] }}
-            {%- endif -%}
-          {%- endif -%}
-      ansible.builtin.debug:
-        var: tool_deploy_file_url
-      loop: "{{ test_cases }}"
-      loop_control:
-        loop_var: tool
-
-- name: Test role deploying tools
+- name: Test role with README example
   hosts: '{{ target | default("all") }}'
   vars:
     delta_version: 0.18.2
-    direnv_version: 2.35.0
     jq_version: 1.7.1
     task_version: 3.40.1
-    tool_deploy_list:
-      delta:
-        # force_install: true
-        action: download_archive
-        github:
-          repo: dandavison/delta
-          file: >-
-            {{ delta_version }}/delta-{{ delta_version }}-x86_64-unknown-linux-gnu.tar.gz
-        version:
-          args: --version
-          match: "delta {{ delta_version }}"
-        bash_completion:
-          generate_args: --generate-completion bash
-        zsh_completion:
-          generate_args: --generate-completion zsh
-      direnv:
-        action: download_binary
-        github:
-          repo: direnv/direnv
-          file: >-
-            v{{ direnv_version }}/direnv.linux-amd64
-        version:
-          args: version
-          match: "{{ direnv_version }}"
-      jq:
-        action: download_binary
-        github:
-          repo: jqlang/jq
-          file: >-
-            jq-{{ jq_version }}/jq-linux-amd64
-        version:
-          args: --version
-          match: "jq-{{ jq_version }}"
-      task:
-        # force_install: true
-        action: download_archive
-        github:
-          repo: go-task/task
-          file: >-
-            v{{ task_version }}/task_linux_amd64.tar.gz
-        version:
-          args: --version
-          match: "Task version: v{{ task_version }}"
-        bash_completion:
-          src: "completion/bash/task.bash"
-        zsh_completion:
-          src: "completion/zsh/_task"
-
+    tool_deploy_list: >-
+      {{ tool_deploy_default_config_delta
+         | combine(tool_deploy_default_config_jq)
+         | combine(tool_deploy_default_config_task) }}
   roles:
     - role: tool_deploy
+  tags:
+    - tools
+    - readme
+
+- name: Test role with bat
+  hosts: '{{ target | default("all") }}'
+  vars:
+    bat_version: 0.25.0
+    tool_deploy_list: "{{ tool_deploy_default_config_bat }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - bat
+
+- name: Test role with delta
+  hosts: '{{ target | default("all") }}'
+  vars:
+    delta_version: 0.18.2
+    tool_deploy_list: "{{ tool_deploy_default_config_delta }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - delta
+
+- name: Test role with direnv
+  hosts: '{{ target | default("all") }}'
+  vars:
+    direnv_version: 2.35.0
+    tool_deploy_list: "{{ tool_deploy_default_config_direnv }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - direnv
+
+- name: Test role with eza
+  hosts: '{{ target | default("all") }}'
+  vars:
+    eza_version: 0.20.16
+    tool_deploy_list: "{{ tool_deploy_default_config_eza }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - eza
+
+- name: Test role with fd
+  hosts: '{{ target | default("all") }}'
+  vars:
+    fd_version: 10.2.0
+    tool_deploy_list: "{{ tool_deploy_default_config_fd }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - fd
+
+- name: Test role with fzf
+  hosts: '{{ target | default("all") }}'
+  vars:
+    fzf_version: 0.57.0
+    tool_deploy_list: "{{ tool_deploy_default_config_fzf }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - fzf
+
+- name: Test role with jq
+  hosts: '{{ target | default("all") }}'
+  vars:
+    jq_version: 1.7.1
+    tool_deploy_list: "{{ tool_deploy_default_config_jq }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - jq
+
+- name: Test role with lsd
+  hosts: '{{ target | default("all") }}'
+  vars:
+    lsd_version: 1.1.5
+    tool_deploy_list: "{{ tool_deploy_default_config_lsd }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - lsd
+
+- name: Test role with rg
+  hosts: '{{ target | default("all") }}'
+  vars:
+    rg_version: 14.1.1
+    tool_deploy_list: "{{ tool_deploy_default_config_rg }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - rg
+
+- name: Test role with task
+  hosts: '{{ target | default("all") }}'
+  vars:
+    task_version: 3.40.1
+    tool_deploy_list: "{{ tool_deploy_default_config_task }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - task
+
+- name: Test role with zoxide
+  hosts: '{{ target | default("all") }}'
+  vars:
+    zoxide_version: 0.9.6
+    tool_deploy_list: "{{ tool_deploy_default_config_zoxide }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - zoxide
 
 ...
