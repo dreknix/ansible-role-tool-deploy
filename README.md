@@ -65,7 +65,7 @@ installed. The installation can be forced with the flag `force_install`.
           src: "completion/zsh/_task"
 
   roles:
-    - role: tool_deploy
+    - role: dreknix.tool_deploy
 ```
 
 The variable `tool_deploy_list` is a dictionary, so that this dictionary can be
@@ -91,7 +91,7 @@ equivalent to the following playbook definition:
          | combine(tool_deploy_default_config_task) }}
 
   roles:
-    - role: tool_deploy
+    - role: dreknix.tool_deploy
 ```
 
 ## Install role via `roles/requirements.yml`
