@@ -121,10 +121,10 @@ Configure the role as a working copy:
 
 ``` yaml
 ---
-- name: dreknix.tool_deploy
-  src: git@github.com:dreknix/ansible-role-tool-deploy.git
-  type: git
-  version: main
+roles:
+  - name: dreknix.tool_deploy
+    src: git@github.com:dreknix/ansible-role-tool-deploy.git
+    scm: git
 ...
 ```
 
