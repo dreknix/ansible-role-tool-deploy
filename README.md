@@ -102,10 +102,10 @@ Configure the role as read-only copy:
 
 ``` yaml
 ---
-- name: dreknix.tool_deploy
-  src: https://github.com/dreknix/ansible-role-tool-deploy.git
-  type: git
-  version: main
+roles:
+  - name: dreknix.tool_deploy
+    src: https://github.com/dreknix/ansible-role-tool-deploy.git
+    scm: git
 ...
 ```
 
