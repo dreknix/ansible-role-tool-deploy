@@ -80,15 +80,23 @@ equivalent to the following playbook definition:
 - name: Deploying tools
   hosts: '{{ target | default("all") }}'
   vars:
-
     delta_version: 0.18.2
     jq_version: 1.7.1
     task_version: 3.40.1
 
-    tool_deploy_list: >-
-      {{ tool_deploy_default_config_delta
-         | combine(tool_deploy_default_config_jq)
-         | combine(tool_deploy_default_config_task) }}
+  pre_tasks:
+    - name: Set deploy tool list
+      ansible.builtin.set_fact:
+        tool_deploy_list: >-
+          {{ tool_deploy_list | combine(tool) }}
+      loop_control:
+        loop_var: tool
+        label: "{{ tool.keys() }}"
+      loop:
+        - "{{ tool_deploy_default_config_delta }}"
+        - "{{ tool_deploy_default_config_jq }}"
+        - "{{ tool_deploy_default_config_task }}"
+
 
   roles:
     - role: dreknix.tool_deploy
@@ -367,6 +375,24 @@ tool_deploy_list:
       src: "completion/bash/task.bash"
     zsh_completion:
       src: "completion/zsh/_task"
+```
+
+### uv
+
+[astral-sh / uv](https://github.com/astral-sh/uv)
+
+``` yaml
+uv_version: 0.5.25
+
+tool_deploy_default_config_uv:
+  uv:
+    action: download_archive
+    github:
+      repo: astral-sh/uv
+      file: "{{ uv_version | mandatory }}/uv-x86_64-unknown-linux-gnu.tar.gz"
+    version:
+      args: --version
+      match: "uv {{ uv_version | mandatory }}"
 ```
 
 ### zoxide
