@@ -336,7 +336,7 @@ tool_deploy_list:
     action: download_archive
     github:
       repo: gopasspw/gopass-jsonapi
-      file: "v{{ gopass_jsonapi_version | mandatory }}/gopass-jsonapi-{{ gopass_jsonapi_version | mandatory }}-linux-amd64.tar.gz"
+      file: "v{{ gopass_jsonapi_version | mandatory }}/gopass-jsonapi-{{ gopass_jsonapi_version }}-linux-amd64.tar.gz"
     version:
       args: version
       match: "gopass-jsonapi version {{ gopass_jsonapi_version | mandatory }}"
