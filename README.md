@@ -347,7 +347,7 @@ tool_deploy_default_config_pet:
       args: version
       match: "pet version {{ pet_version | mandatory }}"
     zsh_completion:
-      src: "misc/completions/zsh/_zsh"
+      src: "misc/completions/zsh/_pet"
 ```
 
 ### ripgrep
