@@ -1,0 +1,13 @@
+---
+
+tool_deploy_default_config_gopass_jsonapi:
+  gopass-jsonapi:
+    action: download_archive
+    github:
+      repo: gopasspw/gopass-jsonapi
+      file: "v{{ gopass_jsonapi_version | mandatory }}/gopass-jsonapi-{{ gopass_jsonapi_version | mandatory }}-linux-amd64.tar.gz"
+    version:
+      args: version
+      match: "gopass-jsonapi version {{ gopass_jsonapi_version | mandatory }}"
+
+...

@@ -307,7 +307,7 @@ tool_deploy_list:
 [gopasspw / gopass](https://github.com/gopasspw/gopass)
 
 ``` yaml
-gopass_version: 2.12.0
+gopass_version: 1.15.15
 
 tool_deploy_list:
   gopass:
@@ -322,6 +322,24 @@ tool_deploy_list:
       src: "bash.completion"
     zsh_completion:
       src: "zsh.completion"
+```
+
+### gopass-jsonapi
+
+[gopasspw / gopass-jsonapi](https://github.com/gopasspw/gopass-jsonapi)
+
+``` yaml
+gopass_jsonapi_version: 1.15.15
+
+tool_deploy_list:
+  gopass-jsonapi:
+    action: download_archive
+    github:
+      repo: gopasspw/gopass-jsonapi
+      file: "v{{ gopass_jsonapi_version | mandatory }}/gopass-jsonapi-{{ gopass_jsonapi_version | mandatory }}-linux-amd64.tar.gz"
+    version:
+      args: version
+      match: "gopass-jsonapi version {{ gopass_jsonapi_version | mandatory }}"
 ```
 
 ### hadolint
