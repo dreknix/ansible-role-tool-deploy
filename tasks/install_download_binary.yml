@@ -4,6 +4,12 @@
   ansible.builtin.set_fact:
     tool_deploy_tmp_prefix: >-
         {{ tool_deploy_tmp.path }}
+    tool_deploy_suffix: >-
+        {{ (tool_deploy_file_url | splitext)[1] }}
+
+- name: Get extension of binary
+  ansible.builtin.debug:
+    msg: "Suffix {{ tool_deploy_suffix }}"
 
 - name: Download binary - {{ tool.key }}
   ansible.builtin.get_url:
@@ -11,5 +17,34 @@
     dest: "{{ (tool_deploy_tmp_prefix, tool.key) | ansible.builtin.path_join }}"
     force: true
     mode: u=rwx,go=rx
+  when:
+    tool_deploy_suffix != ".bz2"
+
+- name: Download binary - {{ tool.key }}
+  ansible.builtin.get_url:
+    url: "{{ tool_deploy_file_url }}"
+    dest: "{{ (tool_deploy_tmp_prefix, tool.key + tool_deploy_suffix) | ansible.builtin.path_join }}"
+    force: true
+    mode: u=rwx,go=rx
+  when:
+    tool_deploy_suffix == ".bz2"
+
+- name: Uncompress binary - {{ tool.key }}
+  ansible.builtin.command:
+    argv:
+      - bzip2
+      - --decompress
+      - --force
+      - "{{ (tool_deploy_tmp_prefix, tool.key + tool_deploy_suffix) | ansible.builtin.path_join }}"
+    creates: "{{ (tool_deploy_tmp_prefix, tool.key) | ansible.builtin.path_join }}"
+  when:
+    tool_deploy_suffix == ".bz2"
+
+- name: Delete compressed binary - {{ tool.key }}
+  ansible.builtin.file:
+    path: "{{ (tool_deploy_tmp_prefix, tool.key + tool_deploy_suffix) | ansible.builtin.path_join }}"
+    state: absent
+  when:
+    tool_deploy_suffix == ".bz2"
 
 ...
