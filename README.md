@@ -85,7 +85,7 @@ equivalent to the following playbook definition:
     task_version: 3.40.1
 
   pre_tasks:
-    - name: Set deploy tool list
+    - name: Set dictionary 'tool_deploy_list'
       ansible.builtin.set_fact:
         tool_deploy_list: >-
           {{ tool_deploy_list | combine(tool) }}
@@ -96,7 +96,6 @@ equivalent to the following playbook definition:
         - "{{ tool_deploy_default_config_delta }}"
         - "{{ tool_deploy_default_config_jq }}"
         - "{{ tool_deploy_default_config_task }}"
-
 
   roles:
     - role: dreknix.tool_deploy
@@ -329,6 +328,26 @@ tool_deploy_list:
       src: autocomplete/lsd.bash-completion
     zsh_completion:
       src: autocomplete/_lsd
+```
+
+### pet
+
+[knqyf263 / pet](https://github.com/knqyf263/pet)
+
+``` yaml
+pet_version: 1.0.1
+
+tool_deploy_default_config_pet:
+  pet:
+    action: download_archive
+    github:
+      repo: knqyf263/pet
+      file: "v{{ pet_version | mandatory }}/pet_{{ pet_version | mandatory }}_linux_amd64.tar.gz"
+    version:
+      args: version
+      match: "pet version {{ pet_version | mandatory }}"
+    zsh_completion:
+      src: "misc/completions/zsh/_zsh"
 ```
 
 ### ripgrep

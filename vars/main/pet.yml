@@ -1,0 +1,15 @@
+---
+
+tool_deploy_default_config_pet:
+  pet:
+    action: download_archive
+    github:
+      repo: knqyf263/pet
+      file: "v{{ pet_version | mandatory }}/pet_{{ pet_version | mandatory }}_linux_amd64.tar.gz"
+    version:
+      args: version
+      match: "pet version {{ pet_version | mandatory }}"
+    zsh_completion:
+      src: "misc/completions/zsh/_zsh"
+
+...
