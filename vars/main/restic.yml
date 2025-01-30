@@ -1,0 +1,56 @@
+---
+
+tool_deploy_default_config_restic:
+  restic:
+    action: download_binary
+    github:
+      repo: restic/restic
+      file: "v{{ restic_version | mandatory }}/restic_{{ restic_version | mandatory }}_linux_amd64.bz2"
+    version:
+      args: version
+      match: "restic {{ restic_version | mandatory }}"
+    man_pages:
+      url:
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-backup.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-cache.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-cat.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-check.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-copy.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-diff.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-dump.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-features.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-find.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-forget.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-generate.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-init.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-key-add.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-key-list.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-key-passwd.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-key-remove.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-key.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-list.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-ls.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-migrate.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-mount.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-options.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-prune.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-recover.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-repair-index.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-repair-packs.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-repair-snapshots.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-repair.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-restore.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-rewrite.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-self-update.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-snapshots.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-stats.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-tag.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-unlock.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic-version.1
+        - https://raw.githubusercontent.com/restic/restic/refs/heads/master/doc/man/restic.1
+    bash_completion:
+      generate_args: generate --bash-completion /dev/stdout
+    zsh_completion:
+      generate_args: generate --zsh-completion /dev/stdout
+
+...
