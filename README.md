@@ -414,7 +414,7 @@ tool_deploy_list:
     action: download_binary
     github:
       repo: JanDeDobbeleer/oh-my-posh
-      file: "v{{ oh_my_posh_version | mandatory }}/posh_linux_amd64"
+      file: "v{{ oh_my_posh_version | mandatory }}/posh-linux-amd64"
     version:
       args: --version
       match: "{{ oh_my_posh_version | mandatory }}"
