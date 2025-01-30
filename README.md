@@ -284,6 +284,24 @@ tool_deploy_list:
       url: https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/shell/completion.zsh
 ```
 
+### hadolint
+
+[hadolint / hadolint](https://github.com/hadolint/hadolint)
+
+``` yaml
+hadolint_version: 2.12.0
+
+tool_deploy_list:
+  hadolint:
+    action: download_binary
+    github:
+      repo: hadolint/hadolint
+      file: "v{{ hadolint_version | mandatory }}/hadolint-Linux-x86_64"
+    version:
+      args: --version
+      match: "Haskell Dockerfile Linter {{ hadolint_version | mandatory }}"
+```
+
 ### jq
 
 [go-task / task](https://github.com/go-task/task)
