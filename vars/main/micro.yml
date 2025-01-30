@@ -1,0 +1,13 @@
+---
+
+tool_deploy_default_config_micro:
+  micro:
+    action: download_archive
+    github:
+      repo: zyedidia/micro
+      file: "v{{ micro_version | mandatory }}/micro-{{ micro_version | mandatory }}-linux64-static.tar.gz"
+    version:
+      args: --version
+      match: "Version: {{ micro_version | mandatory }}"
+
+...

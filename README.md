@@ -402,6 +402,24 @@ tool_deploy_list:
       src: autocomplete/_lsd
 ```
 
+### micro
+
+[zyedidia / micro](https://github.com/zyedidia/micro)
+
+``` yaml
+micro_version: 2.014
+
+tool_deploy_list:
+  micro:
+    action: download_archive
+    github:
+      repo: zyedidia/micro
+      file: "v{{ micro_version | mandatory }}/micro-{{ micro_version | mandatory }}-linux64-static.tar.gz"
+    version:
+      args: --version
+      match: "Version: {{ micro_version | mandatory }}"
+```
+
 ### oh-my-posh
 
 [JanDeDobbeleer / oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh)
