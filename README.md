@@ -450,6 +450,24 @@ tool_deploy_list:
       match: "uv {{ uv_version | mandatory }}"
 ```
 
+### xq
+
+[sibprogrammer / xq](https://github.com/sibprogrammer/xq)
+
+``` yaml
+xq_version: 4.45.1
+
+tool_deploy_list:
+  xq:
+    action: download_archive
+    github:
+      repo: sibprogrammer/xq
+      file: "v{{ xq_version | mandatory }}/xq_{{ xq_version | mandatory }}_linux_amd64.tar.gz"
+    version:
+      args: --version
+      match: "xq version {{ xq_version | mandatory }}"
+```
+
 ### yq
 
 [mikefarah / yq](https://github.com/mikefarah/yq)
