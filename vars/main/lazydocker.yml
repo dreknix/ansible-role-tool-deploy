@@ -1,0 +1,13 @@
+---
+
+tool_deploy_default_config_lazydocker:
+  lazydocker:
+    action: download_archive
+    github:
+      repo: jesseduffield/lazydocker
+      file: "v{{ lazydocker_version | mandatory }}/lazydocker_{{ lazydocker_version | mandatory }}_Linux_x86_64.tar.gz"
+    version:
+      args: --version
+      match: "version={{ lazydocker_version | mandatory }}"
+
+...

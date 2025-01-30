@@ -306,6 +306,24 @@ tool_deploy_list:
 
 **TODO:** download archive and compile tools
 
+### lazygit
+
+[jesseduffield / lazygit](https://github.com/jesseduffield/lazygit)
+
+``` yaml
+lazygit_version: 0.45.2
+
+tool_deploy_list:
+  lazygit:
+    action: download_archive
+    github:
+      repo: jesseduffield/lazygit
+      file: "v{{ lazygit_version | mandatory }}/lazygit_{{ lazygit_version | mandatory }}_Linux_x86_64.tar.gz"
+    version:
+      args: --version
+      match: "version={{ lazygit_version | mandatory }}"
+```
+
 ### lsd
 
 [lsd-rs / lsd](https://github.com/lsd-rs/lsd)
@@ -337,7 +355,7 @@ tool_deploy_list:
 ``` yaml
 pet_version: 1.0.1
 
-tool_deploy_default_config_pet:
+tool_deploy_list:
   pet:
     action: download_archive
     github:
@@ -403,7 +421,7 @@ tool_deploy_list:
 ``` yaml
 uv_version: 0.5.25
 
-tool_deploy_default_config_uv:
+tool_deploy_list:
   uv:
     action: download_archive
     github:
