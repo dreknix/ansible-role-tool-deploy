@@ -1,0 +1,13 @@
+---
+
+tool_deploy_default_config_yq:
+  yq:
+    action: download_binary
+    github:
+      repo: mikefarah/yq
+      file: "v{{ yq_version | mandatory }}/yq_linux_amd64"
+    version:
+      args: --version
+      match: "version v{{ yq_version | mandatory }}"
+
+...

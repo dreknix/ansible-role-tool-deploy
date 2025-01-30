@@ -306,6 +306,24 @@ tool_deploy_list:
 
 **TODO:** download archive and compile tools
 
+### lazydocker
+
+[jesseduffield / lazydocker](https://github.com/jesseduffield/lazydocker)
+
+``` yaml
+lazydocker_version: 0.45.2
+
+tool_deploy_list:
+  lazydocker:
+    action: download_archive
+    github:
+      repo: jesseduffield/lazydocker
+      file: "v{{ lazydocker_version | mandatory }}/lazydocker_{{ lazydocker_version | mandatory }}_Linux_x86_64.tar.gz"
+    version:
+      args: --version
+      match: "version={{ lazydocker_version | mandatory }}"
+```
+
 ### lazygit
 
 [jesseduffield / lazygit](https://github.com/jesseduffield/lazygit)
@@ -430,6 +448,24 @@ tool_deploy_list:
     version:
       args: --version
       match: "uv {{ uv_version | mandatory }}"
+```
+
+### yq
+
+[mikefarah / yq](https://github.com/mikefarah/yq)
+
+``` yaml
+yq_version: 4.45.1
+
+tool_deploy_list:
+  yq:
+    action: download_binary
+    github:
+      repo: mikefarah/yq
+      file: "v{{ yq_version | mandatory }}/yq_linux_amd64"
+    version:
+      args: --version
+      match: "version v{{ yq_version | mandatory }}"
 ```
 
 ### zoxide
