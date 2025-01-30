@@ -218,6 +218,24 @@ tool_deploy_list:
         - https://raw.githubusercontent.com/direnv/direnv/refs/heads/master/man/direnv.toml.1
 ```
 
+### dive
+
+[wagoodman / dive](https://github.com/wagoodman/dive)
+
+``` yaml
+dive_version: 0.12.0
+
+tool_deploy_list:
+  dive:
+    action: download_archive
+    github:
+      repo: wagoodman/dive
+      file: "v{{ dive_version | mandatory }}/dive_{{ dive_version | mandatory }}_linux_amd64.tar.gz"
+    version:
+      args: --version
+      match: "dive {{ dive_version | mandatory }}"
+```
+
 ### eza
 
 [eza-community / eza](https://github.com/eza-community/eza)

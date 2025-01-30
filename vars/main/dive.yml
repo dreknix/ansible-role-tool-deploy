@@ -1,0 +1,13 @@
+---
+
+tool_deploy_default_config_dive:
+  dive:
+    action: download_archive
+    github:
+      repo: wagoodman/dive
+      file: "v{{ dive_version | mandatory }}/dive_{{ dive_version | mandatory }}_linux_amd64.tar.gz"
+    version:
+      args: --version
+      match: "dive {{ dive_version | mandatory }}"
+
+...
