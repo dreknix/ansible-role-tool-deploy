@@ -302,6 +302,28 @@ tool_deploy_list:
       url: https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/shell/completion.zsh
 ```
 
+### gopass
+
+[gopasspw / gopass](https://github.com/gopasspw/gopass)
+
+``` yaml
+gopass_version: 2.12.0
+
+tool_deploy_list:
+  gopass:
+    action: download_archive
+    github:
+      repo: gopasspw/gopass
+      file: "v{{ gopass_version | mandatory }}/gopass-{{ gopass_version | mandatory }}-linux-amd64.tar.gz"
+    version:
+      args: version
+      match: "gopass {{ gopass_version | mandatory }}"
+    bash_completion:
+      src: "bash.completion"
+    zsh_completion:
+      src: "zsh.completion"
+```
+
 ### hadolint
 
 [hadolint / hadolint](https://github.com/hadolint/hadolint)

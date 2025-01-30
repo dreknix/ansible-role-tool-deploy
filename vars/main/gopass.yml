@@ -1,0 +1,17 @@
+---
+
+tool_deploy_default_config_gopass:
+  gopass:
+    action: download_archive
+    github:
+      repo: gopasspw/gopass
+      file: "v{{ gopass_version | mandatory }}/gopass-{{ gopass_version | mandatory }}-linux-amd64.tar.gz"
+    version:
+      args: version
+      match: "gopass {{ gopass_version | mandatory }}"
+    bash_completion:
+      src: "bash.completion"
+    zsh_completion:
+      src: "zsh.completion"
+
+...
