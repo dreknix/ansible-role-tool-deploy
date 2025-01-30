@@ -1,0 +1,13 @@
+---
+
+tool_deploy_default_config_oh_my_posh:
+  oh-my-posh:
+    action: download_binary
+    github:
+      repo: JanDeDobbeleer/oh-my-posh
+      file: "v{{ oh_my_posh_version | mandatory }}/posh_linux_amd64"
+    version:
+      args: --version
+      match: "{{ oh_my_posh_version | mandatory }}"
+
+...

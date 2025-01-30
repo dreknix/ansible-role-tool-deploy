@@ -402,6 +402,24 @@ tool_deploy_list:
       src: autocomplete/_lsd
 ```
 
+### oh-my-posh
+
+[JanDeDobbeleer / oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh)
+
+``` yaml
+oh_my_posh_version: 24.19.0
+
+tool_deploy_list:
+  oh-my-posh:
+    action: download_binary
+    github:
+      repo: JanDeDobbeleer/oh-my-posh
+      file: "v{{ oh_my_posh_version | mandatory }}/posh_linux_amd64"
+    version:
+      args: --version
+      match: "{{ oh_my_posh_version | mandatory }}"
+```
+
 ### pet
 
 [knqyf263 / pet](https://github.com/knqyf263/pet)
@@ -483,7 +501,7 @@ tool_deploy_list:
       generate_args: generate --zsh-completion /dev/stdout
 ```
 
-### ripgrep
+### ripgrep / rg
 
 [BurntSushi / ripgrep](https://github.com/BurntSushi/ripgrep)
 
