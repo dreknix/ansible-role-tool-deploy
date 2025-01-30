@@ -236,6 +236,24 @@ tool_deploy_list:
       match: "dive {{ dive_version | mandatory }}"
 ```
 
+### dive
+
+[docker / docker-credential-helpers](https://github.com/docker/docker-credential-helpers)
+
+``` yaml
+docker_credential_version: 0.12.0
+
+tool_deploy_list:
+  docker-credential-pass:
+    action: download_binary
+    github:
+      repo: docker/docker-credential-helpers
+      file: "v{{ docker_credential_version }}/docker-credential-pass_v{{ docker_credential_version }}.linux-amd64"
+    version:
+      args: --version
+      match: "v{{ docker_credential_version | mandatory }}"
+```
+
 ### eza
 
 [eza-community / eza](https://github.com/eza-community/eza)
