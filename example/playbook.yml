@@ -137,6 +137,17 @@
     - tools
     - tig
 
+- name: Test role with tmux
+  hosts: '{{ target | default("all") }}'
+  vars:
+    tmux_version: 3.5a
+    tool_deploy_list: "{{ tool_deploy_default_config_tmux }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - tmux
+
 - name: Test role with zoxide
   hosts: '{{ target | default("all") }}'
   vars:

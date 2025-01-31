@@ -654,6 +654,36 @@ tool_deploy_list:
         - doc/tigmanual.7
 ```
 
+### tmux
+
+[tmux / tmux](https://github.com/tmux/tmux)
+
+``` yaml
+tmux_version: 3.5a
+
+tool_deploy_list:
+  tmux:
+    dependencies:
+      - build-essential
+      - ncurses-dev
+      - libevent-dev
+      - pkg-config
+      - bison
+    action: download_sources
+    github:
+      repo: tmux/tmux
+      file: "{{ tmux_version | mandatory }}/tmux-{{ tmux_version | mandatory }}.tar.gz"
+    version:
+      args: -V
+      match: "tmux {{ tmux_version | mandatory }}"
+    build_steps:
+      - ./configure prefix={{ tool_deploy_prefix }}
+      - make
+    man_pages:
+      src:
+        - tmux.1
+```
+
 ### uv
 
 [astral-sh / uv](https://github.com/astral-sh/uv)
