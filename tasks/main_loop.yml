@@ -70,6 +70,7 @@
   block:
 
     - name: Ensure dependencies are installed - {{ tool.key }}
+      become: true
       ansible.builtin.package:
         name: "{{ package }}"
         state: present
