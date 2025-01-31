@@ -1,0 +1,26 @@
+---
+
+tool_deploy_default_config_tig:
+  tig:
+    dependencies:
+      - build-essential
+      - ncurses-dev
+      - pkg-config
+    action: download_sources
+    github:
+      repo: jonas/tig
+      file: "tig-{{ tig_version | mandatory }}/tig-{{ tig_version | mandatory }}.tar.gz"
+    version:
+      args: --version
+      match: "tig version {{ tig_version | mandatory }}"
+    build_steps:
+      - ./configure prefix={{ tool_deploy_prefix }}
+      - make
+      - cp src/tig .
+    man_pages:
+      src:
+        - doc/tig.1
+        - doc/tigrc.5
+        - doc/tigmanual.7
+
+...

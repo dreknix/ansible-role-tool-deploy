@@ -623,6 +623,37 @@ tool_deploy_list:
       src: "completion/zsh/_task"
 ```
 
+### tig
+
+[jonas / tig](https://github.com/jonas/tig)
+
+``` yaml
+tig_version: 2.5.11
+
+tool_deploy_list:
+  tig:
+    dependencies:
+      - build-essential
+      - ncurses-dev
+      - pkg-config
+    action: download_sources
+    github:
+      repo: jonas/tig
+      file: "tig-{{ tig_version | mandatory }}/tig-{{ tig_version | mandatory }}.tar.gz"
+    version:
+      args: --version
+      match: "tig version {{ tig_version | mandatory }}"
+    build_steps:
+      - ./configure prefix={{ tool_deploy_prefix }}
+      - make
+      - cp src/tig .
+    man_pages:
+      src:
+        - doc/tig.1
+        - doc/tigrc.5
+        - doc/tigmanual.7
+```
+
 ### uv
 
 [astral-sh / uv](https://github.com/astral-sh/uv)

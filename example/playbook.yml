@@ -126,6 +126,17 @@
     - tools
     - task
 
+- name: Test role with tig
+  hosts: '{{ target | default("all") }}'
+  vars:
+    tig_version: 2.5.11
+    tool_deploy_list: "{{ tool_deploy_default_config_tig }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - tig
+
 - name: Test role with zoxide
   hosts: '{{ target | default("all") }}'
   vars:

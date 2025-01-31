@@ -34,6 +34,14 @@
 #   ansible.builtin.debug:
 #     var: debug_vars
 
+- name: Ensure dependencies are installed - {{ tool.key }}
+  ansible.builtin.package:
+    name: "{{ package }}"
+    state: present
+  loop_control:
+    loop_var: package
+  loop: "{{ tool.value.dependencies | default([]) }}"
+
 - name: Check if tool needs to be installed - {{ tool.key }}
   when: not tool.value.force_install | default(false) | bool
   block:
