@@ -34,14 +34,6 @@
 #   ansible.builtin.debug:
 #     var: debug_vars
 
-- name: Ensure dependencies are installed - {{ tool.key }}
-  ansible.builtin.package:
-    name: "{{ package }}"
-    state: present
-  loop_control:
-    loop_var: package
-  loop: "{{ tool.value.dependencies | default([]) }}"
-
 - name: Check if tool needs to be installed - {{ tool.key }}
   when: not tool.value.force_install | default(false) | bool
   block:
@@ -76,6 +68,14 @@
            and tool_deploy_binary_version.stdout
            and tool.value.version.match not in tool_deploy_binary_version.stdout
   block:
+
+    - name: Ensure dependencies are installed - {{ tool.key }}
+      ansible.builtin.package:
+        name: "{{ package }}"
+        state: present
+      loop_control:
+        loop_var: package
+      loop: "{{ tool.value.dependencies | default([]) }}"
 
     - name: Create temporary directory
       ansible.builtin.tempfile:
