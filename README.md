@@ -521,7 +521,7 @@ tool_deploy_list:
 [kubernetes / minikube](https://github.com/jarun/minikube)
 
 ``` yaml
-minikube_version: 1.35.9
+minikube_version: 1.35.0
 
 tool_deploy_list:
   minikube:
