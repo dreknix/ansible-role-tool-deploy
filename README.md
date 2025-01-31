@@ -478,6 +478,26 @@ tool_deploy_list:
       src: autocomplete/_lsd
 ```
 
+### kubectl
+
+[kubectl](https://kubernetes.io/docs/reference/kubectl/)
+
+``` yaml
+kubectl_version: 1.32.1
+
+tool_deploy_list:
+  kubectl:
+    action: download_binary
+    url: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/linux/amd64/kubectl
+    version:
+      args: version --client=true
+      match: "Client Version: v{{ kubectl_version | mandatory }}"
+    bash_completion:
+      generate_args: completion bash
+    zsh_completion:
+      generate_args: completion zsh
+```
+
 ### micro
 
 [zyedidia / micro](https://github.com/zyedidia/micro)

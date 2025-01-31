@@ -93,6 +93,17 @@
     - tools
     - jq
 
+- name: Test role with kubectl
+  hosts: '{{ target | default("all") }}'
+  vars:
+    kubectl_version: 1.32.1
+    tool_deploy_list: "{{ tool_deploy_default_config_kubectl }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - kubectl
+
 - name: Test role with less
   hosts: '{{ target | default("all") }}'
   vars:
