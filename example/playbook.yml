@@ -93,6 +93,17 @@
     - tools
     - jq
 
+- name: Test role with less
+  hosts: '{{ target | default("all") }}'
+  vars:
+    less_version: 668
+    tool_deploy_list: "{{ tool_deploy_default_config_less }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - less
+
 - name: Test role with lsd
   hosts: '{{ target | default("all") }}'
   vars:

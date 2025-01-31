@@ -1,0 +1,17 @@
+---
+
+tool_deploy_default_config_less:
+  less:
+    dependencies:
+      - build-essential
+    action: download_sources
+    url: http://greenwoodsoftware.com/less/less-{{ less_version }}.tar.gz
+    version:
+      args: --version
+      match: "less {{ less_version | mandatory }}"
+    build_steps:
+      - ./configure prefix={{ tool_deploy_prefix }}
+      - make
+      - make install
+
+...

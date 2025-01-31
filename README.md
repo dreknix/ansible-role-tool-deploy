@@ -436,6 +436,28 @@ tool_deploy_list:
       match: "version={{ lazygit_version | mandatory }}"
 ```
 
+### less
+
+[less homepage](http://greenwoodsoftware.com/less/)
+
+``` yaml
+less_version: 668
+
+tool_deploy_list:
+  less:
+    dependencies:
+      - build-essential
+    action: download_sources
+    url: http://greenwoodsoftware.com/less/less-{{ less_version }}.tar.gz
+    version:
+      args: --version
+      match: "less {{ less_version | mandatory }}"
+    build_steps:
+      - ./configure prefix={{ tool_deploy_prefix }}
+      - make
+      - make install
+```
+
 ### lsd
 
 [lsd-rs / lsd](https://github.com/lsd-rs/lsd)
@@ -646,12 +668,8 @@ tool_deploy_list:
     build_steps:
       - ./configure prefix={{ tool_deploy_prefix }}
       - make
-      - cp src/tig .
-    man_pages:
-      src:
-        - doc/tig.1
-        - doc/tigrc.5
-        - doc/tigmanual.7
+      - make install
+      - make install-doc-man
 ```
 
 ### tmux
@@ -679,9 +697,7 @@ tool_deploy_list:
     build_steps:
       - ./configure prefix={{ tool_deploy_prefix }}
       - make
-    man_pages:
-      src:
-        - tmux.1
+      - make install
 ```
 
 ### uv

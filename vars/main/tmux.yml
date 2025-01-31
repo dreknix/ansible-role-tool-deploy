@@ -18,8 +18,6 @@ tool_deploy_default_config_tmux:
     build_steps:
       - ./configure prefix={{ tool_deploy_prefix }}
       - make
-    man_pages:
-      src:
-        - tmux.1
+      - make install
 
 ...

@@ -95,31 +95,49 @@
         dest: "{{ tool_deploy_binary_path }}"
         mode: u=rwx,go=rx
       when: not ansible_check_mode
+            and tool_deploy_action != "download_sources"
+
+    - name: Copy additional files
+      become: true
+      ansible.builtin.copy:
+        src: "{{ (tool_deploy_tmp_prefix | mandatory, copy.src) | ansible.builtin.path_join }}"
+        remote_src: true
+        dest: "{{ copy.dest }}"
+        mode: "{{ copy.mode | default('u=rw,go=r') }}"
+      loop: "{{ tool.value.copy_files }}"
+      loop_control:
+        loop_var: copy
+      when: not ansible_check_mode
+            and tool.value.copy_files is defined
 
     - name: Copy man pages
       become: true
       vars:
-        man_suffix: "{{ item[-1] }}"
+        man_suffix: "{{ manpage[-1] }}"
       ansible.builtin.copy:
-        src: "{{ (tool_deploy_tmp_prefix | mandatory, item) | ansible.builtin.path_join }}"
+        src: "{{ (tool_deploy_tmp_prefix | mandatory, manpage) | ansible.builtin.path_join }}"
         remote_src: true
         dest: "{{ (tool_deploy_man_path, 'man' ~ man_suffix) | ansible.builtin.path_join }}"
         mode: u=rw,go=r
       loop: "{{ tool.value.man_pages.src is string | ternary([tool.value.man_pages.src], tool.value.man_pages.src) }}"
+      loop_control:
+        loop_var: manpage
       when: not ansible_check_mode
             and tool.value.man_pages.src is defined
 
     - name: Download man pages
       become: true
       vars:
-        man_suffix: "{{ item[-1] }}"
+        man_suffix: "{{ manpage[-1] }}"
       ansible.builtin.get_url:
-        url: "{{ item }}"
+        url: "{{ manpage }}"
         dest: "{{ (tool_deploy_man_path, 'man' ~ man_suffix) | ansible.builtin.path_join }}"
         mode: u=rw,go=r
       loop: >-
         {{ tool.value.man_pages.url is string
            | ternary([tool.value.man_pages.url], tool.value.man_pages.url) }}
+      loop_control:
+        loop_var: manpage
       when: not ansible_check_mode
             and tool.value.man_pages.url is defined
 
@@ -202,6 +220,7 @@
                 and tool_deploy_zsh_completion.rc == 0
 
     - name: Remove temporary directory
+      become: true
       ansible.builtin.file:
         path: "{{ tool_deploy_tmp.path }}"
         state: absent

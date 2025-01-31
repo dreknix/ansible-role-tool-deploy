@@ -16,11 +16,7 @@ tool_deploy_default_config_tig:
     build_steps:
       - ./configure prefix={{ tool_deploy_prefix }}
       - make
-      - cp src/tig .
-    man_pages:
-      src:
-        - doc/tig.1
-        - doc/tigrc.5
-        - doc/tigmanual.7
+      - make install
+      - make install-doc-man
 
 ...

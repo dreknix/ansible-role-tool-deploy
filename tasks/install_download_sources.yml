@@ -18,6 +18,7 @@
       {%- endif -%}
 
 - name: Build from sources - {{ tool.key }}
+  become: true
   ansible.builtin.command:
     cmd: "{{ command }}"
     chdir: "{{ tool_deploy_tmp_prefix }}"
