@@ -89,8 +89,15 @@
 
     - name: Copy binary into place - {{ tool.key }}
       become: true
+      vars:
+        archive_binary: >-
+          {%- if tool.value.binary_name_in_archive is defined -%}
+            {{ tool.value.binary_name_in_archive }}
+          {%- else -%}
+            {{ tool.key }}
+          {%- endif -%}
       ansible.builtin.copy:
-        src: "{{ (tool_deploy_tmp_prefix | mandatory, tool.key) | ansible.builtin.path_join }}"
+        src: "{{ (tool_deploy_tmp_prefix | mandatory, archive_binary ) | ansible.builtin.path_join }}"
         remote_src: true
         dest: "{{ tool_deploy_binary_path }}"
         mode: u=rwx,go=rx
@@ -102,7 +109,7 @@
       ansible.builtin.copy:
         src: "{{ (tool_deploy_tmp_prefix | mandatory, copy.src) | ansible.builtin.path_join }}"
         remote_src: true
-        dest: "{{ copy.dest }}"
+        dest: "{{ copy.dest | default(tool_deploy_bin_path) }}"
         mode: "{{ copy.mode | default('u=rw,go=r') }}"
       loop: "{{ tool.value.copy_files }}"
       loop_control:

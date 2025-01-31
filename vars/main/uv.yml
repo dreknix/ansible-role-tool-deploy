@@ -9,5 +9,8 @@ tool_deploy_default_config_uv:
     version:
       args: --version
       match: "uv {{ uv_version | mandatory }}"
+    copy_files:
+      - src: uvx
+        mode: u=rwx,go=rx
 
 ...

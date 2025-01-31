@@ -1,0 +1,20 @@
+---
+
+tool_deploy_default_config_nnn:
+  nnn:
+    action: download_archive
+    github:
+      repo: jarun/nnn
+      file: "v{{ nnn_version | mandatory }}/nnn-nerd-static-{{ nnn_version | mandatory }}.x86_64.tar.gz"
+    binary_name_in_archive: nnn-nerd-static
+    version:
+      args: -V
+      match: "{{ nnn_version | mandatory }}"
+    man_pages:
+      url: "https://raw.githubusercontent.com/jarun/nnn/refs/heads/master/nnn.1"
+    bash_completion:
+      url: "https://raw.githubusercontent.com/jarun/nnn/refs/heads/master/misc/auto-completion/bash/nnn-completion.bash"
+    zsh_completion:
+      url: "https://raw.githubusercontent.com/jarun/nnn/refs/heads/master/misc/auto-completion/zsh/_nnn"
+
+...

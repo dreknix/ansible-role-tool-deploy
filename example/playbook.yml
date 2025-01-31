@@ -115,6 +115,17 @@
     - tools
     - lsd
 
+- name: Test role with nnn
+  hosts: '{{ target | default("all") }}'
+  vars:
+    nnn_version: 5.0
+    tool_deploy_list: "{{ tool_deploy_default_config_nnn }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - nnn
+
 - name: Test role with rg
   hosts: '{{ target | default("all") }}'
   vars:
@@ -158,6 +169,17 @@
   tags:
     - tools
     - tmux
+
+- name: Test role with uv
+  hosts: '{{ target | default("all") }}'
+  vars:
+    uv_version: 0.5.25
+    tool_deploy_list: "{{ tool_deploy_default_config_uv }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - uv
 
 - name: Test role with zoxide
   hosts: '{{ target | default("all") }}'

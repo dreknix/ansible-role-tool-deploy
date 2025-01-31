@@ -500,6 +500,31 @@ tool_deploy_list:
       match: "Version: {{ micro_version | mandatory }}"
 ```
 
+### nnn
+
+[jarun / nnn](https://github.com/jarun/nnn)
+
+``` yaml
+nnn_version: 5.0
+
+tool_deploy_list:
+  nnn:
+    action: download_archive
+    github:
+      repo: jarun/nnn
+      file: "v{{ nnn_version | mandatory }}/nnn-nerd-static-{{ nnn_version | mandatory }}.x86_64.tar.gz"
+    binary_name_in_archive: nnn-nerd-static
+    version:
+      args: -V
+      match: "{{ nnn_version | mandatory }}"
+    man_pages:
+      url: "https://raw.githubusercontent.com/jarun/nnn/refs/heads/master/nnn.1"
+    bash_completion:
+      url: "https://raw.githubusercontent.com/jarun/nnn/refs/heads/master/misc/auto-completion/bash/nnn-completion.bash"
+    zsh_completion:
+      url: "https://raw.githubusercontent.com/jarun/nnn/refs/heads/master/misc/auto-completion/zsh/_nnn"
+```
+
 ### oh-my-posh
 
 [JanDeDobbeleer / oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh)
@@ -716,6 +741,9 @@ tool_deploy_list:
     version:
       args: --version
       match: "uv {{ uv_version | mandatory }}"
+    copy_files:
+      - src: uvx
+        mode: u=rwx,go=rx
 ```
 
 ### xq
