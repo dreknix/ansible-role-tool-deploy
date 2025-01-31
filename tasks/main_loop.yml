@@ -97,7 +97,7 @@
             {{ tool.key }}
           {%- endif -%}
       ansible.builtin.copy:
-        src: "{{ (tool_deploy_tmp_prefix | mandatory, archive_binary ) | ansible.builtin.path_join }}"
+        src: "{{ (tool_deploy_tmp_prefix | mandatory, archive_binary) | ansible.builtin.path_join }}"
         remote_src: true
         dest: "{{ tool_deploy_binary_path }}"
         mode: u=rwx,go=rx
