@@ -396,10 +396,6 @@ tool_deploy_list:
       match: "jq-{{ jq_version }}"
 ```
 
-### less
-
-**TODO:** download archive and compile tools
-
 ### lazydocker
 
 [jesseduffield / lazydocker](https://github.com/jesseduffield/lazydocker)
@@ -498,6 +494,28 @@ tool_deploy_list:
     version:
       args: --version
       match: "Version: {{ micro_version | mandatory }}"
+```
+
+### minikube
+
+[kubernetes / minikube](https://github.com/jarun/minikube)
+
+``` yaml
+minikube_version: 1.35.9
+
+tool_deploy_list:
+  minikube:
+    action: download_binary
+    github:
+      repo: kubernetes/minikube
+      file: "v{{ minikube_version | mandatory }}/minikube-linux-amd64"
+    version:
+      args: version
+      match: "minikube version: {{ minikube_version | mandatory }}"
+    bash_completion:
+      generate_args: completion bash
+    zsh_completion:
+      generate_args: completion zsh
 ```
 
 ### nnn
