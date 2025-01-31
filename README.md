@@ -686,6 +686,28 @@ tool_deploy_list:
       src: complete/_rg
 ```
 
+### talosctl
+
+[siderolabs / talos](https://github.com/siderolabs/talos)
+
+``` yaml
+talosctl_version: 1.9.3
+
+tool_deploy_list:
+  talosctl:
+    action: download_binary
+    github:
+      repo: siderolabs/talos
+      file: "v{{ talosctl_version | mandatory }}/talosctl-linux-amd64"
+    version:
+      args: version --client
+      match: "{{ talosctl_version | mandatory }}"
+    bash_completion:
+      generate_args: completion bash
+    zsh_completion:
+      generate_args: completion zsh
+```
+
 ### task
 
 [go-task / task](https://github.com/go-task/task)
