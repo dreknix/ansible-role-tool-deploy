@@ -236,7 +236,7 @@ tool_deploy_list:
       match: "dive {{ dive_version | mandatory }}"
 ```
 
-### dive
+### docker-credential-pass
 
 [docker / docker-credential-helpers](https://github.com/docker/docker-credential-helpers)
 
@@ -396,6 +396,26 @@ tool_deploy_list:
       match: "jq-{{ jq_version }}"
 ```
 
+### kubectl
+
+[kubectl](https://kubernetes.io/docs/reference/kubectl/)
+
+``` yaml
+kubectl_version: 1.32.1
+
+tool_deploy_list:
+  kubectl:
+    action: download_binary
+    url: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/linux/amd64/kubectl
+    version:
+      args: version --client=true
+      match: "Client Version: v{{ kubectl_version | mandatory }}"
+    bash_completion:
+      generate_args: completion bash
+    zsh_completion:
+      generate_args: completion zsh
+```
+
 ### lazydocker
 
 [jesseduffield / lazydocker](https://github.com/jesseduffield/lazydocker)
@@ -476,26 +496,6 @@ tool_deploy_list:
       src: autocomplete/lsd.bash-completion
     zsh_completion:
       src: autocomplete/_lsd
-```
-
-### kubectl
-
-[kubectl](https://kubernetes.io/docs/reference/kubectl/)
-
-``` yaml
-kubectl_version: 1.32.1
-
-tool_deploy_list:
-  kubectl:
-    action: download_binary
-    url: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/linux/amd64/kubectl
-    version:
-      args: version --client=true
-      match: "Client Version: v{{ kubectl_version | mandatory }}"
-    bash_completion:
-      generate_args: completion bash
-    zsh_completion:
-      generate_args: completion zsh
 ```
 
 ### micro
