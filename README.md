@@ -730,6 +730,27 @@ tool_deploy_list:
       src: complete/_rg
 ```
 
+### sqlitebrowser
+
+[sqlitebrowser / sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)
+
+``` yaml
+sqlitebrowser_version: 3.13.1
+
+tool_deploy_list:
+  sqlitebrowser:
+    action: download_appimage
+    github:
+      repo: keepassxreboot/sqlitebrowser
+      file: "v{{ sqlitebrowser_version }}/DB.Browser.for.SQLite-v{{ sqlitebrowser_version }}-x86_64-v2.AppImage"
+    version:
+      args: --version
+      match: "DB Browser for SQLite Version {{ sqlitebrowser_version | mandatory }}"
+    xdg_desktop:
+      src: squashfs-root/sqlitebrowser.desktop
+      svg: squashfs-root/sqlitebrowser.svg
+```
+
 ### talosctl
 
 [siderolabs / talos](https://github.com/siderolabs/talos)
