@@ -1,0 +1,76 @@
+---
+
+- name: Set temporary prefix
+  ansible.builtin.set_fact:
+    tool_deploy_tmp_prefix: >-
+        {{ tool_deploy_tmp.path }}
+    tool_deploy_suffix: >-
+        {{ (tool_deploy_file_url | splitext)[1] }}
+
+- name: Download AppImage - {{ tool.key }}
+  ansible.builtin.get_url:
+    url: "{{ tool_deploy_file_url }}"
+    dest: "{{ (tool_deploy_tmp_prefix, tool.key) | ansible.builtin.path_join }}"
+    force: true
+    mode: u=rwx,go=rx
+  when:
+    tool_deploy_suffix != ".bz2"
+
+- name: Download AppImage - {{ tool.key }}
+  ansible.builtin.get_url:
+    url: "{{ tool_deploy_file_url }}"
+    dest: "{{ (tool_deploy_tmp_prefix, tool.key + tool_deploy_suffix) | ansible.builtin.path_join }}"
+    force: true
+    mode: u=rwx,go=rx
+  when:
+    tool_deploy_suffix == ".bz2"
+
+- name: Uncompress AppImage - {{ tool.key }}
+  ansible.builtin.command:
+    argv:
+      - bzip2
+      - --decompress
+      - --force
+      - "{{ (tool_deploy_tmp_prefix, tool.key + tool_deploy_suffix) | ansible.builtin.path_join }}"
+    creates: "{{ (tool_deploy_tmp_prefix, tool.key) | ansible.builtin.path_join }}"
+  when:
+    tool_deploy_suffix == ".bz2"
+
+- name: Delete AppImage binary - {{ tool.key }}
+  ansible.builtin.file:
+    path: "{{ (tool_deploy_tmp_prefix, tool.key + tool_deploy_suffix) | ansible.builtin.path_join }}"
+    state: absent
+  when:
+    tool_deploy_suffix == ".bz2"
+
+- name: Extract AppImage - {{ tool.key }}
+  ansible.builtin.command:
+    argv:
+      - "{{ (tool_deploy_tmp_prefix, tool.key) | ansible.builtin.path_join }}"
+      - --appimage-extract
+    chdir: "{{ tool_deploy_tmp_prefix }}"
+    creates: "{{ (tool_deploy_tmp_prefix, 'squashfs-root') | ansible.builtin.path_join }}"
+
+- name: Copy XDG desktop file - {{ tool.key }}
+  become: true
+  ansible.builtin.copy:
+    src: "{{ (tool_deploy_tmp_prefix | mandatory, tool.value.xdg_desktop.src) | ansible.builtin.path_join }}"
+    remote_src: true
+    dest: "{{ (tool_deploy_applications_path, tool.key + '.desktop') | ansible.builtin.path_join }}"
+    mode: u=rw,go=r
+  when: not ansible_check_mode
+        and tool.value.xdg_desktop is defined
+        and tool.value.xdg_desktop.src is defined
+
+- name: Copy icon file - {{ tool.key }}
+  become: true
+  ansible.builtin.copy:
+    src: "{{ (tool_deploy_tmp_prefix | mandatory, tool.value.xdg_desktop.icon) | ansible.builtin.path_join }}"
+    remote_src: true
+    dest: "{{ tool_deploy_icons_path }}"
+    mode: u=rw,go=r
+  when: not ansible_check_mode
+        and tool.value.xdg_desktop is defined
+        and tool.value.xdg_desktop.icon is defined
+
+...

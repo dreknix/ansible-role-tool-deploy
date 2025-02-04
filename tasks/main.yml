@@ -8,6 +8,10 @@
   ansible.builtin.set_fact:
     tool_deploy_bin_path: >-
       {{ (tool_deploy_prefix | mandatory, 'bin') | ansible.builtin.path_join }}
+    tool_deploy_applications_path: >-
+      {{ (tool_deploy_prefix | mandatory, 'share', 'applications') | ansible.builtin.path_join }}
+    tool_deploy_icons_path: >-
+      {{ (tool_deploy_prefix | mandatory, 'share', 'icons', 'hicolor', '128x128', 'apps') | ansible.builtin.path_join }}
     tool_deploy_man_path: >-
       {{ (tool_deploy_prefix | mandatory, 'share', 'man') | ansible.builtin.path_join }}
     tool_deploy_bash_completion_path: >-
@@ -23,13 +27,18 @@
     mode: u=rwx,go=rx
   loop:
     - "{{ tool_deploy_bin_path }}"
+    - "{{ tool_deploy_applications_path }}"
+    - "{{ tool_deploy_icons_path }}"
     - "{{ (tool_deploy_man_path | mandatory, 'man1') | ansible.builtin.path_join }}"
+    - "{{ (tool_deploy_man_path | mandatory, 'man5') | ansible.builtin.path_join }}"
+    - "{{ (tool_deploy_man_path | mandatory, 'man7') | ansible.builtin.path_join }}"
+    - "{{ (tool_deploy_man_path | mandatory, 'man8') | ansible.builtin.path_join }}"
     - "{{ tool_deploy_bash_completion_path }}"
     - "{{ tool_deploy_zsh_completion_path }}"
 
 - name: Loop over tools
   ansible.builtin.include_tasks: main_loop.yml
-  loop: "{{ tool_deploy_list | dict2items }}"
+  loop: "{{ tool_deploy_list | mandatory | dict2items }}"
   loop_control:
     loop_var: tool
     label: "{{ tool.key }}"

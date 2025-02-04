@@ -1,0 +1,18 @@
+---
+
+tool_deploy_default_config_nvim:
+  nvim:
+    action: download_appimage
+    github:
+      repo: neovim/neovim
+      file: "v{{ nvim_version | mandatory }}/nvim-linux-x86_64.appimage"
+    version:
+      args: --version
+      match: "NVIM v{{ nvim_version | mandatory }}"
+    xdg_desktop:
+      src: squashfs-root/nvim.desktop
+      icon: squashfs-root/nvim.png
+    man_pages:
+      src: squashfs-root/usr/share/man/man1/nvim.1
+
+...

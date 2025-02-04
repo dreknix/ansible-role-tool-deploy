@@ -563,6 +563,29 @@ tool_deploy_list:
       url: "https://raw.githubusercontent.com/jarun/nnn/refs/heads/master/misc/auto-completion/zsh/_nnn"
 ```
 
+### neovim / nvim
+
+[neovim / neovim](https://github.com/neovim/neovim)
+
+``` yaml
+nvim_version: 0.10.4
+
+tool_deploy_list:
+  nvim:
+    action: download_appimage
+    github:
+      repo: neovim/neovim
+      file: "v{{ nvim_version | mandatory }}/nvim-linux-x86_64.appimage"
+    version:
+      args: --version
+      match: "NVIM v{{ nvim_version | mandatory }}"
+    xdg_desktop:
+      src: squashfs-root/nvim.desktop
+      icon: squashfs-root/nvim.png
+    man_pages:
+      src: squashfs-root/usr/share/man/man1/nvim.1
+```
+
 ### oh-my-posh
 
 [JanDeDobbeleer / oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh)

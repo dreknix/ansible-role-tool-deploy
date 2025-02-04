@@ -137,16 +137,16 @@
     - tools
     - minikube
 
-- name: Test role with nnn
+- name: Test role with nvim
   hosts: '{{ target | default("all") }}'
   vars:
-    nnn_version: 5.0
-    tool_deploy_list: "{{ tool_deploy_default_config_nnn }}"
+    nvim_version: 0.10.4
+    tool_deploy_list: "{{ tool_deploy_default_config_nvim }}"
   roles:
     - role: tool_deploy
   tags:
     - tools
-    - nnn
+    - nvim
 
 - name: Test role with rg
   hosts: '{{ target | default("all") }}'
