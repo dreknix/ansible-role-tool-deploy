@@ -531,7 +531,7 @@ tool_deploy_list:
       file: "v{{ minikube_version | mandatory }}/minikube-linux-amd64"
     version:
       args: version
-      match: "minikube version: {{ minikube_version | mandatory }}"
+      match: "minikube version: v{{ minikube_version | mandatory }}"
     bash_completion:
       generate_args: completion bash
     zsh_completion:
