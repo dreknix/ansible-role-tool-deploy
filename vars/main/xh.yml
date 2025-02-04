@@ -5,13 +5,15 @@ tool_deploy_default_config_xh:
     action: download_archive
     github:
       repo: ducaale/xh
-      file: "v{{ xh_version | mandatory }}/xh-{{ xh_version }}-x86_64-unknown-linux-musl.tar.gz"
+      file: "v{{ xh_version | mandatory }}/xh-v{{ xh_version }}-x86_64-unknown-linux-musl.tar.gz"
     version:
       args: --version
       match: "xh {{ xh_version | mandatory }}"
+    man_pages:
+      src: doc/xh.1
     bash_completion:
-      src: "completions/xh.bash"
+      src: completions/xh.bash
     zsh_completion:
-      src: "completions/_xh"
+      src: completions/_xh
 
 ...
