@@ -73,4 +73,15 @@
         and tool.value.xdg_desktop is defined
         and tool.value.xdg_desktop.icon is defined
 
+- name: Copy svg file - {{ tool.key }}
+  become: true
+  ansible.builtin.copy:
+    src: "{{ (tool_deploy_tmp_prefix | mandatory, tool.value.xdg_desktop.svg) | ansible.builtin.path_join }}"
+    remote_src: true
+    dest: "{{ tool_deploy_svg_path }}"
+    mode: u=rw,go=r
+  when: not ansible_check_mode
+        and tool.value.xdg_desktop is defined
+        and tool.value.xdg_desktop.svg is defined
+
 ...

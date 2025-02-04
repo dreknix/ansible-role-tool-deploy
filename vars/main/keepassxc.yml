@@ -11,5 +11,6 @@ tool_deploy_default_config_keepassxc:
       match: "keepassxc v{{ keepassxc_version | mandatory }}"
     xdg_desktop:
       src: squashfs-root/org.keepassxc.KeePassXC.desktop
+      svg: squashfs-root/keepassxc.svg
 
 ...

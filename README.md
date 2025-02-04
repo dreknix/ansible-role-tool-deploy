@@ -414,6 +414,7 @@ tool_deploy_list:
       match: "keepassxc v{{ keepassxc_version | mandatory }}"
     xdg_desktop:
       src: squashfs-root/org.keepassxc.KeePassXC.desktop
+      svg: squashfs-root/keepassxc.svg
 ```
 
 ### kubectl
