@@ -4,7 +4,7 @@ tool_deploy_default_config_sqlitebrowser:
   sqlitebrowser:
     action: download_appimage
     github:
-      repo: keepassxreboot/sqlitebrowser
+      repo: sqlitebrowser/sqlitebrowser
       file: "v{{ sqlitebrowser_version }}/DB.Browser.for.SQLite-v{{ sqlitebrowser_version }}-x86_64-v2.AppImage"
     version:
       args: --version
