@@ -60,9 +60,9 @@ installed. The installation can be forced with the flag `force_install`.
           args: --version
           match: "Task version: v{{ task_version }}"
         bash_completion:
-          src: "completion/bash/task.bash"
+          src: completion/bash/task.bash
         zsh_completion:
-          src: "completion/zsh/_task"
+          src: completion/zsh/_task
 
   roles:
     - role: dreknix.tool_deploy
@@ -163,11 +163,11 @@ tool_deploy_list:
       args: --version
       match: "bat {{ bat_version }}"
     man_pages:
-      src: "bat.1"
+      src: bat.1
     bash_completion:
-      src: "autocomplete/bat.bash"
+      src: autocomplete/bat.bash
     zsh_completion:
-      src: "autocomplete/bat.zsh"
+      src: autocomplete/bat.zsh
 ```
 
 ### delta
@@ -289,11 +289,11 @@ tool_deploy_list:
       args: --version
       match: "fd {{ fd_version }}"
     man_pages:
-      src: "fd.1"
+      src: fd.1
     bash_completion:
-      src: "autocomplete/fd.bash"
+      src: autocomplete/fd.bash
     zsh_completion:
-      src: "autocomplete/_fd"
+      src: autocomplete/_fd
 ```
 
 ### fzf
@@ -337,9 +337,9 @@ tool_deploy_list:
       args: version
       match: "gopass {{ gopass_version | mandatory }}"
     bash_completion:
-      src: "bash.completion"
+      src: bash.completion
     zsh_completion:
-      src: "zsh.completion"
+      src: zsh.completion
 ```
 
 ### gopass-jsonapi
@@ -598,7 +598,7 @@ tool_deploy_list:
       args: version
       match: "pet version {{ pet_version | mandatory }}"
     zsh_completion:
-      src: "misc/completions/zsh/_pet"
+      src: misc/completions/zsh/_pet
 ```
 
 ### restic
@@ -725,9 +725,9 @@ tool_deploy_list:
       args: --version
       match: "Task version: v{{ task_version }}"
     bash_completion:
-      src: "completion/bash/task.bash"
+      src: completion/bash/task.bash
     zsh_completion:
-      src: "completion/zsh/_task"
+      src: completion/zsh/_task
 ```
 
 ### tig
@@ -804,6 +804,30 @@ tool_deploy_list:
     copy_files:
       - src: uvx
         mode: u=rwx,go=rx
+```
+
+### xh
+
+[ducaale / xh](https://github.com/ducaale/xh)
+
+``` yaml
+xh_version: 0.23.1
+
+tool_deploy_list:
+  xh:
+    action: download_archive
+    github:
+      repo: ducaale/xh
+      file: "v{{ xh_version | mandatory }}/xh-{{ xh_version }}-x86_64-unknown-linux-musl.tar.gz"
+    version:
+      args: --version
+      match: "xh {{ xh_version | mandatory }}"
+    man_pages:
+      src: doc/xh.1 
+    bash_completion:
+      src: completions/xh.bash
+    zsh_completion:
+      src: completions/_xh
 ```
 
 ### xq
