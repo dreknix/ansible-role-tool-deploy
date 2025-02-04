@@ -396,6 +396,26 @@ tool_deploy_list:
       match: "jq-{{ jq_version }}"
 ```
 
+### KeePassXC
+
+[keepassxreboot / keepassxc](https://github.com/keepassxreboot/keepassxc)
+
+``` yaml
+keepassxc_version: 2.7.9
+
+tool_deploy_list:
+  keepassxc:
+    action: download_appimage
+    github:
+      repo: keepassxreboot/keepassxc
+      file: "{{ keepassxc_version | mandatory }}/KeePassXC-{{ keepassxc_version }}-x86_64.AppImage"
+    version:
+      args: --version
+      match: "keepassxc v{{ keepassxc_version | mandatory }}"
+    xdg_desktop:
+      src: squashfs-root/org.keepassxc.KeePassXC.desktop
+```
+
 ### kubectl
 
 [kubectl](https://kubernetes.io/docs/reference/kubectl/)

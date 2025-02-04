@@ -1,0 +1,15 @@
+---
+
+tool_deploy_default_config_keepassxc:
+  keepassxc:
+    action: download_appimage
+    github:
+      repo: keepassxreboot/keepassxc
+      file: "{{ keepassxc_version | mandatory }}/KeePassXC-{{ keepassxc_version }}-x86_64.AppImage"
+    version:
+      args: --version
+      match: "keepassxc v{{ keepassxc_version | mandatory }}"
+    xdg_desktop:
+      src: squashfs-root/org.keepassxc.KeePassXC.desktop
+
+...

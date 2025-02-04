@@ -93,6 +93,17 @@
     - tools
     - jq
 
+- name: Test role with keepassxc
+  hosts: '{{ target | default("all") }}'
+  vars:
+    keepassxc_version: 2.7.9
+    tool_deploy_list: "{{ tool_deploy_default_config_keepassxc }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - keepassxc
+
 - name: Test role with kubectl
   hosts: '{{ target | default("all") }}'
   vars:
