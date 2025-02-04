@@ -4,16 +4,19 @@
 #   ansible.builtin.debug:
 #     msg: Inside role tool_deploy
 
+- name: Set tool deploy prefix variables
+  ansible.builtin.set_fact:
+    tool_deploy_share_prefix: >-
+      {{ (tool_deploy_prefix | mandatory, 'share') | ansible.builtin.path_join }}
+    tool_deploy_icons_prefix: >-
+      {{ (tool_deploy_prefix, 'share', 'icons', 'hicolor') | ansible.builtin.path_join }}
+
 - name: Set tool deploy variables
   ansible.builtin.set_fact:
     tool_deploy_bin_path: >-
       {{ (tool_deploy_prefix | mandatory, 'bin') | ansible.builtin.path_join }}
-    tool_deploy_share_prefix: >-
-      {{ (tool_deploy_prefix | mandatory, 'share') | ansible.builtin.path_join }}
     tool_deploy_applications_path: >-
       {{ (tool_deploy_share_prefix, 'applications') | ansible.builtin.path_join }}
-    tool_deploy_icons_prefix: >-
-      {{ (tool_deploy_share_prefix, 'icons', 'hicolor') | ansible.builtin.path_join }}
     tool_deploy_icons_path: >-
       {{ (tool_deploy_icons_prefix, '128x128', 'apps') | ansible.builtin.path_join }}
     tool_deploy_svg_path: >-
