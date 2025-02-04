@@ -822,8 +822,11 @@ tool_deploy_list:
     version:
       args: --version
       match: "xh {{ xh_version | mandatory }}"
+    create_links:
+      - src: xh
+        dest: xhs
     man_pages:
-      src: doc/xh.1 
+      src: doc/xh.1
     bash_completion:
       src: completions/xh.bash
     zsh_completion:
