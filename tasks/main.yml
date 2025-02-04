@@ -8,14 +8,16 @@
   ansible.builtin.set_fact:
     tool_deploy_bin_path: >-
       {{ (tool_deploy_prefix | mandatory, 'bin') | ansible.builtin.path_join }}
-    tool_deploy_share_path: >-
+    tool_deploy_share_prefix: >-
       {{ (tool_deploy_prefix | mandatory, 'share') | ansible.builtin.path_join }}
     tool_deploy_applications_path: >-
       {{ (tool_deploy_share_prefix, 'applications') | ansible.builtin.path_join }}
+    tool_deploy_icons_prefix: >-
+      {{ (tool_deploy_share_prefix, 'icons', 'hicolor') | ansible.builtin.path_join }}
     tool_deploy_icons_path: >-
-      {{ (tool_deploy_share_prefix, 'icons', 'hicolor', '128x128', 'apps') | ansible.builtin.path_join }}
+      {{ (tool_deploy_icons_prefix, '128x128', 'apps') | ansible.builtin.path_join }}
     tool_deploy_svg_path: >-
-      {{ (tool_deploy_share_prefix, 'icons', 'hicolor', 'scalable', 'apps') | ansible.builtin.path_join }}
+      {{ (tool_deploy_icons_prefix, 'scalable', 'apps') | ansible.builtin.path_join }}
     tool_deploy_man_path: >-
       {{ (tool_deploy_share_prefix, 'man') | ansible.builtin.path_join }}
     tool_deploy_bash_completion_path: >-
