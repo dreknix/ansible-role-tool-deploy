@@ -1,0 +1,17 @@
+---
+
+tool_deploy_default_config_fx:
+  fx:
+    action: download_binary
+    github:
+      repo: antonmedv/fx
+      file: "{{ fx_version | mandatory }}/fx_linux_amd64"
+    version:
+      args: --version
+      match: "{{ fx_version | mandatory }}"
+    bash_completion:
+      generate_args: --comp bash
+    zsh_completion:
+      generate_args: --comp zsh
+
+...

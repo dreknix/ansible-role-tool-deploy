@@ -296,6 +296,28 @@ tool_deploy_list:
       src: autocomplete/_fd
 ```
 
+### fx
+
+[antonmedv / fx](https://github.com/antonmedv/fx)
+
+``` yaml
+fx_version: 35.0.0
+  fx:
+    action: download_binary
+    github:
+      repo: antonmedv/fx
+      file: "{{ fx_version | mandatory }}/fx_linux_amd64"
+    version:
+      args: --version
+      match: "{{ fx_version | mandatory }}"
+    bash_completion:
+      generate_args: --comp bash
+    zsh_completion:
+      generate_args: --comp zsh
+
+tool_deploy_list:
+```
+
 ### fzf
 
 [junegunn / fzf](https://github.com/junegunn/fzf)
