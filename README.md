@@ -5,6 +5,17 @@ Ansible role for deploying tools form GitHub, GitLab, and other sources.
 **IMPORTANT:** This role is currently in development. It is only possible to
 install tools from GitHub. More possibilities must be added.
 
+## TODO
+
+Tools to look into:
+
+* [walles / moar](https://github.com/walles/moar)
+* [jdx / mise](https://github.com/jdx/mise)
+
+Features:
+
+* compile install without package install
+
 ## Using in a Playbook
 
 This Ansible will deploy tools specified in the variable `tool_deploy_list` to
