@@ -592,6 +592,27 @@ tool_deploy_list:
       generate_args: completion zsh
 ```
 
+### moar
+
+[walles / moar](https://github.com/walles/moar)
+
+``` yaml
+moar_version: 1.31.4
+
+tool_deploy_list:
+  moar:
+    action: download_binary
+    github:
+      repo: walles/moar
+      file: "v{{ moar_version | mandatory }}/moar-v{{ moar_version }}-linux-amd64"
+    version:
+      args: --version
+      match: "{{ moar_version | mandatory }}"
+    man_pages:
+      url:
+        - https://raw.githubusercontent.com/walles/moar/refs/heads/master/moar.1
+```
+
 ### nnn
 
 [jarun / nnn](https://github.com/jarun/nnn)
@@ -972,7 +993,7 @@ tool_deploy_list:
 [ajeetdsouza / zoxide](https://github.com/ajeetdsouza/zoxide)
 
 ``` yaml
-zoxide_version: 0.9.6
+zoxide_version: 0.9.7
 
 tool_deploy_list:
   zoxide:

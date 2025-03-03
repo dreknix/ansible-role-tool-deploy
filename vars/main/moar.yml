@@ -1,0 +1,18 @@
+---
+
+moar_version: 1.31.4
+
+tool_deploy_default_config_moar:
+  moar:
+    action: download_binary
+    github:
+      repo: walles/moar
+      file: "v{{ moar_version | mandatory }}/moar-v{{ moar_version }}-linux-amd64"
+    version:
+      args: --version
+      match: "{{ moar_version | mandatory }}"
+    man_pages:
+      url:
+        - https://raw.githubusercontent.com/walles/moar/refs/heads/master/moar.1
+
+...
