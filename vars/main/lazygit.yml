@@ -1,5 +1,7 @@
 ---
 
+lazygit_version: 0.48.0
+
 tool_deploy_default_config_lazygit:
   lazygit:
     action: download_archive

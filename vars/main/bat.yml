@@ -1,5 +1,7 @@
 ---
 
+bat_version: 0.25.0
+
 tool_deploy_default_config_bat:
   bat:
     action: download_archive

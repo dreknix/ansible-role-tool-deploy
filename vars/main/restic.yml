@@ -1,5 +1,7 @@
 ---
 
+restic_version: 0.17.3
+
 tool_deploy_default_config_restic:
   restic:
     action: download_binary

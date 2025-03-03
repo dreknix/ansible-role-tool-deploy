@@ -252,7 +252,7 @@ tool_deploy_list:
 [docker / docker-credential-helpers](https://github.com/docker/docker-credential-helpers)
 
 ``` yaml
-docker_credential_version: 0.12.0
+docker_credential_version: 0.9.1
 
 tool_deploy_list:
   docker-credential-pass:
@@ -270,7 +270,7 @@ tool_deploy_list:
 [eza-community / eza](https://github.com/eza-community/eza)
 
 ``` yaml
-eza_version: 0.20.19
+eza_version: 0.20.23
 
 tool_deploy_list:
   eza:
@@ -334,7 +334,7 @@ tool_deploy_list:
 [junegunn / fzf](https://github.com/junegunn/fzf)
 
 ``` yaml
-fzf_version: 0.59.0
+fzf_version: 0.60.3
 
 tool_deploy_list:
   fzf:
@@ -455,7 +455,7 @@ tool_deploy_list:
 [kubectl](https://kubernetes.io/docs/reference/kubectl/)
 
 ``` yaml
-kubectl_version: 1.32.1
+kubectl_version: 1.32.2
 
 tool_deploy_list:
   kubectl:
@@ -475,7 +475,7 @@ tool_deploy_list:
 [jesseduffield / lazydocker](https://github.com/jesseduffield/lazydocker)
 
 ``` yaml
-lazydocker_version: 0.45.2
+lazydocker_version: 0.24.1
 
 tool_deploy_list:
   lazydocker:
@@ -493,7 +493,7 @@ tool_deploy_list:
 [jesseduffield / lazygit](https://github.com/jesseduffield/lazygit)
 
 ``` yaml
-lazygit_version: 0.45.2
+lazygit_version: 0.48.0
 
 tool_deploy_list:
   lazygit:
@@ -557,7 +557,7 @@ tool_deploy_list:
 [zyedidia / micro](https://github.com/zyedidia/micro)
 
 ``` yaml
-micro_version: 2.014
+micro_version: 2.0.14
 
 tool_deploy_list:
   micro:
@@ -645,7 +645,7 @@ tool_deploy_list:
 [JanDeDobbeleer / oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh)
 
 ``` yaml
-oh_my_posh_version: 24.19.0
+oh_my_posh_version: 25.0.0
 
 tool_deploy_list:
   oh-my-posh:
@@ -789,7 +789,7 @@ tool_deploy_list:
 [siderolabs / talos](https://github.com/siderolabs/talos)
 
 ``` yaml
-talosctl_version: 1.9.3
+talosctl_version: 1.9.4
 
 tool_deploy_list:
   talosctl:
@@ -811,7 +811,7 @@ tool_deploy_list:
 [go-task / task](https://github.com/go-task/task)
 
 ``` yaml
-task_version: 3.40.1
+task_version: 3.41.0
 
 tool_deploy_list:
   task:
@@ -833,7 +833,7 @@ tool_deploy_list:
 [jonas / tig](https://github.com/jonas/tig)
 
 ``` yaml
-tig_version: 2.5.11
+tig_version: 2.5.12
 
 tool_deploy_list:
   tig:
@@ -888,7 +888,7 @@ tool_deploy_list:
 [astral-sh / uv](https://github.com/astral-sh/uv)
 
 ``` yaml
-uv_version: 0.5.28
+uv_version: 0.6.3
 
 tool_deploy_list:
   uv:
@@ -909,7 +909,7 @@ tool_deploy_list:
 [ducaale / xh](https://github.com/ducaale/xh)
 
 ``` yaml
-xh_version: 0.23.1
+xh_version: 0.24.0
 
 tool_deploy_list:
   xh:
@@ -936,7 +936,7 @@ tool_deploy_list:
 [sibprogrammer / xq](https://github.com/sibprogrammer/xq)
 
 ``` yaml
-xq_version: 4.45.1
+xq_version: 1.3.0
 
 tool_deploy_list:
   xq:

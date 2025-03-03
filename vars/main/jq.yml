@@ -1,5 +1,7 @@
 ---
 
+jq_version: 1.7.1
+
 tool_deploy_default_config_jq:
   jq:
     action: download_binary

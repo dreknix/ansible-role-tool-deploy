@@ -1,5 +1,7 @@
 ---
 
+fx_version: 35.0.0
+
 tool_deploy_default_config_fx:
   fx:
     action: download_binary

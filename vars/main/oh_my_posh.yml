@@ -1,5 +1,7 @@
 ---
 
+oh_my_posh_version: 25.0.0
+
 tool_deploy_default_config_oh_my_posh:
   oh-my-posh:
     action: download_binary

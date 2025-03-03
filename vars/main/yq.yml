@@ -1,5 +1,7 @@
 ---
 
+yq_version: 4.45.1
+
 tool_deploy_default_config_yq:
   yq:
     action: download_binary

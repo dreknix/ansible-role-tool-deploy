@@ -1,5 +1,7 @@
 ---
 
+keepassxc_version: 2.7.9
+
 tool_deploy_default_config_keepassxc:
   keepassxc:
     action: download_appimage

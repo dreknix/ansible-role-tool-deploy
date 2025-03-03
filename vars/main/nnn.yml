@@ -1,5 +1,7 @@
 ---
 
+nnn_version: 5.0
+
 tool_deploy_default_config_nnn:
   nnn:
     action: download_archive

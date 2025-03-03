@@ -1,5 +1,7 @@
 ---
 
+pet_version: 1.0.1
+
 tool_deploy_default_config_pet:
   pet:
     action: download_archive

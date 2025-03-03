@@ -1,5 +1,7 @@
 ---
 
+fd_version: 10.2.0
+
 tool_deploy_default_config_fd:
   fd:
     action: download_archive

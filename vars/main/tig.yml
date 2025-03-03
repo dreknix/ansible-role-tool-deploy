@@ -1,5 +1,7 @@
 ---
 
+tig_version: 2.5.12
+
 tool_deploy_default_config_tig:
   tig:
     dependencies:

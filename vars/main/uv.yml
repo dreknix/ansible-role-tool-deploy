@@ -1,5 +1,7 @@
 ---
 
+uv_version: 0.6.3
+
 tool_deploy_default_config_uv:
   uv:
     action: download_archive

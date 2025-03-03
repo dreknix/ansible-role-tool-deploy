@@ -1,5 +1,7 @@
 ---
 
+fzf_version: 0.60.3
+
 tool_deploy_default_config_fzf:
   fzf:
     action: download_archive

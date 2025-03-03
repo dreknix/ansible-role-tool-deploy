@@ -1,5 +1,7 @@
 ---
 
+gopass_version: 1.15.15
+
 tool_deploy_default_config_gopass_jsonapi:
   gopass-jsonapi:
     action: download_archive

@@ -1,5 +1,7 @@
 ---
 
+sqlitebrowser_version: 3.13.1
+
 tool_deploy_default_config_sqlitebrowser:
   sqlitebrowser:
     action: download_appimage

@@ -1,5 +1,7 @@
 ---
 
+zoxide_version: 0.9.7
+
 tool_deploy_default_config_zoxide:
   zoxide:
     action: download_archive

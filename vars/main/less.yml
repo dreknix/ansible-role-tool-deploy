@@ -1,5 +1,7 @@
 ---
 
+less_version: 668
+
 tool_deploy_default_config_less:
   less:
     dependencies:

@@ -1,5 +1,7 @@
 ---
 
+talosctl_version: 1.9.4
+
 tool_deploy_default_config_talosctl:
   talosctl:
     action: download_binary

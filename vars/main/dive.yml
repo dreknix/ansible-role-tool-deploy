@@ -1,5 +1,7 @@
 ---
 
+dive_version: 0.12.0
+
 tool_deploy_default_config_dive:
   dive:
     action: download_archive

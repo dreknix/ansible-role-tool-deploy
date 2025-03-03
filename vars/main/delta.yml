@@ -1,5 +1,7 @@
 ---
 
+delta_version: 0.18.2
+
 tool_deploy_default_config_delta:
   delta:
     action: download_archive

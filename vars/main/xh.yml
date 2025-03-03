@@ -1,5 +1,7 @@
 ---
 
+xh_version: 0.24.0
+
 tool_deploy_default_config_xh:
   xh:
     action: download_archive

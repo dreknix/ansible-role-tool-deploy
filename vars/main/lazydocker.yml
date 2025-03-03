@@ -1,5 +1,7 @@
 ---
 
+lazydocker_version: 0.24.1
+
 tool_deploy_default_config_lazydocker:
   lazydocker:
     action: download_archive

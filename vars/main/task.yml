@@ -1,5 +1,7 @@
 ---
 
+task_version: 3.41.0
+
 tool_deploy_default_config_task:
   task:
     action: download_archive

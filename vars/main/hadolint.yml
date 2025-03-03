@@ -1,5 +1,7 @@
 ---
 
+hadolint_version: 2.12.0
+
 tool_deploy_default_config_hadolint:
   hadolint:
     action: download_binary

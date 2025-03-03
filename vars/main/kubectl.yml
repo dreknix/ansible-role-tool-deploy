@@ -1,5 +1,8 @@
 ---
 
+# curl -L -s https://dl.k8s.io/release/stable.txt
+kubectl_version: 1.32.2
+
 tool_deploy_default_config_kubectl:
   kubectl:
     action: download_binary
