@@ -10,7 +10,7 @@ tool_deploy_default_config_glow:
       file: "v{{ glow_version | mandatory }}/glow_{{ glow_version }}_Linux_x86_64.tar.gz"
     version:
       args: --version
-      match: "glow {{ glow_version | mandatory }}"
+      match: "glow version {{ glow_version | mandatory }}"
     # man_pages:
     #   src:
     #     - manpages/glow.1.gz

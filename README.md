@@ -353,6 +353,28 @@ tool_deploy_list:
       url: https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/shell/completion.zsh
 ```
 
+### glow
+
+[charmbracelet / glow](https://github.com/charmbracelet/glow)
+
+``` yaml
+glow_version: 2.1.0
+
+tool_deploy_list:
+  glow:
+    action: download_archive
+    github:
+      repo: charmbracelet/glow
+      file: "v{{ glow_version | mandatory }}/glow_{{ glow_version }}_Linux_x86_64.tar.gz"
+    version:
+      args: --version
+      match: "glow version {{ glow_version | mandatory }}"
+    bash_completion:
+      src: completions/glow.bash
+    zsh_completion:
+      src: completions/glow.zsh
+```
+
 ### gopass
 
 [gopasspw / gopass](https://github.com/gopasspw/gopass)
