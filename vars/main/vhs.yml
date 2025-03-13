@@ -1,0 +1,22 @@
+---
+
+vhs_version: 0.9.0
+
+tool_deploy_default_config_vhs:
+  vhs:
+    action: download_archive
+    github:
+      repo: charmbracelet/vhs
+      file: "v{{ vhs_version | mandatory }}/vhs_{{ vhs_version }}_Linux_x86_64.tar.gz"
+    version:
+      args: --version
+      match: "vhs version {{ vhs_version | mandatory }}"
+    man_pages:
+      src:
+        - manpages/vhs.1.gz
+    bash_completion:
+      src: completions/vhs.bash
+    zsh_completion:
+      src: completions/vhs.zsh
+
+...
