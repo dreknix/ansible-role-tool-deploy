@@ -133,11 +133,11 @@
       become: true
       vars:
         man_suffix: >-
-          {% if manpage.endswith('gz') %}
+          {%- if manpage.endswith('gz') -%}
             {{ manpage[-4] }}
-          {% else %}
+          {%- else -%}
             {{ manpage[-1] }}
-          {% endif %}
+          {%- endif -%}
       ansible.builtin.copy:
         src: "{{ (tool_deploy_tmp_prefix | mandatory, manpage) | ansible.builtin.path_join }}"
         remote_src: true
@@ -152,7 +152,12 @@
     - name: Download man pages
       become: true
       vars:
-        man_suffix: "{{ manpage[-1] }}"
+        man_suffix: >-
+          {%- if manpage.endswith('gz') -%}
+            {{ manpage[-4] }}
+          {%- else -%}
+            {{ manpage[-1] }}
+          {%- endif -%}
       ansible.builtin.get_url:
         url: "{{ manpage }}"
         dest: "{{ (tool_deploy_man_path, 'man' ~ man_suffix) | ansible.builtin.path_join }}"
