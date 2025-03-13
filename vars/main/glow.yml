@@ -11,9 +11,9 @@ tool_deploy_default_config_glow:
     version:
       args: --version
       match: "glow version {{ glow_version | mandatory }}"
-    # man_pages:
-    #   src:
-    #     - manpages/glow.1.gz
+    man_pages:
+      src:
+        - manpages/glow.1.gz
     bash_completion:
       src: completions/glow.bash
     zsh_completion:
