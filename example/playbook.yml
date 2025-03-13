@@ -148,6 +148,17 @@
     - tools
     - gopass-jsonapi
 
+- name: Test role with gum
+  hosts: '{{ target | default("all") }}'
+  vars:
+    gum_version: 0.16.0
+    tool_deploy_list: "{{ tool_deploy_default_config_gum }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - gum
+
 - name: Test role with hadolint
   hosts: '{{ target | default("all") }}'
   vars:
@@ -400,6 +411,17 @@
   tags:
     - tools
     - uv
+
+- name: Test role with vhs
+  hosts: '{{ target | default("all") }}'
+  vars:
+    vhs_version: 0.9.0
+    tool_deploy_list: "{{ tool_deploy_default_config_vhs }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - vhs
 
 - name: Test role with xh
   hosts: '{{ target | default("all") }}'

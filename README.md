@@ -369,6 +369,9 @@ tool_deploy_list:
     version:
       args: --version
       match: "glow version {{ glow_version | mandatory }}"
+    man_pages:
+      src:
+        - manpages/glow.1.gz
     bash_completion:
       src: completions/glow.bash
     zsh_completion:
@@ -413,6 +416,31 @@ tool_deploy_list:
     version:
       args: version
       match: "gopass-jsonapi version {{ gopass_jsonapi_version | mandatory }}"
+```
+
+### gum
+
+[charmbracelet / gum](https://github.com/charmbracelet/gum)
+
+``` yaml
+gum_version: 0.16.0
+
+tool_deploy_list:
+  gum:
+    action: download_archive
+    github:
+      repo: charmbracelet/gum
+      file: "v{{ gum_version | mandatory }}/gum_{{ gum_version }}_Linux_x86_64.tar.gz"
+    version:
+      args: --version
+      match: "gum version v{{ gum_version | mandatory }}"
+    man_pages:
+      src:
+        - manpages/gum.1.gz
+    bash_completion:
+      src: completions/gum.bash
+    zsh_completion:
+      src: completions/gum.zsh
 ```
 
 ### hadolint
@@ -945,6 +973,31 @@ tool_deploy_list:
     copy_files:
       - src: uvx
         mode: u=rwx,go=rx
+```
+
+### vhs
+
+[charmbracelet / vhs](https://github.com/charmbracelet/vhs)
+
+``` yaml
+vhs_version: 0.9.0
+
+tool_deploy_list:
+  vhs:
+    action: download_archive
+    github:
+      repo: charmbracelet/vhs
+      file: "v{{ vhs_version | mandatory }}/vhs_{{ vhs_version }}_Linux_x86_64.tar.gz"
+    version:
+      args: --version
+      match: "vhs version v{{ vhs_version | mandatory }}"
+    man_pages:
+      src:
+        - manpages/vhs.1.gz
+    bash_completion:
+      src: completions/vhs.bash
+    zsh_completion:
+      src: completions/vhs.zsh
 ```
 
 ### xh
