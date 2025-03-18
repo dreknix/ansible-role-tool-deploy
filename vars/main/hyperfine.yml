@@ -1,0 +1,21 @@
+---
+
+hyperfine_version: 1.19.0
+
+tool_deploy_default_config_hyperfine:
+  hyperfine:
+    action: download_archive
+    github:
+      repo: sharkdp/hyperfine
+      file: "v{{ hyperfine_version | mandatory }}/hyperfine-v{{ hyperfine_version }}-x86_64-unknown-linux-gnu.tar.gz"
+    version:
+      args: --version
+      match: "hyperfine {{ hyperfine_version | mandatory }}"
+    man_pages:
+      src: "hyperfine.1"
+    bash_completion:
+      src: "autocomplete/hyperfine.bash"
+    zsh_completion:
+      src: "autocomplete/_hyperfine"
+
+...

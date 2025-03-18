@@ -170,6 +170,28 @@
     - tools
     - hadolint
 
+- name: Test role with hexyl
+  hosts: '{{ target | default("all") }}'
+  vars:
+    hexyl_version: 0.16.0
+    tool_deploy_list: "{{ tool_deploy_default_config_hexyl }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - hexyl
+
+- name: Test role with hyperfine
+  hosts: '{{ target | default("all") }}'
+  vars:
+    hyperfine_version: 1.19.0
+    tool_deploy_list: "{{ tool_deploy_default_config_hyperfine }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - hyperfine
+
 - name: Test role with jq
   hosts: '{{ target | default("all") }}'
   vars:

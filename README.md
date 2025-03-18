@@ -461,6 +461,50 @@ tool_deploy_list:
       match: "Haskell Dockerfile Linter {{ hadolint_version | mandatory }}"
 ```
 
+### hexyl
+
+[sharkdp / hexyl](https://github.com/sharkdp/hexyl)
+
+``` yaml
+hexyl_version: 0.16.0
+
+tool_deploy_list:
+  hexyl:
+    action: download_archive
+    github:
+      repo: sharkdp/hexyl
+      file: "v{{ hexyl_version }}/hexyl-v{{ hexyl_version }}-x86_64-unknown-linux-gnu.tar.gz"
+    version:
+      args: --version
+      match: "hexyl {{ hexyl_version }}"
+    man_pages:
+      src: hexyl.1
+```
+
+### hyperfine
+
+[sharkdp / hyperfine](https://github.com/sharkdp/hyperfine)
+
+``` yaml
+hyperfine_version: 1.19.0
+
+tool_deploy_list:
+  hyperfine:
+    action: download_archive
+    github:
+      repo: sharkdp/hyperfine
+      file: "v{{ hyperfine_version }}/hyperfine-v{{ hyperfine_version }}-x86_64-unknown-linux-gnu.tar.gz"
+    version:
+      args: --version
+      match: "hyperfine {{ hyperfine_version }}"
+    man_pages:
+      src: hyperfine.1
+    bash_completion:
+      src: autocomplete/hyperfine.bash
+    zsh_completion:
+      src: autocomplete/_hyperfine
+```
+
 ### jq
 
 [jqlang / jq](https://github.com/jqlang/jq)

@@ -1,0 +1,17 @@
+---
+
+hexyl_version: 0.16.0
+
+tool_deploy_default_config_hexyl:
+  hexyl:
+    action: download_archive
+    github:
+      repo: sharkdp/hexyl
+      file: "v{{ hexyl_version | mandatory }}/hexyl-v{{ hexyl_version }}-x86_64-unknown-linux-gnu.tar.gz"
+    version:
+      args: --version
+      match: "hexyl {{ hexyl_version | mandatory }}"
+    man_pages:
+      src: "hexyl.1"
+
+...
