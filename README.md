@@ -954,7 +954,7 @@ tool_deploy_list:
   tealdeer:
     action: download_binary
     github:
-      repo: tealdeer/tealdeer
+      repo: tealdeer-rs/tealdeer
       file: "v{{ tealdeer_version | mandatory }}/tealdeer-linux-x86_64-musl"
     version:
       args: --version
