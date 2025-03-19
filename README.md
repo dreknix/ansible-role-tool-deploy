@@ -943,6 +943,30 @@ tool_deploy_list:
       src: completion/zsh/_task
 ```
 
+### tealdeer
+
+[tealdeer-rs / tealdeer](https://github.com/tealdeer-rs/tealdeer)
+
+``` yaml
+tealdeer_version: 1.7.2
+
+tool_deploy_list:
+  tealdeer:
+    action: download_binary
+    github:
+      repo: tealdeer/tealdeer
+      file: "v{{ tealdeer_version | mandatory }}/tealdeer-linux-x86_64-musl"
+    version:
+      args: --version
+      match: "{{ tealdeer_version | mandatory }}"
+    bash_completion:
+      url:
+        - https://raw.githubusercontent.com/tealdeer-rs/tealdeer/refs/heads/main/completion/bash_tealdeer
+    zsh_completion:
+      url:
+        - https://raw.githubusercontent.com/tealdeer-rs/tealdeer/refs/heads/main/completion/zsh_tealdeer
+```
+
 ### tig
 
 [jonas / tig](https://github.com/jonas/tig)

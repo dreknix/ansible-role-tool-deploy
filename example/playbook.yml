@@ -401,6 +401,17 @@
     - tools
     - task
 
+- name: Test role with tealdeer
+  hosts: '{{ target | default("all") }}'
+  vars:
+    tealdeer_version: 1.7.2
+    tool_deploy_list: "{{ tool_deploy_default_config_tealdeer }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - tealdeer
+
 - name: Test role with tig
   hosts: '{{ target | default("all") }}'
   vars:
