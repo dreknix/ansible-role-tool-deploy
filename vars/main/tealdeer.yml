@@ -10,12 +10,10 @@ tool_deploy_default_config_tealdeer:
       file: "v{{ tealdeer_version | mandatory }}/tealdeer-linux-x86_64-musl"
     version:
       args: --version
-      match: "{{ tealdeer_version | mandatory }}"
+      match: "tealdeer {{ tealdeer_version | mandatory }}"
     bash_completion:
-      url:
-        - https://raw.githubusercontent.com/tealdeer-rs/tealdeer/refs/heads/main/completion/bash_tealdeer
+      url: https://raw.githubusercontent.com/tealdeer-rs/tealdeer/refs/heads/main/completion/bash_tealdeer
     zsh_completion:
-      url:
-        - https://raw.githubusercontent.com/tealdeer-rs/tealdeer/refs/heads/main/completion/zsh_tealdeer
+      url: https://raw.githubusercontent.com/tealdeer-rs/tealdeer/refs/heads/main/completion/zsh_tealdeer
 
 ...
