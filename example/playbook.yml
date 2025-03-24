@@ -305,7 +305,7 @@
 - name: Test role with nnn
   hosts: '{{ target | default("all") }}'
   vars:
-    nnn_version: 5.0
+    nnn_version: 5.1
     tool_deploy_list: "{{ tool_deploy_default_config_nnn }}"
   roles:
     - role: tool_deploy
