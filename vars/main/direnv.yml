@@ -1,6 +1,6 @@
 ---
 
-direnv_version: 2.35.0
+direnv_version: 2.36.0
 
 tool_deploy_default_config_direnv:
   direnv:
