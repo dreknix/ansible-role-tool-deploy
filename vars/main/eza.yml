@@ -1,6 +1,6 @@
 ---
 
-eza_version: 0.20.24
+eza_version: 0.21.3
 
 tool_deploy_default_config_eza:
   eza:

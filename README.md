@@ -270,7 +270,7 @@ tool_deploy_list:
 [eza-community / eza](https://github.com/eza-community/eza)
 
 ``` yaml
-eza_version: 0.20.24
+eza_version: 0.21.3
 
 tool_deploy_list:
   eza:
