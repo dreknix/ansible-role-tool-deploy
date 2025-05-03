@@ -459,7 +459,7 @@
 - name: Test role with xh
   hosts: '{{ target | default("all") }}'
   vars:
-    xh_version: 0.6.3
+    xh_version: 0.24.1
     tool_deploy_list: "{{ tool_deploy_default_config_xh }}"
   roles:
     - role: tool_deploy

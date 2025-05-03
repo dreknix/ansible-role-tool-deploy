@@ -1073,7 +1073,7 @@ tool_deploy_list:
 [ducaale / xh](https://github.com/ducaale/xh)
 
 ``` yaml
-xh_version: 0.24.0
+xh_version: 0.24.1
 
 tool_deploy_list:
   xh:
