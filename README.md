@@ -383,7 +383,7 @@ tool_deploy_list:
 [gopasspw / gopass](https://github.com/gopasspw/gopass)
 
 ``` yaml
-gopass_version: 1.15.15
+gopass_version: 1.15.16
 
 tool_deploy_list:
   gopass:
