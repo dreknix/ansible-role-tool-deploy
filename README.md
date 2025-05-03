@@ -936,7 +936,7 @@ tool_deploy_list:
       file: "v{{ task_version }}/task_linux_amd64.tar.gz"
     version:
       args: --version
-      match: "Task version: v{{ task_version }}"
+      match: "{{ task_version }}"
     bash_completion:
       src: completion/bash/task.bash
     zsh_completion:
