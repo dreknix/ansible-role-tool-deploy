@@ -691,7 +691,7 @@ tool_deploy_list:
 [walles / moar](https://github.com/walles/moar)
 
 ``` yaml
-moar_version: 1.31.4
+moar_version: 1.31.5
 
 tool_deploy_list:
   moar:

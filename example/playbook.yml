@@ -294,7 +294,7 @@
 - name: Test role with moar
   hosts: '{{ target | default("all") }}'
   vars:
-    moar_version: 1.35.0
+    moar_version: 1.35.5
     tool_deploy_list: "{{ tool_deploy_default_config_moar }}"
   roles:
     - role: tool_deploy
