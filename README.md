@@ -234,7 +234,7 @@ tool_deploy_list:
 [wagoodman / dive](https://github.com/wagoodman/dive)
 
 ``` yaml
-dive_version: 0.12.0
+dive_version: 0.13.1
 
 tool_deploy_list:
   dive:

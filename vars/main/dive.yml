@@ -1,6 +1,6 @@
 ---
 
-dive_version: 0.12.0
+dive_version: 0.13.1
 
 tool_deploy_default_config_dive:
   dive:
