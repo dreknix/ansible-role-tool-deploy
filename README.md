@@ -926,7 +926,7 @@ tool_deploy_list:
 [go-task / task](https://github.com/go-task/task)
 
 ``` yaml
-task_version: 3.42.1
+task_version: 3.43.3
 
 tool_deploy_list:
   task:
