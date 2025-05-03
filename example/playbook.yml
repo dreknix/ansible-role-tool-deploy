@@ -140,7 +140,7 @@
 - name: Test role with gopass-jsonapi
   hosts: '{{ target | default("all") }}'
   vars:
-    gopass_jsonapi_version: 1.15.15
+    gopass_jsonapi_version: 1.15.16
     tool_deploy_list: "{{ tool_deploy_default_config_gopass_jsonapi }}"
   roles:
     - role: tool_deploy

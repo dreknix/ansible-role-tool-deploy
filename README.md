@@ -405,7 +405,7 @@ tool_deploy_list:
 [gopasspw / gopass-jsonapi](https://github.com/gopasspw/gopass-jsonapi)
 
 ``` yaml
-gopass_jsonapi_version: 1.15.15
+gopass_jsonapi_version: 1.15.16
 
 tool_deploy_list:
   gopass-jsonapi:
