@@ -137,6 +137,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag lsd example/playbook.yml
 
+  test:micro:
+    desc: Test deployment of tool micro
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag micro example/playbook.yml
+
   test:oh-my-posh:
     desc: Test deployment of tool oh-my-posh
     cmds:
