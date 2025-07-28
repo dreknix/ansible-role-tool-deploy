@@ -72,6 +72,16 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag glow example/playbook.yml
 
+  test:gopass:
+    desc: Test deployment of tool gopass
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag gopass example/playbook.yml
+
+  test:gopass-jsonapi:
+    desc: Test deployment of tool gopass-jsonapi
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag gopass-jsonapi example/playbook.yml
+
   test:jq:
     desc: Test deployment of tool jq
     cmds:
