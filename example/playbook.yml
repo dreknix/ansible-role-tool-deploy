@@ -41,7 +41,7 @@
 - name: Test role with direnv
   hosts: '{{ target | default("all") }}'
   vars:
-    direnv_version: 2.36.0
+    direnv_version: 2.37.1
     tool_deploy_list: "{{ tool_deploy_default_config_direnv }}"
   roles:
     - role: tool_deploy

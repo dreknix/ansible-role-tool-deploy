@@ -210,7 +210,7 @@ tool_deploy_list:
 [direnv / direnv](https://github.com/direnv/direnv)
 
 ``` yaml
-direnv_version: 2.36.0
+direnv_version: 2.37.1
 
 tool_deploy_list:
   direnv:
