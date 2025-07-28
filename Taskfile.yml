@@ -142,6 +142,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag micro example/playbook.yml
 
+  test:minikube:
+    desc: Test deployment of tool minikube
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag minikube example/playbook.yml
+
   test:oh-my-posh:
     desc: Test deployment of tool oh-my-posh
     cmds:

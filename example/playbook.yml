@@ -283,7 +283,7 @@
 - name: Test role with minikube
   hosts: '{{ target | default("all") }}'
   vars:
-    minikube_version: 1.35.0
+    minikube_version: 1.36.0
     tool_deploy_list: "{{ tool_deploy_default_config_minikube }}"
   roles:
     - role: tool_deploy
