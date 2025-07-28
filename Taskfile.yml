@@ -127,6 +127,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag lazygit example/playbook.yml
 
+  test:less:
+    desc: Test deployment of tool less
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag less example/playbook.yml
+
   test:lsd:
     desc: Test deployment of tool lsd
     cmds:
