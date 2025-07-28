@@ -30,7 +30,7 @@ installed. The installation can be forced with the flag `force_install`.
   vars:
 
     delta_version: 0.18.2
-    jq_version: 1.7.1
+    jq_version: 1.8.1
     task_version: 3.42.1
 
     tool_deploy_list:
@@ -510,7 +510,7 @@ tool_deploy_list:
 [jqlang / jq](https://github.com/jqlang/jq)
 
 ``` yaml
-jq_version: 1.7.1
+jq_version: 1.8.1
 
 tool_deploy_list:
   jq:
