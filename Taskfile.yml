@@ -97,6 +97,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag hexyl example/playbook.yml
 
+  test:hyperfine:
+    desc: Test deployment of tool hyperfine
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag hyperfine example/playbook.yml
+
   test:jq:
     desc: Test deployment of tool jq
     cmds:
