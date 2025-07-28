@@ -1,6 +1,6 @@
 ---
 
-lazygit_version: 0.50.0
+lazygit_version: 0.53.0
 
 tool_deploy_default_config_lazygit:
   lazygit:
