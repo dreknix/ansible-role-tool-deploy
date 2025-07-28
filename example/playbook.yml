@@ -481,7 +481,7 @@
 - name: Test role with yq
   hosts: '{{ target | default("all") }}'
   vars:
-    yq_version: 4.45.2
+    yq_version: 4.47.1
     tool_deploy_list: "{{ tool_deploy_default_config_yq }}"
   roles:
     - role: tool_deploy
