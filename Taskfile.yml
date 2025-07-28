@@ -197,6 +197,16 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag task example/playbook.yml
 
+  test:tealdeer:
+    desc: Test deployment of tool tealdeer
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag tealdeer example/playbook.yml
+
+  test:tig:
+    desc: Test deployment of tool tig
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag tig example/playbook.yml
+
   test:zoxide:
     desc: Test deployment of tool zoxide
     cmds:
