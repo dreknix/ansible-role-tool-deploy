@@ -207,6 +207,16 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag tig example/playbook.yml
 
+  test:tmux:
+    desc: Test deployment of tool tmux
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag tmux example/playbook.yml
+
+  test:uv:
+    desc: Test deployment of tool uv
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag uv example/playbook.yml
+
   test:zoxide:
     desc: Test deployment of tool zoxide
     cmds:
