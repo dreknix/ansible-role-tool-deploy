@@ -62,6 +62,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag lsd example/playbook.yml
 
+  test:oh-my-posh:
+    desc: Test deployment of tool oh-my-posh
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag oh-my-posh example/playbook.yml
+
   test:rg:
     desc: Test deployment of tool rg
     cmds:

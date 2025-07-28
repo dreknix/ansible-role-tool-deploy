@@ -327,7 +327,7 @@
 - name: Test role with oh-my-posh
   hosts: '{{ target | default("all") }}'
   vars:
-    oh_my_posh_version: 25.0.0
+    oh_my_posh_version: 26.17.0
     tool_deploy_list: "{{ tool_deploy_default_config_oh_my_posh }}"
   roles:
     - role: tool_deploy
