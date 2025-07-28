@@ -107,6 +107,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag jq example/playbook.yml
 
+  test:keepassxc:
+    desc: Test deployment of tool keepassxc
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag keepassxc example/playbook.yml
+
   test:lsd:
     desc: Test deployment of tool lsd
     cmds:
