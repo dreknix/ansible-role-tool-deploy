@@ -217,7 +217,7 @@
 - name: Test role with kubectl
   hosts: '{{ target | default("all") }}'
   vars:
-    kubectl_version: 1.32.2
+    kubectl_version: 1.33.3
     tool_deploy_list: "{{ tool_deploy_default_config_kubectl }}"
   roles:
     - role: tool_deploy

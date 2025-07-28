@@ -1,7 +1,7 @@
 ---
 
 # curl -L -s https://dl.k8s.io/release/stable.txt
-kubectl_version: 1.32.2
+kubectl_version: 1.33.3
 
 tool_deploy_default_config_kubectl:
   kubectl:

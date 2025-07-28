@@ -112,6 +112,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag keepassxc example/playbook.yml
 
+  test:kubectl:
+    desc: Test deployment of tool kubectl
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag kubectl example/playbook.yml
+
   test:lsd:
     desc: Test deployment of tool lsd
     cmds:
