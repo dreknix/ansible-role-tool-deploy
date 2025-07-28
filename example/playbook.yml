@@ -96,7 +96,7 @@
 - name: Test role with fx
   hosts: '{{ target | default("all") }}'
   vars:
-    fx_version: 35.0.0
+    fx_version: 38.0.0
     tool_deploy_list: "{{ tool_deploy_default_config_fx }}"
   roles:
     - role: tool_deploy

@@ -57,6 +57,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag fd example/playbook.yml
 
+  test:fx:
+    desc: Test deployment of tool fx
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag fx example/playbook.yml
+
   test:fzf:
     desc: Test deployment of tool fzf
     cmds:
