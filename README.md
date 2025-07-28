@@ -358,7 +358,7 @@ tool_deploy_list:
 [charmbracelet / glow](https://github.com/charmbracelet/glow)
 
 ``` yaml
-glow_version: 2.1.0
+glow_version: 2.1.1
 
 tool_deploy_list:
   glow:

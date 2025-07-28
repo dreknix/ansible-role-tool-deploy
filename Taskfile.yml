@@ -67,6 +67,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag fzf example/playbook.yml
 
+  test:glow:
+    desc: Test deployment of tool glow
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag glow example/playbook.yml
+
   test:jq:
     desc: Test deployment of tool jq
     cmds:
