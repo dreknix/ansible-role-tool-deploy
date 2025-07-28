@@ -87,6 +87,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag gum example/playbook.yml
 
+  test:hadolint:
+    desc: Test deployment of tool hadolint
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag hadolint example/playbook.yml
+
   test:jq:
     desc: Test deployment of tool jq
     cmds:
