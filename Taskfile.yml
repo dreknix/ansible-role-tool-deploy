@@ -177,6 +177,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag restic example/playbook.yml
 
+  test:sqlitebrowser:
+    desc: Test deployment of tool sqlitebrowser
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag sqlitebrowser example/playbook.yml
+
   test:rg:
     desc: Test deployment of tool rg
     cmds:
