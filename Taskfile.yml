@@ -37,6 +37,16 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag direnv example/playbook.yml
 
+  test:dive:
+    desc: Test deployment of tool dive
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag dive example/playbook.yml
+
+  test:docker-credential-pass:
+    desc: Test deployment of tool docker-credential-pass
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag docker-credential-pass example/playbook.yml
+
   test:eza:
     desc: Test deployment of tool eza
     cmds:

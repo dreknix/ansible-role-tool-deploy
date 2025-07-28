@@ -63,7 +63,7 @@
 - name: Test role with docker-credential-pass
   hosts: '{{ target | default("all") }}'
   vars:
-    docker_credential_version: 0.9.1
+    docker_credential_version: 0.9.3
     tool_deploy_list: "{{ tool_deploy_default_config_docker_credential_pass }}"
   roles:
     - role: tool_deploy
