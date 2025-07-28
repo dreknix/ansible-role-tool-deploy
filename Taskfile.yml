@@ -172,6 +172,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag pet example/playbook.yml
 
+  test:restic:
+    desc: Test deployment of tool restic
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag restic example/playbook.yml
+
   test:rg:
     desc: Test deployment of tool rg
     cmds:
