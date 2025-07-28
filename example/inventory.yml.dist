@@ -5,6 +5,6 @@ example:
     example-host:
       ansible_user: ansible
       ansible_ssh_private_key_file: ~/.ssh/id_ansible
-      # ansible_become_pass: "{{ lookup('passwordstore', 'tuhh-e17/ansible/become/ansible') | default(omit) }}"
+      # ansible_become_pass: "{{ lookup('passwordstore', 'work/ansible/become/ansible') | default(omit) }}"
 
 ...
