@@ -1,6 +1,6 @@
 ---
 
-moar_version: 1.31.5
+moar_version: 1.32.6
 
 tool_deploy_default_config_moar:
   moar:
