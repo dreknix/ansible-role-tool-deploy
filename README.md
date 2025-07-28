@@ -423,7 +423,7 @@ tool_deploy_list:
 [charmbracelet / gum](https://github.com/charmbracelet/gum)
 
 ``` yaml
-gum_version: 0.16.0
+gum_version: 0.16.2
 
 tool_deploy_list:
   gum:
