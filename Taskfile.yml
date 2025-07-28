@@ -152,6 +152,16 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag moar example/playbook.yml
 
+  test:nnn:
+    desc: Test deployment of tool nnn
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag nnn example/playbook.yml
+
+  test:nvim:
+    desc: Test deployment of tool nvim
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag nvim example/playbook.yml
+
   test:oh-my-posh:
     desc: Test deployment of tool oh-my-posh
     cmds:
