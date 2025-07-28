@@ -167,6 +167,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag oh-my-posh example/playbook.yml
 
+  test:pet:
+    desc: Test deployment of tool pet
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag pet example/playbook.yml
+
   test:rg:
     desc: Test deployment of tool rg
     cmds:
