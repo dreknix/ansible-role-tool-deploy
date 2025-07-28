@@ -528,7 +528,7 @@ tool_deploy_list:
 [keepassxreboot / keepassxc](https://github.com/keepassxreboot/keepassxc)
 
 ``` yaml
-keepassxc_version: 2.7.9
+keepassxc_version: 2.7.10
 
 tool_deploy_list:
   keepassxc:

@@ -1,6 +1,6 @@
 ---
 
-keepassxc_version: 2.7.9
+keepassxc_version: 2.7.10
 
 tool_deploy_default_config_keepassxc:
   keepassxc:
