@@ -222,6 +222,21 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag vhs example/playbook.yml
 
+  test:xh:
+    desc: Test deployment of tool xh
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag xh example/playbook.yml
+
+  test:xq:
+    desc: Test deployment of tool xq
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag xq example/playbook.yml
+
+  test:yq:
+    desc: Test deployment of tool yq
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag yq example/playbook.yml
+
   test:zoxide:
     desc: Test deployment of tool zoxide
     cmds:
