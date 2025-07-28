@@ -117,6 +117,16 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag kubectl example/playbook.yml
 
+  test:lazydocker:
+    desc: Test deployment of tool lazydocker
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag lazydocker example/playbook.yml
+
+  test:lazygit:
+    desc: Test deployment of tool lazygit
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag lazygit example/playbook.yml
+
   test:lsd:
     desc: Test deployment of tool lsd
     cmds:
