@@ -92,6 +92,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag hadolint example/playbook.yml
 
+  test:hexyl:
+    desc: Test deployment of tool hexyl
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag hexyl example/playbook.yml
+
   test:jq:
     desc: Test deployment of tool jq
     cmds:
