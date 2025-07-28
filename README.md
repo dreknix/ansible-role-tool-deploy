@@ -669,7 +669,7 @@ tool_deploy_list:
 [kubernetes / minikube](https://github.com/kubernetes/minikube)
 
 ``` yaml
-minikube_version: 1.35.0
+minikube_version: 1.36.0
 
 tool_deploy_list:
   minikube:
@@ -691,7 +691,7 @@ tool_deploy_list:
 [walles / moar](https://github.com/walles/moar)
 
 ``` yaml
-moar_version: 1.31.5
+moar_version: 1.32.6
 
 tool_deploy_list:
   moar:
@@ -737,7 +737,7 @@ tool_deploy_list:
 [neovim / neovim](https://github.com/neovim/neovim)
 
 ``` yaml
-nvim_version: 0.11.1
+nvim_version: 0.11.3
 
 tool_deploy_list:
   nvim:
