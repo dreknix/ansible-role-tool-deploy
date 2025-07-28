@@ -217,6 +217,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag uv example/playbook.yml
 
+  test:vhs:
+    desc: Test deployment of tool vhs
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag vhs example/playbook.yml
+
   test:zoxide:
     desc: Test deployment of tool zoxide
     cmds:

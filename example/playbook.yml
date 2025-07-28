@@ -448,7 +448,7 @@
 - name: Test role with vhs
   hosts: '{{ target | default("all") }}'
   vars:
-    vhs_version: 0.9.0
+    vhs_version: 0.10.0
     tool_deploy_list: "{{ tool_deploy_default_config_vhs }}"
   roles:
     - role: tool_deploy
