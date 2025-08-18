@@ -6,6 +6,8 @@ tool_deploy_default_config_less:
   less:
     dependencies:
       - build-essential
+      - libncurses5-dev
+      - libncursesw5-dev
     action: download_sources
     url: http://greenwoodsoftware.com/less/less-{{ less_version }}.tar.gz
     version:
