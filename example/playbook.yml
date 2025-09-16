@@ -382,7 +382,7 @@
 - name: Test role with talosctl
   hosts: '{{ target | default("all") }}'
   vars:
-    talosctl_version: 1.10.5
+    talosctl_version: 1.11.1
     tool_deploy_list: "{{ tool_deploy_default_config_talosctl }}"
   roles:
     - role: tool_deploy
