@@ -437,7 +437,7 @@
 - name: Test role with uv
   hosts: '{{ target | default("all") }}'
   vars:
-    uv_version: 0.8.3
+    uv_version: 0.8.17
     tool_deploy_list: "{{ tool_deploy_default_config_uv }}"
   roles:
     - role: tool_deploy
