@@ -1,6 +1,6 @@
 ---
 
-gum_version: 0.16.2
+gum_version: 0.17.0
 
 tool_deploy_default_config_gum:
   gum:
