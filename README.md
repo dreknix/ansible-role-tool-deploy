@@ -737,7 +737,7 @@ tool_deploy_list:
 [neovim / neovim](https://github.com/neovim/neovim)
 
 ``` yaml
-nvim_version: 0.11.3
+nvim_version: 0.11.4
 
 tool_deploy_list:
   nvim:

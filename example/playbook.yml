@@ -316,7 +316,7 @@
 - name: Test role with nvim
   hosts: '{{ target | default("all") }}'
   vars:
-    nvim_version: 0.11.3
+    nvim_version: 0.11.4
     tool_deploy_list: "{{ tool_deploy_default_config_nvim }}"
   roles:
     - role: tool_deploy
