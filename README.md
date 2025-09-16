@@ -383,7 +383,7 @@ tool_deploy_list:
 [gopasspw / gopass](https://github.com/gopasspw/gopass)
 
 ``` yaml
-gopass_version: 1.15.16
+gopass_version: 1.15.17
 
 tool_deploy_list:
   gopass:
@@ -405,7 +405,7 @@ tool_deploy_list:
 [gopasspw / gopass-jsonapi](https://github.com/gopasspw/gopass-jsonapi)
 
 ``` yaml
-gopass_jsonapi_version: 1.15.16
+gopass_jsonapi_version: 1.15.17
 
 tool_deploy_list:
   gopass-jsonapi:
