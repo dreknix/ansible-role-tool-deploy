@@ -74,7 +74,7 @@
 - name: Test role with eza
   hosts: '{{ target | default("all") }}'
   vars:
-    eza_version: 0.23.0
+    eza_version: 0.23.3
     tool_deploy_list: "{{ tool_deploy_default_config_eza }}"
   roles:
     - role: tool_deploy
