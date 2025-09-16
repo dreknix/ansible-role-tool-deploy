@@ -107,7 +107,7 @@
 - name: Test role with fzf
   hosts: '{{ target | default("all") }}'
   vars:
-    fzf_version: 0.65.0
+    fzf_version: 0.65.2
     tool_deploy_list: "{{ tool_deploy_default_config_fzf }}"
   roles:
     - role: tool_deploy
