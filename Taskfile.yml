@@ -147,10 +147,10 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag minikube example/playbook.yml
 
-  test:moar:
-    desc: Test deployment of tool moar
+  test:moor:
+    desc: Test deployment of tool moor
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag moar example/playbook.yml
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag moor example/playbook.yml
 
   test:nnn:
     desc: Test deployment of tool nnn

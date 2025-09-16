@@ -291,16 +291,16 @@
     - tools
     - minikube
 
-- name: Test role with moar
+- name: Test role with moor
   hosts: '{{ target | default("all") }}'
   vars:
-    moar_version: 1.32.6
-    tool_deploy_list: "{{ tool_deploy_default_config_moar }}"
+    moor_version: 2.1.1
+    tool_deploy_list: "{{ tool_deploy_default_config_moor }}"
   roles:
     - role: tool_deploy
   tags:
     - tools
-    - moar
+    - moor
 
 - name: Test role with nnn
   hosts: '{{ target | default("all") }}'

@@ -1,0 +1,18 @@
+---
+
+moor_version: 2.1.1
+
+tool_deploy_default_config_moor:
+  moor:
+    action: download_binary
+    github:
+      repo: walles/moor
+      file: "v{{ moor_version | mandatory }}/moor-v{{ moor_version }}-linux-amd64"
+    version:
+      args: --version
+      match: "{{ moor_version | mandatory }}"
+    man_pages:
+      url:
+        - https://raw.githubusercontent.com/walles/moor/refs/heads/master/moor.1
+
+...

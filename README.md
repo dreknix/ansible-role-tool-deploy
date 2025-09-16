@@ -9,7 +9,7 @@ install tools from GitHub. More possibilities must be added.
 
 Tools to look into:
 
-* [walles / moar](https://github.com/walles/moar)
+* [walles / moor](https://github.com/walles/moor)
 * [jdx / mise](https://github.com/jdx/mise)
 
 Features:
@@ -686,25 +686,25 @@ tool_deploy_list:
       generate_args: completion zsh
 ```
 
-### moar
+### moor
 
-[walles / moar](https://github.com/walles/moar)
+[walles / moor](https://github.com/walles/moor)
 
 ``` yaml
-moar_version: 1.32.6
+moor_version: 2.1.1
 
 tool_deploy_list:
-  moar:
+  moor:
     action: download_binary
     github:
-      repo: walles/moar
-      file: "v{{ moar_version | mandatory }}/moar-v{{ moar_version }}-linux-amd64"
+      repo: walles/moor
+      file: "v{{ moor_version | mandatory }}/moor-v{{ moor_version }}-linux-amd64"
     version:
       args: --version
-      match: "{{ moar_version | mandatory }}"
+      match: "{{ moor_version | mandatory }}"
     man_pages:
       url:
-        - https://raw.githubusercontent.com/walles/moar/refs/heads/master/moar.1
+        - https://raw.githubusercontent.com/walles/moor/refs/heads/master/moor.1
 ```
 
 ### nnn
