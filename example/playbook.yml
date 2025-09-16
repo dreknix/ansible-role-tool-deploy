@@ -162,7 +162,7 @@
 - name: Test role with hadolint
   hosts: '{{ target | default("all") }}'
   vars:
-    hadolint_version: 2.12.0
+    hadolint_version: 2.13.1
     tool_deploy_list: "{{ tool_deploy_default_config_hadolint }}"
   roles:
     - role: tool_deploy

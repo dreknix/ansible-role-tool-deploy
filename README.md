@@ -448,7 +448,7 @@ tool_deploy_list:
 [hadolint / hadolint](https://github.com/hadolint/hadolint)
 
 ``` yaml
-hadolint_version: 2.12.0
+hadolint_version: 2.13.1
 
 tool_deploy_list:
   hadolint:
