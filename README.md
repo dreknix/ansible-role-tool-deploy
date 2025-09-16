@@ -669,7 +669,7 @@ tool_deploy_list:
 [kubernetes / minikube](https://github.com/kubernetes/minikube)
 
 ``` yaml
-minikube_version: 1.36.0
+minikube_version: 1.37.0
 
 tool_deploy_list:
   minikube:

@@ -1,6 +1,6 @@
 ---
 
-minikube_version: 1.36.0
+minikube_version: 1.37.0
 
 tool_deploy_default_config_minikube:
   minikube:
