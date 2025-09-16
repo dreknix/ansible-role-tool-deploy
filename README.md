@@ -312,7 +312,7 @@ tool_deploy_list:
 [antonmedv / fx](https://github.com/antonmedv/fx)
 
 ``` yaml
-fx_version: 38.0.0
+fx_version: 39.1.0
   fx:
     action: download_binary
     github:

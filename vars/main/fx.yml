@@ -1,6 +1,6 @@
 ---
 
-fx_version: 38.0.0
+fx_version: 39.1.0
 
 tool_deploy_default_config_fx:
   fx:
