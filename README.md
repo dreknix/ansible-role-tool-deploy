@@ -288,7 +288,7 @@ tool_deploy_list:
 [sharkdp / fd](https://github.com/sharkdp/fd)
 
 ``` yaml
-fd_version: 10.2.0
+fd_version: 10.3.0
 
 tool_deploy_list:
   fd:
