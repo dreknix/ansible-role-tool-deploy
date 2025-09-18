@@ -346,6 +346,17 @@
     - tools
     - pet
 
+- name: Test role with prek
+  hosts: '{{ target | default("all") }}'
+  vars:
+    prek_version: 0.2.1
+    tool_deploy_list: "{{ tool_deploy_default_config_prek }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - prek
+
 - name: Test role with restic
   hosts: '{{ target | default("all") }}'
   vars:

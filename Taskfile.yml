@@ -172,6 +172,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag pet example/playbook.yml
 
+  test:prek:
+    desc: Test deployment of tool prek
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag prek example/playbook.yml
+
   test:restic:
     desc: Test deployment of tool restic
     cmds:

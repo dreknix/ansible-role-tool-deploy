@@ -793,6 +793,29 @@ tool_deploy_list:
       src: misc/completions/zsh/_pet
 ```
 
+### prek
+
+[j178 / prek](https://github.com/j178/prek)
+
+``` yaml
+prek_version: 0.2.1
+
+tool_deploy_list:
+  prek:
+    action: download_archive
+    github:
+      repo: j178/prek
+      file: >-
+        v{{ prek_version | mandatory }}/prek-x86_64-unknown-linux-gnu.tar.gz
+    version:
+      args: --version
+      match: "prek {{ prek_version | mandatory }}"
+    bash_completion:
+      generate_cmd: COMPLETE=bash prek
+    zsh_completion:
+      generate_cmd: COMPLETE=zsh prek
+```
+
 ### restic
 
 [restic / restic](https://github.com/restic/restic)
