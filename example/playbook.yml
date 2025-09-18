@@ -5,7 +5,7 @@
   vars:
     delta_version: 0.18.2
     jq_version: 1.8.1
-    task_version: 3.44.1
+    task_version: 3.45.4
     tool_deploy_list: >-
       {{ tool_deploy_default_config_delta
          | combine(tool_deploy_default_config_jq)
@@ -404,7 +404,7 @@
 - name: Test role with task
   hosts: '{{ target | default("all") }}'
   vars:
-    task_version: 3.45.3
+    task_version: 3.45.4
     tool_deploy_list: "{{ tool_deploy_default_config_task }}"
   roles:
     - role: tool_deploy
