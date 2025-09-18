@@ -426,7 +426,7 @@
 - name: Test role with tig
   hosts: '{{ target | default("all") }}'
   vars:
-    tig_version: 2.5.12
+    tig_version: 2.6.0
     tool_deploy_list: "{{ tool_deploy_default_config_tig }}"
   roles:
     - role: tool_deploy

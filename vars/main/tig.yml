@@ -1,6 +1,6 @@
 ---
 
-tig_version: 2.5.12
+tig_version: 2.6.0
 
 tool_deploy_default_config_tig:
   tig:

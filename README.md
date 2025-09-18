@@ -995,7 +995,7 @@ tool_deploy_list:
 [jonas / tig](https://github.com/jonas/tig)
 
 ``` yaml
-tig_version: 2.5.12
+tig_version: 2.6.0
 
 tool_deploy_list:
   tig:
