@@ -13,8 +13,8 @@ tool_deploy_default_config_prek:
       args: --version
       match: "prek {{ prek_version | mandatory }}"
     bash_completion:
-      generate_cmd: COMPLETE=bash prek
+      generate_cmd: sh -c "COMPLETE=bash prek"
     zsh_completion:
-      generate_cmd: COMPLETE=zsh prek
+      generate_cmd: sh -c "COMPLETE=zsh prek"
 
 ...
