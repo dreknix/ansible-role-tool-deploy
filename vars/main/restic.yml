@@ -1,6 +1,6 @@
 ---
 
-restic_version: 0.18.0
+restic_version: 0.18.1
 
 tool_deploy_default_config_restic:
   restic:
