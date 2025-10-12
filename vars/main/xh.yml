@@ -1,6 +1,6 @@
 ---
 
-xh_version: 0.24.1
+xh_version: 0.25.0
 
 tool_deploy_default_config_xh:
   xh:
