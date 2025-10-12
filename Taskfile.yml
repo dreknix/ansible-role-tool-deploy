@@ -72,6 +72,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag fzf example/playbook.yml
 
+  test:gitleaks:
+    desc: Test deployment of tool gitleaks
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag gitleaks example/playbook.yml
+
   test:glow:
     desc: Test deployment of tool glow
     cmds:

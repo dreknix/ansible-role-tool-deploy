@@ -375,6 +375,28 @@ tool_deploy_list:
       url: https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/shell/completion.zsh
 ```
 
+### gitleaks
+
+[gitleaks / gitleaks](https://github.com/gitleaks/gitleaks)
+
+``` yaml
+gitleaks_version: 8.28.0
+
+tool_deploy_default_config_gitleaks:
+  gitleaks:
+    action: download_archive
+    github:
+      repo: gitleaks/gitleaks
+      file: "v{{ gitleaks_version | mandatory }}/gitleaks_{{ gitleaks_version }}_linux_x64.tar.gz"
+    version:
+      args: --version
+      match: "gitleaks version {{ gitleaks_version | mandatory }}"
+    bash_completion:
+      generate_cmd: gitleaks completion bash
+    zsh_completion:
+      generate_cmd: gitleaks completion zsh
+```
+
 ### glow
 
 [charmbracelet / glow](https://github.com/charmbracelet/glow)
