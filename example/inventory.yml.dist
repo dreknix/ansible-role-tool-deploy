@@ -7,4 +7,10 @@ example:
       ansible_ssh_private_key_file: ~/.ssh/id_ansible
       # ansible_become_pass: "{{ lookup('passwordstore', 'work/ansible/become/ansible') | default(omit) }}"
 
+    localhost:
+      ansible_become: false
+      ansible_connection: local
+
+      tool_deploy_prefix: "{{ ansible_env.HOME }}/.local"
+
 ...
