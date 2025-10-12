@@ -3,9 +3,6 @@
 - name: Test role with README example
   hosts: '{{ target | default("all") }}'
   vars:
-    delta_version: 0.18.2
-    jq_version: 1.8.1
-    task_version: 3.45.4
     tool_deploy_list: >-
       {{ tool_deploy_default_config_delta
          | combine(tool_deploy_default_config_jq)
@@ -16,10 +13,19 @@
     - tools
     - readme
 
+- name: Test role with atuin
+  hosts: '{{ target | default("all") }}'
+  vars:
+    tool_deploy_list: "{{ tool_deploy_default_config_atuin }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - atuin
+
 - name: Test role with bat
   hosts: '{{ target | default("all") }}'
   vars:
-    bat_version: 0.25.0
     tool_deploy_list: "{{ tool_deploy_default_config_bat }}"
   roles:
     - role: tool_deploy
@@ -30,7 +36,6 @@
 - name: Test role with delta
   hosts: '{{ target | default("all") }}'
   vars:
-    delta_version: 0.18.2
     tool_deploy_list: "{{ tool_deploy_default_config_delta }}"
   roles:
     - role: tool_deploy
@@ -41,7 +46,6 @@
 - name: Test role with direnv
   hosts: '{{ target | default("all") }}'
   vars:
-    direnv_version: 2.37.1
     tool_deploy_list: "{{ tool_deploy_default_config_direnv }}"
   roles:
     - role: tool_deploy
@@ -52,7 +56,6 @@
 - name: Test role with dive
   hosts: '{{ target | default("all") }}'
   vars:
-    dive_version: 0.13.1
     tool_deploy_list: "{{ tool_deploy_default_config_dive }}"
   roles:
     - role: tool_deploy
@@ -63,7 +66,6 @@
 - name: Test role with docker-credential-pass
   hosts: '{{ target | default("all") }}'
   vars:
-    docker_credential_version: 0.9.3
     tool_deploy_list: "{{ tool_deploy_default_config_docker_credential_pass }}"
   roles:
     - role: tool_deploy
@@ -74,7 +76,6 @@
 - name: Test role with eza
   hosts: '{{ target | default("all") }}'
   vars:
-    eza_version: 0.23.3
     tool_deploy_list: "{{ tool_deploy_default_config_eza }}"
   roles:
     - role: tool_deploy
@@ -85,7 +86,6 @@
 - name: Test role with fd
   hosts: '{{ target | default("all") }}'
   vars:
-    fd_version: 10.3.0
     tool_deploy_list: "{{ tool_deploy_default_config_fd }}"
   roles:
     - role: tool_deploy
@@ -96,7 +96,6 @@
 - name: Test role with fx
   hosts: '{{ target | default("all") }}'
   vars:
-    fx_version: 39.1.0
     tool_deploy_list: "{{ tool_deploy_default_config_fx }}"
   roles:
     - role: tool_deploy
@@ -107,7 +106,6 @@
 - name: Test role with fzf
   hosts: '{{ target | default("all") }}'
   vars:
-    fzf_version: 0.65.2
     tool_deploy_list: "{{ tool_deploy_default_config_fzf }}"
   roles:
     - role: tool_deploy
@@ -118,7 +116,6 @@
 - name: Test role with glow
   hosts: '{{ target | default("all") }}'
   vars:
-    glow_version: 2.1.1
     tool_deploy_list: "{{ tool_deploy_default_config_glow }}"
   roles:
     - role: tool_deploy
@@ -129,7 +126,6 @@
 - name: Test role with gopass
   hosts: '{{ target | default("all") }}'
   vars:
-    gopass_version: 1.15.17
     tool_deploy_list: "{{ tool_deploy_default_config_gopass }}"
   roles:
     - role: tool_deploy
@@ -140,7 +136,6 @@
 - name: Test role with gopass-jsonapi
   hosts: '{{ target | default("all") }}'
   vars:
-    gopass_jsonapi_version: 1.15.17
     tool_deploy_list: "{{ tool_deploy_default_config_gopass_jsonapi }}"
   roles:
     - role: tool_deploy
@@ -151,7 +146,6 @@
 - name: Test role with gum
   hosts: '{{ target | default("all") }}'
   vars:
-    gum_version: 0.17.0
     tool_deploy_list: "{{ tool_deploy_default_config_gum }}"
   roles:
     - role: tool_deploy
@@ -162,7 +156,6 @@
 - name: Test role with hadolint
   hosts: '{{ target | default("all") }}'
   vars:
-    hadolint_version: 2.13.1
     tool_deploy_list: "{{ tool_deploy_default_config_hadolint }}"
   roles:
     - role: tool_deploy
@@ -173,7 +166,6 @@
 - name: Test role with hexyl
   hosts: '{{ target | default("all") }}'
   vars:
-    hexyl_version: 0.16.0
     tool_deploy_list: "{{ tool_deploy_default_config_hexyl }}"
   roles:
     - role: tool_deploy
@@ -184,7 +176,6 @@
 - name: Test role with hyperfine
   hosts: '{{ target | default("all") }}'
   vars:
-    hyperfine_version: 1.19.0
     tool_deploy_list: "{{ tool_deploy_default_config_hyperfine }}"
   roles:
     - role: tool_deploy
@@ -195,7 +186,6 @@
 - name: Test role with jq
   hosts: '{{ target | default("all") }}'
   vars:
-    jq_version: 1.8.1
     tool_deploy_list: "{{ tool_deploy_default_config_jq }}"
   roles:
     - role: tool_deploy
@@ -206,7 +196,6 @@
 - name: Test role with keepassxc
   hosts: '{{ target | default("all") }}'
   vars:
-    keepassxc_version: 2.7.10
     tool_deploy_list: "{{ tool_deploy_default_config_keepassxc }}"
   roles:
     - role: tool_deploy
@@ -217,7 +206,6 @@
 - name: Test role with kubectl
   hosts: '{{ target | default("all") }}'
   vars:
-    kubectl_version: 1.34.1
     tool_deploy_list: "{{ tool_deploy_default_config_kubectl }}"
   roles:
     - role: tool_deploy
@@ -228,7 +216,6 @@
 - name: Test role with lazydocker
   hosts: '{{ target | default("all") }}'
   vars:
-    lazydocker_version: 0.24.1
     tool_deploy_list: "{{ tool_deploy_default_config_lazydocker }}"
   roles:
     - role: tool_deploy
@@ -239,7 +226,6 @@
 - name: Test role with lazygit
   hosts: '{{ target | default("all") }}'
   vars:
-    lazygit_version: 0.55.1
     tool_deploy_list: "{{ tool_deploy_default_config_lazygit }}"
   roles:
     - role: tool_deploy
@@ -250,7 +236,6 @@
 - name: Test role with less
   hosts: '{{ target | default("all") }}'
   vars:
-    less_version: 679
     tool_deploy_list: "{{ tool_deploy_default_config_less }}"
   roles:
     - role: tool_deploy
@@ -261,7 +246,6 @@
 - name: Test role with lsd
   hosts: '{{ target | default("all") }}'
   vars:
-    lsd_version: 1.1.5
     tool_deploy_list: "{{ tool_deploy_default_config_lsd }}"
   roles:
     - role: tool_deploy
@@ -272,7 +256,6 @@
 - name: Test role with micro
   hosts: '{{ target | default("all") }}'
   vars:
-    micro_version: 2.0.14
     tool_deploy_list: "{{ tool_deploy_default_config_micro }}"
   roles:
     - role: tool_deploy
@@ -283,7 +266,6 @@
 - name: Test role with minikube
   hosts: '{{ target | default("all") }}'
   vars:
-    minikube_version: 1.37.0
     tool_deploy_list: "{{ tool_deploy_default_config_minikube }}"
   roles:
     - role: tool_deploy
@@ -294,7 +276,6 @@
 - name: Test role with moor
   hosts: '{{ target | default("all") }}'
   vars:
-    moor_version: 2.1.1
     tool_deploy_list: "{{ tool_deploy_default_config_moor }}"
   roles:
     - role: tool_deploy
@@ -305,7 +286,6 @@
 - name: Test role with nnn
   hosts: '{{ target | default("all") }}'
   vars:
-    nnn_version: 5.1
     tool_deploy_list: "{{ tool_deploy_default_config_nnn }}"
   roles:
     - role: tool_deploy
@@ -316,7 +296,6 @@
 - name: Test role with nvim
   hosts: '{{ target | default("all") }}'
   vars:
-    nvim_version: 0.11.4
     tool_deploy_list: "{{ tool_deploy_default_config_nvim }}"
   roles:
     - role: tool_deploy
@@ -327,7 +306,6 @@
 - name: Test role with oh-my-posh
   hosts: '{{ target | default("all") }}'
   vars:
-    oh_my_posh_version: 26.23.5
     tool_deploy_list: "{{ tool_deploy_default_config_oh_my_posh }}"
   roles:
     - role: tool_deploy
@@ -338,7 +316,6 @@
 - name: Test role with pet
   hosts: '{{ target | default("all") }}'
   vars:
-    pet_version: 1.0.1
     tool_deploy_list: "{{ tool_deploy_default_config_pet }}"
   roles:
     - role: tool_deploy
@@ -349,7 +326,6 @@
 - name: Test role with prek
   hosts: '{{ target | default("all") }}'
   vars:
-    prek_version: 0.2.1
     tool_deploy_list: "{{ tool_deploy_default_config_prek }}"
   roles:
     - role: tool_deploy
@@ -360,7 +336,6 @@
 - name: Test role with restic
   hosts: '{{ target | default("all") }}'
   vars:
-    restic_version: 0.18.0
     tool_deploy_list: "{{ tool_deploy_default_config_restic }}"
   roles:
     - role: tool_deploy
@@ -371,7 +346,6 @@
 - name: Test role with rg
   hosts: '{{ target | default("all") }}'
   vars:
-    rg_version: 14.1.1
     tool_deploy_list: "{{ tool_deploy_default_config_rg }}"
   roles:
     - role: tool_deploy
@@ -382,7 +356,6 @@
 - name: Test role with sqlitebrowser
   hosts: '{{ target | default("all") }}'
   vars:
-    sqlitebrowser_version: 3.13.1
     tool_deploy_list: "{{ tool_deploy_default_config_sqlitebrowser }}"
   roles:
     - role: tool_deploy
@@ -393,7 +366,6 @@
 - name: Test role with talosctl
   hosts: '{{ target | default("all") }}'
   vars:
-    talosctl_version: 1.11.1
     tool_deploy_list: "{{ tool_deploy_default_config_talosctl }}"
   roles:
     - role: tool_deploy
@@ -404,7 +376,6 @@
 - name: Test role with task
   hosts: '{{ target | default("all") }}'
   vars:
-    task_version: 3.45.4
     tool_deploy_list: "{{ tool_deploy_default_config_task }}"
   roles:
     - role: tool_deploy
@@ -415,7 +386,6 @@
 - name: Test role with tealdeer
   hosts: '{{ target | default("all") }}'
   vars:
-    tealdeer_version: 1.7.2
     tool_deploy_list: "{{ tool_deploy_default_config_tealdeer }}"
   roles:
     - role: tool_deploy
@@ -426,7 +396,6 @@
 - name: Test role with tig
   hosts: '{{ target | default("all") }}'
   vars:
-    tig_version: 2.6.0
     tool_deploy_list: "{{ tool_deploy_default_config_tig }}"
   roles:
     - role: tool_deploy
@@ -437,7 +406,6 @@
 - name: Test role with tmux
   hosts: '{{ target | default("all") }}'
   vars:
-    tmux_version: 3.5a
     tool_deploy_list: "{{ tool_deploy_default_config_tmux }}"
   roles:
     - role: tool_deploy
@@ -448,7 +416,6 @@
 - name: Test role with uv
   hosts: '{{ target | default("all") }}'
   vars:
-    uv_version: 0.8.18
     tool_deploy_list: "{{ tool_deploy_default_config_uv }}"
   roles:
     - role: tool_deploy
@@ -459,7 +426,6 @@
 - name: Test role with vhs
   hosts: '{{ target | default("all") }}'
   vars:
-    vhs_version: 0.10.0
     tool_deploy_list: "{{ tool_deploy_default_config_vhs }}"
   roles:
     - role: tool_deploy
@@ -470,7 +436,6 @@
 - name: Test role with xh
   hosts: '{{ target | default("all") }}'
   vars:
-    xh_version: 0.24.1
     tool_deploy_list: "{{ tool_deploy_default_config_xh }}"
   roles:
     - role: tool_deploy
@@ -481,7 +446,6 @@
 - name: Test role with xq
   hosts: '{{ target | default("all") }}'
   vars:
-    xq_version: 1.3.0
     tool_deploy_list: "{{ tool_deploy_default_config_xq }}"
   roles:
     - role: tool_deploy
@@ -492,7 +456,6 @@
 - name: Test role with yq
   hosts: '{{ target | default("all") }}'
   vars:
-    yq_version: 4.47.2
     tool_deploy_list: "{{ tool_deploy_default_config_yq }}"
   roles:
     - role: tool_deploy
@@ -503,7 +466,6 @@
 - name: Test role with zoxide
   hosts: '{{ target | default("all") }}'
   vars:
-    zoxide_version: 0.9.8
     tool_deploy_list: "{{ tool_deploy_default_config_zoxide }}"
   roles:
     - role: tool_deploy

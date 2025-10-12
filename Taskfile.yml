@@ -22,6 +22,11 @@ tasks:
     cmds:
       - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag readme example/playbook.yml
 
+  test:atuin:
+    desc: Test deployment of tool atuin
+    cmds:
+      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag atuin example/playbook.yml
+
   test:bat:
     desc: Test deployment of tool bat
     cmds:

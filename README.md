@@ -157,6 +157,28 @@ ansible-galaxy role install --force --keep-scm-meta -r roles/requirements.yml
 All this configuration examples are also defined in `vars/main/` for referencing
 in playbooks.
 
+### atuin
+
+[atuinsh / atuin](https://github.com/atuinsh/atuin)
+
+``` yaml
+atuin_version: 18.8.0
+
+tool_deploy_default_config_atuin:
+  atuin:
+    action: download_archive
+    github:
+      repo: atuinsh/atuin
+      file: "v{{ atuin_version | mandatory }}/atuin-x86_64-unknown-linux-gnu.tar.gz"
+    version:
+      args: --version
+      match: "atuin {{ atuin_version | mandatory }}"
+    bash_completion:
+      generate_cmd: atuin gen-completion --shell bash
+    zsh_completion:
+      generate_cmd: atuin gen-completion --shell zsh
+```
+
 ### bat
 
 [sharkdp / bat](https://github.com/sharkdp/bat)
