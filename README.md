@@ -671,7 +671,7 @@ tool_deploy_list:
 [lsd-rs / lsd](https://github.com/lsd-rs/lsd)
 
 ``` yaml
-lsd_version: 1.1.5
+lsd_version: 1.2.0
 
 tool_deploy_list:
   lsd:

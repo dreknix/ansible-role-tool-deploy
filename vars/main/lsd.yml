@@ -1,6 +1,6 @@
 ---
 
-lsd_version: 1.1.5
+lsd_version: 1.2.0
 
 tool_deploy_default_config_lsd:
   lsd:
