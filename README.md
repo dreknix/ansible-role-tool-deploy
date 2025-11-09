@@ -380,7 +380,7 @@ tool_deploy_list:
 [gitleaks / gitleaks](https://github.com/gitleaks/gitleaks)
 
 ``` yaml
-gitleaks_version: 8.28.0
+gitleaks_version: 8.29.0
 
 tool_deploy_default_config_gitleaks:
   gitleaks:
