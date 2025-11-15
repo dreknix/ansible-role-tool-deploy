@@ -162,7 +162,7 @@ in playbooks.
 [atuinsh / atuin](https://github.com/atuinsh/atuin)
 
 ``` yaml
-atuin_version: 18.8.0
+atuin_version: 18.10.0
 
 tool_deploy_default_config_atuin:
   atuin:
