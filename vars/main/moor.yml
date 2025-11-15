@@ -1,6 +1,6 @@
 ---
 
-moor_version: 2.1.1
+moor_version: 2.9.1
 
 tool_deploy_default_config_moor:
   moor:
