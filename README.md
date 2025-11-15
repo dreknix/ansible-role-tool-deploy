@@ -1015,7 +1015,7 @@ tool_deploy_list:
 [tealdeer-rs / tealdeer](https://github.com/tealdeer-rs/tealdeer)
 
 ``` yaml
-tealdeer_version: 1.7.2
+tealdeer_version: 1.8.1
 
 tool_deploy_list:
   tealdeer:
