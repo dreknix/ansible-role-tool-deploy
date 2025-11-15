@@ -1,6 +1,6 @@
 ---
 
-hadolint_version: 2.13.1
+hadolint_version: 2.14.0
 
 tool_deploy_default_config_hadolint:
   hadolint:
