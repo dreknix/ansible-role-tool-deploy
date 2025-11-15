@@ -274,7 +274,7 @@ tool_deploy_list:
 [docker / docker-credential-helpers](https://github.com/docker/docker-credential-helpers)
 
 ``` yaml
-docker_credential_version: 0.9.3
+docker_credential_version: 0.9.4
 
 tool_deploy_list:
   docker-credential-pass:
