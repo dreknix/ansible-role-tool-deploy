@@ -1,6 +1,6 @@
 ---
 
-talosctl_version: 1.11.1
+talosctl_version: 1.11.5
 
 tool_deploy_default_config_talosctl:
   talosctl:

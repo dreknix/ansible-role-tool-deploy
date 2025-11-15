@@ -971,7 +971,7 @@ tool_deploy_list:
 [siderolabs / talos](https://github.com/siderolabs/talos)
 
 ``` yaml
-talosctl_version: 1.11.1
+talosctl_version: 1.11.5
 
 tool_deploy_list:
   talosctl:
