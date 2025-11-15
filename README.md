@@ -804,7 +804,7 @@ tool_deploy_list:
 [JanDeDobbeleer / oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh)
 
 ``` yaml
-oh_my_posh_version: 26.23.5
+oh_my_posh_version: 27.6.0
 
 tool_deploy_list:
   oh-my-posh:
