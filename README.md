@@ -926,7 +926,7 @@ tool_deploy_list:
 [BurntSushi / ripgrep](https://github.com/BurntSushi/ripgrep)
 
 ``` yaml
-rg_version: 14.1.1
+rg_version: 15.1.0
 
 tool_deploy_list:
   rg:
