@@ -1,6 +1,6 @@
 ---
 
-bat_version: 0.25.0
+bat_version: 0.26.0
 
 tool_deploy_default_config_bat:
   bat:
