@@ -593,7 +593,7 @@ tool_deploy_list:
 [kubectl](https://kubernetes.io/docs/reference/kubectl/)
 
 ``` yaml
-kubectl_version: 1.34.1
+kubectl_version: 1.34.2
 
 tool_deploy_list:
   kubectl:
