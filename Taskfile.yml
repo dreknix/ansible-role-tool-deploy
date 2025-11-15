@@ -3,6 +3,9 @@
 
 version: '3'
 
+env:
+  ANSIBLE_CONFIG: example/ansible.cfg
+
 tasks:
 
   lint:
@@ -10,251 +13,251 @@ tasks:
     cmds:
       - yamllint .
       - mdl README.md
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-lint
+      - ansible-lint
 
   test:
     desc: Test deployment of all tools defined in playbook
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag tools example/playbook.yml
+      - ansible-playbook --tag tools example/playbook.yml
 
   test:readme:
     desc: Test deployment with example in README
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag readme example/playbook.yml
+      - ansible-playbook --tag readme example/playbook.yml
 
   test:atuin:
     desc: Test deployment of tool atuin
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag atuin example/playbook.yml
+      - ansible-playbook --tag atuin example/playbook.yml
 
   test:bat:
     desc: Test deployment of tool bat
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag bat example/playbook.yml
+      - ansible-playbook --tag bat example/playbook.yml
 
   test:delta:
     desc: Test deployment of tool delta
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag delta example/playbook.yml
+      - ansible-playbook --tag delta example/playbook.yml
 
   test:direnv:
     desc: Test deployment of tool direnv
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag direnv example/playbook.yml
+      - ansible-playbook --tag direnv example/playbook.yml
 
   test:dive:
     desc: Test deployment of tool dive
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag dive example/playbook.yml
+      - ansible-playbook --tag dive example/playbook.yml
 
   test:docker-credential-pass:
     desc: Test deployment of tool docker-credential-pass
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag docker-credential-pass example/playbook.yml
+      - ansible-playbook --tag docker-credential-pass example/playbook.yml
 
   test:eza:
     desc: Test deployment of tool eza
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag eza example/playbook.yml
+      - ansible-playbook --tag eza example/playbook.yml
 
   test:fd:
     desc: Test deployment of tool fd
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag fd example/playbook.yml
+      - ansible-playbook --tag fd example/playbook.yml
 
   test:fx:
     desc: Test deployment of tool fx
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag fx example/playbook.yml
+      - ansible-playbook --tag fx example/playbook.yml
 
   test:fzf:
     desc: Test deployment of tool fzf
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag fzf example/playbook.yml
+      - ansible-playbook --tag fzf example/playbook.yml
 
   test:gitleaks:
     desc: Test deployment of tool gitleaks
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag gitleaks example/playbook.yml
+      - ansible-playbook --tag gitleaks example/playbook.yml
 
   test:glow:
     desc: Test deployment of tool glow
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag glow example/playbook.yml
+      - ansible-playbook --tag glow example/playbook.yml
 
   test:gopass:
     desc: Test deployment of tool gopass
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag gopass example/playbook.yml
+      - ansible-playbook --tag gopass example/playbook.yml
 
   test:gopass-jsonapi:
     desc: Test deployment of tool gopass-jsonapi
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag gopass-jsonapi example/playbook.yml
+      - ansible-playbook --tag gopass-jsonapi example/playbook.yml
 
   test:gum:
     desc: Test deployment of tool gum
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag gum example/playbook.yml
+      - ansible-playbook --tag gum example/playbook.yml
 
   test:hadolint:
     desc: Test deployment of tool hadolint
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag hadolint example/playbook.yml
+      - ansible-playbook --tag hadolint example/playbook.yml
 
   test:hexyl:
     desc: Test deployment of tool hexyl
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag hexyl example/playbook.yml
+      - ansible-playbook --tag hexyl example/playbook.yml
 
   test:hyperfine:
     desc: Test deployment of tool hyperfine
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag hyperfine example/playbook.yml
+      - ansible-playbook --tag hyperfine example/playbook.yml
 
   test:jq:
     desc: Test deployment of tool jq
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag jq example/playbook.yml
+      - ansible-playbook --tag jq example/playbook.yml
 
   test:keepassxc:
     desc: Test deployment of tool keepassxc
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag keepassxc example/playbook.yml
+      - ansible-playbook --tag keepassxc example/playbook.yml
 
   test:kubectl:
     desc: Test deployment of tool kubectl
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag kubectl example/playbook.yml
+      - ansible-playbook --tag kubectl example/playbook.yml
 
   test:lazydocker:
     desc: Test deployment of tool lazydocker
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag lazydocker example/playbook.yml
+      - ansible-playbook --tag lazydocker example/playbook.yml
 
   test:lazygit:
     desc: Test deployment of tool lazygit
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag lazygit example/playbook.yml
+      - ansible-playbook --tag lazygit example/playbook.yml
 
   test:less:
     desc: Test deployment of tool less
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag less example/playbook.yml
+      - ansible-playbook --tag less example/playbook.yml
 
   test:lsd:
     desc: Test deployment of tool lsd
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag lsd example/playbook.yml
+      - ansible-playbook --tag lsd example/playbook.yml
 
   test:micro:
     desc: Test deployment of tool micro
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag micro example/playbook.yml
+      - ansible-playbook --tag micro example/playbook.yml
 
   test:minikube:
     desc: Test deployment of tool minikube
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag minikube example/playbook.yml
+      - ansible-playbook --tag minikube example/playbook.yml
 
   test:moor:
     desc: Test deployment of tool moor
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag moor example/playbook.yml
+      - ansible-playbook --tag moor example/playbook.yml
 
   test:nnn:
     desc: Test deployment of tool nnn
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag nnn example/playbook.yml
+      - ansible-playbook --tag nnn example/playbook.yml
 
   test:nvim:
     desc: Test deployment of tool nvim
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag nvim example/playbook.yml
+      - ansible-playbook --tag nvim example/playbook.yml
 
   test:oh-my-posh:
     desc: Test deployment of tool oh-my-posh
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag oh-my-posh example/playbook.yml
+      - ansible-playbook --tag oh-my-posh example/playbook.yml
 
   test:pet:
     desc: Test deployment of tool pet
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag pet example/playbook.yml
+      - ansible-playbook --tag pet example/playbook.yml
 
   test:prek:
     desc: Test deployment of tool prek
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag prek example/playbook.yml
+      - ansible-playbook --tag prek example/playbook.yml
 
   test:restic:
     desc: Test deployment of tool restic
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag restic example/playbook.yml
+      - ansible-playbook --tag restic example/playbook.yml
 
   test:rg:
     desc: Test deployment of tool rg
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag rg example/playbook.yml
+      - ansible-playbook --tag rg example/playbook.yml
 
   test:sqlitebrowser:
     desc: Test deployment of tool sqlitebrowser
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag sqlitebrowser example/playbook.yml
+      - ansible-playbook --tag sqlitebrowser example/playbook.yml
 
   test:talosctl:
     desc: Test deployment of tool talosctl
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag talosctl example/playbook.yml
+      - ansible-playbook --tag talosctl example/playbook.yml
 
   test:task:
     desc: Test deployment of tool task
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag task example/playbook.yml
+      - ansible-playbook --tag task example/playbook.yml
 
   test:tealdeer:
     desc: Test deployment of tool tealdeer
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag tealdeer example/playbook.yml
+      - ansible-playbook --tag tealdeer example/playbook.yml
 
   test:tig:
     desc: Test deployment of tool tig
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag tig example/playbook.yml
+      - ansible-playbook --tag tig example/playbook.yml
 
   test:tmux:
     desc: Test deployment of tool tmux
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag tmux example/playbook.yml
+      - ansible-playbook --tag tmux example/playbook.yml
 
   test:uv:
     desc: Test deployment of tool uv
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag uv example/playbook.yml
+      - ansible-playbook --tag uv example/playbook.yml
 
   test:vhs:
     desc: Test deployment of tool vhs
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag vhs example/playbook.yml
+      - ansible-playbook --tag vhs example/playbook.yml
 
   test:xh:
     desc: Test deployment of tool xh
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag xh example/playbook.yml
+      - ansible-playbook --tag xh example/playbook.yml
 
   test:xq:
     desc: Test deployment of tool xq
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag xq example/playbook.yml
+      - ansible-playbook --tag xq example/playbook.yml
 
   test:yq:
     desc: Test deployment of tool yq
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag yq example/playbook.yml
+      - ansible-playbook --tag yq example/playbook.yml
 
   test:zoxide:
     desc: Test deployment of tool zoxide
     cmds:
-      - ANSIBLE_CONFIG=example/ansible.cfg ansible-playbook --tag zoxide example/playbook.yml
+      - ansible-playbook --tag zoxide example/playbook.yml
 
 ...
