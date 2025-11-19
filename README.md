@@ -842,7 +842,7 @@ tool_deploy_list:
 [j178 / prek](https://github.com/j178/prek)
 
 ``` yaml
-prek_version: 0.2.14
+prek_version: 0.2.17
 
 tool_deploy_list:
   prek:
