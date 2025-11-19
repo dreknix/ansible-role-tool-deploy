@@ -1125,6 +1125,24 @@ tool_deploy_list:
       - make install
 ```
 
+### ty
+
+[astral-sh / ty](https://github.com/astral-sh/ty)
+
+``` yaml
+ty_version: 0.0.1-alpha.27
+
+tool_deploy_list:
+  ty:
+    action: download_archive
+    github:
+      repo: astral-sh/ty
+      file: "{{ ty_version | mandatory }}/ty-x86_64-unknown-linux-gnu.tar.gz"
+    version:
+      args: --version
+      match: "ty {{ ty_version | mandatory }}"
+```
+
 ### uv
 
 [astral-sh / uv](https://github.com/astral-sh/uv)

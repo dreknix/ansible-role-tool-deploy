@@ -235,6 +235,11 @@ tasks:
     cmds:
       - ansible-playbook --tag tmux example/playbook.yml
 
+  test:ty:
+    desc: Test deployment of tool ty
+    cmds:
+      - ansible-playbook --tag ty example/playbook.yml
+
   test:uv:
     desc: Test deployment of tool uv
     cmds:

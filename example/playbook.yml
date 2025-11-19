@@ -443,6 +443,16 @@
     - tools
     - tmux
 
+- name: Test role with ty
+  hosts: '{{ target | default("all") }}'
+  vars:
+    tool_deploy_list: "{{ tool_deploy_default_config_ty }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - ty
+
 - name: Test role with uv
   hosts: '{{ target | default("all") }}'
   vars:
