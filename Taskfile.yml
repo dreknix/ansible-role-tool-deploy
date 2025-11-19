@@ -190,6 +190,11 @@ tasks:
     cmds:
       - ansible-playbook --tag prek example/playbook.yml
 
+  test:pup:
+    desc: Test deployment of tool pup
+    cmds:
+      - ansible-playbook --tag pup example/playbook.yml
+
   test:restic:
     desc: Test deployment of tool restic
     cmds:

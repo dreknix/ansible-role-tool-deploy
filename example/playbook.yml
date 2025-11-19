@@ -343,6 +343,16 @@
     - tools
     - prek
 
+- name: Test role with pup
+  hosts: '{{ target | default("all") }}'
+  vars:
+    tool_deploy_list: "{{ tool_deploy_default_config_pup }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - pup
+
 - name: Test role with restic
   hosts: '{{ target | default("all") }}'
   vars:

@@ -860,6 +860,24 @@ tool_deploy_list:
       generate_cmd: COMPLETE=zsh prek
 ```
 
+### pup
+
+[gromgit / pup](https://github.com/gromgit/pup)
+
+``` yaml
+pup_version: 0.4.2
+
+tool_deploy_list:
+  pup:
+    action: download_archive
+    github:
+      repo: gromgit/pup
+      file: "v{{ pup_version | mandatory }}/pup_Linux_x86_64.tar.gz"
+    version:
+      args: --version
+      match: "{{ pup_version | mandatory }}"
+```
+
 ### restic
 
 [restic / restic](https://github.com/restic/restic)
