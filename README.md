@@ -921,6 +921,24 @@ tool_deploy_list:
       generate_args: generate --zsh-completion /dev/stdout
 ```
 
+### ruff
+
+[astral-sh / ruff](https://github.com/astral-sh/ruff)
+
+``` yaml
+ruff_version: 0.14.5
+
+tool_deploy_list:
+  ruff:
+    action: download_archive
+    github:
+      repo: astral-sh/ruff
+      file: "{{ ruff_version | mandatory }}/ruff-x86_64-unknown-linux-gnu.tar.gz"
+    version:
+      args: --version
+      match: "ruff {{ ruff_version | mandatory }}"
+```
+
 ### ripgrep / rg
 
 [BurntSushi / ripgrep](https://github.com/BurntSushi/ripgrep)

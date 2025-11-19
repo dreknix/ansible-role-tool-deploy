@@ -363,6 +363,16 @@
     - tools
     - rg
 
+- name: Test role with ruff
+  hosts: '{{ target | default("all") }}'
+  vars:
+    tool_deploy_list: "{{ tool_deploy_default_config_ruff }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - ruff
+
 - name: Test role with sqlitebrowser
   hosts: '{{ target | default("all") }}'
   vars:

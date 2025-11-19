@@ -195,10 +195,10 @@ tasks:
     cmds:
       - ansible-playbook --tag restic example/playbook.yml
 
-  test:rg:
-    desc: Test deployment of tool rg
+  test:ruff:
+    desc: Test deployment of tool ruff
     cmds:
-      - ansible-playbook --tag rg example/playbook.yml
+      - ansible-playbook --tag ruff example/playbook.yml
 
   test:sqlitebrowser:
     desc: Test deployment of tool sqlitebrowser
