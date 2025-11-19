@@ -530,7 +530,7 @@ tool_deploy_list:
 [sharkdp / hyperfine](https://github.com/sharkdp/hyperfine)
 
 ``` yaml
-hyperfine_version: 1.19.0
+hyperfine_version: 1.20.0
 
 tool_deploy_list:
   hyperfine:
