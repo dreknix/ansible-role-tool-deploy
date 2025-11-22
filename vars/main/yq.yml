@@ -1,6 +1,6 @@
 ---
 
-yq_version: 4.48.2
+yq_version: 4.49.1
 
 tool_deploy_default_config_yq:
   yq:
