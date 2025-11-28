@@ -66,7 +66,7 @@
         or not(tool_deploy_binary.stat.exists and tool_deploy_binary.stat.executable)
         or tool.value.version.match is defined
            and tool_deploy_binary_version.stdout
-           and tool.value.version.match not in tool_deploy_binary_version.stdout
+           and tool.value.version.match | string not in tool_deploy_binary_version.stdout
   block:
 
     - name: Ensure dependencies are installed - {{ tool.key }}
