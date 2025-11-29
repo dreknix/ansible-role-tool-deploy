@@ -11,6 +11,6 @@ example:
       ansible_become: false
       ansible_connection: local
 
-      tool_deploy_prefix: "{{ ansible_env.HOME }}/.local"
+      tool_deploy_prefix: "{{ ansible_facts['env'].HOME }}/.local"
 
 ...
