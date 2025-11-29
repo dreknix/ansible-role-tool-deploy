@@ -35,7 +35,7 @@
 #     var: debug_vars
 
 - name: Check if tool needs to be installed - {{ tool.key }}
-  when: not tool.value.force_install | default(false) | bool
+  when: not tool.value.force_install | default(False) | bool
   block:
 
     - name: Check if binary is installed - {{ tool_deploy_binary_path }}
@@ -62,11 +62,11 @@
           changed_when: false
 
 - name: Install tool - {{ tool.key }}
-  when: tool.value.force_install | default(false) | bool
+  when: tool.value.force_install | default(False) | bool
         or not(tool_deploy_binary.stat.exists and tool_deploy_binary.stat.executable)
-        or tool.value.version.match is defined
-           and tool_deploy_binary_version.stdout
-           and tool.value.version.match | string not in tool_deploy_binary_version.stdout
+        or (tool.value.version.match is defined
+            and tool_deploy_binary_version.stdout | length > 0
+            and tool.value.version.match | string not in tool_deploy_binary_version.stdout)
   block:
 
     - name: Ensure dependencies are installed - {{ tool.key }}
