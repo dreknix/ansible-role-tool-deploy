@@ -1,6 +1,6 @@
 ---
 
-tmux_version: 3.5a
+tmux_version: 3.6
 
 tool_deploy_default_config_tmux:
   tmux:
