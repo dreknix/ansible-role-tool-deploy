@@ -1,6 +1,6 @@
 ---
 
-prek_version: 0.2.18
+prek_version: 0.2.19
 
 tool_deploy_default_config_prek:
   prek:
