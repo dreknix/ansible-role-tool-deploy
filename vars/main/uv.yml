@@ -1,6 +1,6 @@
 ---
 
-uv_version: 0.9.11
+uv_version: 0.9.13
 
 tool_deploy_default_config_uv:
   uv:
