@@ -8,6 +8,11 @@ env:
 
 tasks:
 
+  default:
+    cmds:
+      - task --list
+    silent: true
+
   lint:
     desc: Lint all files
     cmds:
