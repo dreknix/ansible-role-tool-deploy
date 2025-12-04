@@ -184,7 +184,7 @@ tool_deploy_default_config_atuin:
 [sharkdp / bat](https://github.com/sharkdp/bat)
 
 ``` yaml
-bat_version: 0.26.0
+bat_version: 0.26.1
 
 tool_deploy_list:
   bat:
