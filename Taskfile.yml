@@ -160,6 +160,11 @@ tasks:
     cmds:
       - ansible-playbook --tag micro example/playbook.yml
 
+  test:minijinja:
+    desc: Test deployment of tool minijinja
+    cmds:
+      - ansible-playbook --tag minijinja example/playbook.yml
+
   test:minikube:
     desc: Test deployment of tool minikube
     cmds:

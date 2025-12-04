@@ -273,6 +273,16 @@
     - tools
     - micro
 
+- name: Test role with minijinja
+  hosts: '{{ target | default("all") }}'
+  vars:
+    tool_deploy_list: "{{ tool_deploy_default_config_minijinja }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - minijinja
+
 - name: Test role with minikube
   hosts: '{{ target | default("all") }}'
   vars:

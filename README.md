@@ -708,6 +708,28 @@ tool_deploy_list:
       match: "Version: {{ micro_version | mandatory }}"
 ```
 
+### minijinja
+
+[mitsuhiko / minijinja](https://github.com/mitsuhiko/minijinja)
+
+``` yaml
+minijinja_version: 2.13.0
+
+tool_deploy_list:
+  minijinja-cli:
+    action: download_archive
+    github:
+      repo: mitsuhiko/minijinja
+      file: "{{ minijinja_version | mandatory }}/minijinja-cli-x86_64-unknown-linux-gnu.tar.xz"
+    version:
+      args: --version
+      match: "{{ minijinja_version | mandatory }}"
+    bash_completion:
+      generate_args: --generate-completion bash
+    zsh_completion:
+      generate_args: --generate-completion zsh
+```
+
 ### minikube
 
 [kubernetes / minikube](https://github.com/kubernetes/minikube)
