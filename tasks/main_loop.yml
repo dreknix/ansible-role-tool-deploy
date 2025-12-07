@@ -129,7 +129,7 @@
       when: not ansible_check_mode
             and tool.value.create_links is defined
 
-    - name: Copy man pages
+    - name: Copy single man pages
       become: true
       vars:
         man_suffix: >-
@@ -148,6 +148,26 @@
         loop_var: manpage
       when: not ansible_check_mode
             and tool.value.man_pages.src is defined
+
+    - name: Copy man page directories
+      become: true
+      vars:
+        man_suffix: >-
+          {%- if manpage.endswith('gz') -%}
+            {{ manpage[-4] }}
+          {%- else -%}
+            {{ manpage[-1] }}
+          {%- endif -%}
+      ansible.builtin.copy:
+        src: "{{ (tool_deploy_tmp_prefix | mandatory, manpage) | ansible.builtin.path_join }}/"
+        remote_src: true
+        dest: "{{ (tool_deploy_man_path, 'man' ~ man_suffix) | ansible.builtin.path_join }}"
+        mode: u=rwx,go=rx
+      loop: "{{ tool.value.man_pages.src_dir is string | ternary([tool.value.man_pages.src_dir], tool.value.man_pages.src_dir) }}"
+      loop_control:
+        loop_var: manpage
+      when: not ansible_check_mode
+            and tool.value.man_pages.src_dir is defined
 
     - name: Download man pages
       become: true
