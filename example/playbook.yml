@@ -113,6 +113,16 @@
     - tools
     - fzf
 
+- name: Test role with gh
+  hosts: '{{ target | default("all") }}'
+  vars:
+    tool_deploy_list: "{{ tool_deploy_default_config_gh }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - gh
+
 - name: Test role with gitleaks
   hosts: '{{ target | default("all") }}'
   vars:

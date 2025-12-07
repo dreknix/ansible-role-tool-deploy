@@ -80,6 +80,11 @@ tasks:
     cmds:
       - ansible-playbook --tag fzf example/playbook.yml
 
+  test:gh:
+    desc: Test deployment of tool gh
+    cmds:
+      - ansible-playbook --tag gh example/playbook.yml
+
   test:gitleaks:
     desc: Test deployment of tool gitleaks
     cmds:
