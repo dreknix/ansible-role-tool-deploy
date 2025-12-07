@@ -1,0 +1,21 @@
+---
+
+glab_version: 1.79.0
+
+tool_deploy_default_config_glab:
+  glab:
+    action: download_archive
+    gitlab:
+      repo: gitlab-org/cli
+      file: "v{{ glab_version | mandatory }}/downloads/glab_{{ glab_version }}_linux_amd64.tar.gz"
+    binary_name_in_archive: bin/glab
+    # TODO man pages only in deb archive
+    version:
+      args: --version
+      match: "glab {{ glab_version | mandatory }}"
+    bash_completion:
+      generate_args: completion -s bash
+    zsh_completion:
+      generate_args: completion -s zsh
+
+...

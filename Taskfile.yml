@@ -90,6 +90,11 @@ tasks:
     cmds:
       - ansible-playbook --tag gitleaks example/playbook.yml
 
+  test:glab:
+    desc: Test deployment of tool glab
+    cmds:
+      - ansible-playbook --tag glab example/playbook.yml
+
   test:glow:
     desc: Test deployment of tool glow
     cmds:

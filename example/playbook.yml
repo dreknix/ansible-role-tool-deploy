@@ -133,6 +133,16 @@
     - tools
     - gitleaks
 
+- name: Test role with glab
+  hosts: '{{ target | default("all") }}'
+  vars:
+    tool_deploy_list: "{{ tool_deploy_default_config_glab }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - glab
+
 - name: Test role with glow
   hosts: '{{ target | default("all") }}'
   vars:

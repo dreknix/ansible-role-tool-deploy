@@ -164,7 +164,7 @@ in playbooks.
 ``` yaml
 atuin_version: 18.10.0
 
-tool_deploy_default_config_atuin:
+tool_deploy_list:
   atuin:
     action: download_archive
     github:
@@ -407,7 +407,7 @@ tool_deploy_list:
 ``` yaml
 gitleaks_version: 8.30.0
 
-tool_deploy_default_config_gitleaks:
+tool_deploy_list:
   gitleaks:
     action: download_archive
     github:
@@ -420,6 +420,30 @@ tool_deploy_default_config_gitleaks:
       generate_cmd: gitleaks completion bash
     zsh_completion:
       generate_cmd: gitleaks completion zsh
+```
+
+### gab
+
+[gitlab-org / cli](https://gitlab.com/gitlab-org/cli)
+
+``` yaml
+glab_version: 1.79.0
+
+tool_deploy_list:
+  glab:
+    action: download_archive
+    gitlab:
+      repo: gitlab-org/cli
+      file: "v{{ glab_version | mandatory }}/downloads/glab_{{ glab_version }}_linux_amd64.tar.gz"
+    binary_name_in_archive: bin/glab
+    # TODO man pages only in deb archive
+    version:
+      args: --version
+      match: "glab s {{ glab_version | mandatory }}"
+    bash_completion:
+      generate_args: completion -s bash
+    zsh_completion:
+      generate_args: completion -s zsh
 ```
 
 ### glow
