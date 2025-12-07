@@ -375,6 +375,31 @@ tool_deploy_list:
       url: https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/shell/completion.zsh
 ```
 
+### gh
+
+[cli / cli](https://github.com/cli/cli)
+
+``` yaml
+gh_version: 2.83.1
+
+tool_deploy_list:
+  gh:
+    action: download_archive
+    github:
+      repo: cli/cli
+      file: "v{{ gh_version | mandatory }}/gh_{{ gh_version }}_linux_amd64.tar.gz"
+    binary_name_in_archive: bin/gh
+    version:
+      args: --version
+      match: "gh version {{ gh_version | mandatory }}"
+    man_pages:
+      src_dir: "share/man/man1"
+    bash_completion:
+      generate_args: completion -s bash
+    zsh_completion:
+      generate_args: completion -s zsh
+```
+
 ### gitleaks
 
 [gitleaks / gitleaks](https://github.com/gitleaks/gitleaks)
