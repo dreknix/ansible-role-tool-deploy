@@ -20,7 +20,16 @@
             {# NOT A VALID CONFIG #}{{ None['ERROR: unknown GitHub path'][0] }}
           {%- endif -%}
         {%- else -%}
-          {# NOT A VALID CONFIG #}{{ None['ERROR: not a valid config'][0] }}
+          {%- if tool.value.gitlab.repo is defined -%}
+            https://gitlab.com/{{ tool.value.gitlab.repo }}/
+            {%- if tool.value.gitlab.file is defined -%}
+              -/releases/{{ tool.value.gitlab.file }}
+            {%- else -%}
+              {# NOT A VALID CONFIG #}{{ None['ERROR: unknown GitLab path'][0] }}
+            {%- endif -%}
+          {%- else -%}
+            {# NOT A VALID CONFIG #}{{ None['ERROR: not a valid config'][0] }}
+          {%- endif -%}
         {%- endif -%}
       {%- endif -%}
 
