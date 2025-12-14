@@ -1,6 +1,6 @@
 ---
 
-gopass_version: 1.16.0
+gopass_version: 1.16.1
 
 tool_deploy_default_config_gopass:
   gopass:
