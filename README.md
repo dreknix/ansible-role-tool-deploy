@@ -598,6 +598,24 @@ tool_deploy_list:
       src: autocomplete/_hyperfine
 ```
 
+### jc
+
+[kellyjonbrazil / jc](https://github.com/kellyjonbrazil/jc)
+
+``` yaml
+jc_version: 1.25.6
+
+tool_deploy_list:
+  jc:
+    action: download_archive
+    github:
+      repo: kellyjonbrazil/jc
+      file: "v{{ jc_version | mandatory }}/jc-{{ jc_version }}-linux-x86_64.tar.gz"
+    version:
+      args: --version
+      match: "{{ jc_version | mandatory }}"
+```
+
 ### jq
 
 [jqlang / jq](https://github.com/jqlang/jq)

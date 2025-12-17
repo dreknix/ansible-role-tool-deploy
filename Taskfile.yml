@@ -130,6 +130,11 @@ tasks:
     cmds:
       - ansible-playbook --tag hyperfine example/playbook.yml
 
+  test:jc:
+    desc: Test deployment of tool jc
+    cmds:
+      - ansible-playbook --tag jc example/playbook.yml
+
   test:jq:
     desc: Test deployment of tool jq
     cmds:

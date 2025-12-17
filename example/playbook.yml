@@ -213,6 +213,16 @@
     - tools
     - hyperfine
 
+- name: Test role with jc
+  hosts: '{{ target | default("all") }}'
+  vars:
+    tool_deploy_list: "{{ tool_deploy_default_config_jc }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - jc
+
 - name: Test role with jq
   hosts: '{{ target | default("all") }}'
   vars:
