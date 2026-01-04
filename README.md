@@ -762,7 +762,7 @@ tool_deploy_list:
 [zyedidia / micro](https://github.com/zyedidia/micro)
 
 ``` yaml
-micro_version: 2.0.14
+micro_version: 2.0.15
 
 tool_deploy_list:
   micro:
