@@ -1,6 +1,6 @@
 ---
 
-task_version: 3.45.5
+task_version: 3.46.4
 
 tool_deploy_default_config_task:
   task:
