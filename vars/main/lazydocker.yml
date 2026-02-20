@@ -1,6 +1,6 @@
 ---
 
-lazydocker_version: 0.24.3
+lazydocker_version: 0.24.4
 
 tool_deploy_default_config_lazydocker:
   lazydocker:
