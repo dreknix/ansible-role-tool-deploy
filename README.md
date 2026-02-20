@@ -1328,7 +1328,7 @@ tool_deploy_list:
 [mikefarah / yq](https://github.com/mikefarah/yq)
 
 ``` yaml
-yq_version: 4.50.1
+yq_version: 4.52.4
 
 tool_deploy_list:
   yq:
