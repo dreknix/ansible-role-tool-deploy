@@ -845,7 +845,7 @@ tool_deploy_list:
 [jarun / nnn](https://github.com/jarun/nnn)
 
 ``` yaml
-nnn_version: 5.1
+nnn_version: 5.2
 
 tool_deploy_list:
   nnn:
