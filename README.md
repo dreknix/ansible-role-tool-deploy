@@ -1346,7 +1346,7 @@ tool_deploy_list:
 [ajeetdsouza / zoxide](https://github.com/ajeetdsouza/zoxide)
 
 ``` yaml
-zoxide_version: 0.9.8
+zoxide_version: 0.9.9
 
 tool_deploy_list:
   zoxide:

@@ -1,6 +1,6 @@
 ---
 
-zoxide_version: 0.9.8
+zoxide_version: 0.9.9
 
 tool_deploy_default_config_zoxide:
   zoxide:
