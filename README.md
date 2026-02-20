@@ -559,7 +559,7 @@ tool_deploy_list:
 [sharkdp / hexyl](https://github.com/sharkdp/hexyl)
 
 ``` yaml
-hexyl_version: 0.16.0
+hexyl_version: 0.17.0
 
 tool_deploy_list:
   hexyl:

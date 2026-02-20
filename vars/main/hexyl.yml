@@ -1,6 +1,6 @@
 ---
 
-hexyl_version: 0.16.0
+hexyl_version: 0.17.0
 
 tool_deploy_default_config_hexyl:
   hexyl:
