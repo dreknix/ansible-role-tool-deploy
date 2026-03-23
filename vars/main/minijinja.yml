@@ -1,6 +1,6 @@
 ---
 
-minijinja_version: 2.15.1
+minijinja_version: 2.18.0
 
 tool_deploy_default_config_minijinja:
   minijinja-cli:
