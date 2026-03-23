@@ -1,6 +1,6 @@
 ---
 
-atuin_version: 18.12.1
+atuin_version: 18.13.2
 
 tool_deploy_default_config_atuin:
   atuin:
