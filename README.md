@@ -405,7 +405,7 @@ tool_deploy_list:
 [gitleaks / gitleaks](https://github.com/gitleaks/gitleaks)
 
 ``` yaml
-gitleaks_version: 8.30.0
+gitleaks_version: 8.30.1
 
 tool_deploy_list:
   gitleaks:
