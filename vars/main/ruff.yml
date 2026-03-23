@@ -1,6 +1,6 @@
 ---
 
-ruff_version: 0.15.2
+ruff_version: 0.15.7
 
 tool_deploy_default_config_ruff:
   ruff:
