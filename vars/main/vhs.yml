@@ -1,6 +1,6 @@
 ---
 
-vhs_version: 0.10.0
+vhs_version: 0.11.0
 
 tool_deploy_default_config_vhs:
   vhs:
