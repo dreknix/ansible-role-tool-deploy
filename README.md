@@ -780,7 +780,7 @@ tool_deploy_list:
 [mitsuhiko / minijinja](https://github.com/mitsuhiko/minijinja)
 
 ``` yaml
-minijinja_version: 2.18.0
+minijinja_version: 2.19.0
 
 tool_deploy_list:
   minijinja-cli:
