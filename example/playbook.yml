@@ -493,6 +493,16 @@
     - tools
     - tmux
 
+- name: Test role with tv
+  hosts: '{{ target | default("all") }}'
+  vars:
+    tool_deploy_list: "{{ tool_deploy_default_config_tv }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - tv
+
 - name: Test role with ty
   hosts: '{{ target | default("all") }}'
   vars:

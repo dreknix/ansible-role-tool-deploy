@@ -1239,9 +1239,35 @@ tool_deploy_list:
       - make install
 ```
 
+### television - tv
+
+[alexpasmantierh / telvision](https://github.com/alexpasmantier/telvision)
+
+``` yaml
+tv_version: 0.15.4
+
+tool_deploy_list:
+  tv:
+    action: download_archive
+    github:
+      repo: alexpasmantier/television
+      file: "{{ tv_version | mandatory }}/tv-{{ tv_version }}-i686-unknown-linux-gnu.tar.gz"
+    version:
+      args: --version
+      match: "telvision {{ tv_version | mandatory }}"
+    man_pages:
+      src:
+        - doc/tv.1
+    bash_completion:
+      generate_args: completions bash
+    zsh_completion:
+      generate_args: completions zsh
+```
+
 ### ty
 
 [astral-sh / ty](https://github.com/astral-sh/ty)
+
 
 ``` yaml
 ty_version: 0.0.1-alpha.27
