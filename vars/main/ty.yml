@@ -1,6 +1,6 @@
 ---
 
-ty_version: 0.0.1-alpha.27
+ty_version: 0.0.28
 
 tool_deploy_default_config_ty:
   ty:
