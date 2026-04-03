@@ -230,6 +230,11 @@ tasks:
     cmds:
       - ansible-playbook --tag ruff example/playbook.yml
 
+  test:sesh:
+    desc: Test deployment of tool sesh
+    cmds:
+      - ansible-playbook --tag sesh example/playbook.yml
+
   test:sqlitebrowser:
     desc: Test deployment of tool sqlitebrowser
     cmds:

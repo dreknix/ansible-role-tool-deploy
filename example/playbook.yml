@@ -423,6 +423,16 @@
     - tools
     - ruff
 
+- name: Test role with sesh
+  hosts: '{{ target | default("all") }}'
+  vars:
+    tool_deploy_list: "{{ tool_deploy_default_config_sesh }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - sesh
+
 - name: Test role with sqlitebrowser
   hosts: '{{ target | default("all") }}'
   vars:

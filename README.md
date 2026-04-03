@@ -1070,6 +1070,31 @@ tool_deploy_list:
       src: complete/_rg
 ```
 
+### sesh
+
+[joshmedeski / sesh](https://github.com/joshmedeski/sesh)
+
+``` yaml
+sesh_version: 2.24.2
+
+tool_deploy_list:
+  sesh:
+    action: download_archive
+    github:
+      repo: joshmedeski/sesh
+      file: "v{{ sesh_version | mandatory }}/sesh_Linux_x86_64.tar.gz"
+    version:
+      args: --version
+      match: "sesh version {{ sesh_version | mandatory }}"
+    man_pages:
+      src:
+        - share/man/man1/sesh.1
+    bash_completion:
+      generate_args: completion bash
+    zsh_completion:
+      generate_args: completion zsh
+```
+
 ### sqlitebrowser
 
 [sqlitebrowser / sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)
