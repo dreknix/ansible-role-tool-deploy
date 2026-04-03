@@ -11,10 +11,13 @@
 - name: Set temporary prefix
   ansible.builtin.set_fact:
     tool_deploy_tmp_prefix: >-
-      {%- if tool_deploy_archive.files[0].split('/')[0] == tool_deploy_archive.files[0] -%}
-        {{ tool_deploy_tmp.path }}
-      {%- else -%}
-        {{ (tool_deploy_tmp.path, tool_deploy_archive.files[0].split('/')[0]) | ansible.builtin.path_join }}
-      {%- endif -%}
+      {{ tool_deploy_tmp.path }}
+    # TODO: not working with sesh archive
+    # tool_deploy_tmp_prefix: >-
+    #   {%- if tool_deploy_archive.files[0].split('/')[0] == tool_deploy_archive.files[0] -%}
+    #     {{ tool_deploy_tmp.path }}
+    #   {%- else -%}
+    #     {{ (tool_deploy_tmp.path, tool_deploy_archive.files[0].split('/')[0]) | ansible.builtin.path_join }}
+    #   {%- endif -%}
 
 ...
