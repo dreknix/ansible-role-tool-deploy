@@ -10,14 +10,21 @@
 
 - name: Set temporary prefix
   ansible.builtin.set_fact:
+    # check if more than one first element is existing in the file path
+    # set the prefix to the temp path + common directory in archive
     tool_deploy_tmp_prefix: >-
-      {{ tool_deploy_tmp.path }}
-    # TODO: not working with sesh archive
-    # tool_deploy_tmp_prefix: >-
-    #   {%- if tool_deploy_archive.files[0].split('/')[0] == tool_deploy_archive.files[0] -%}
-    #     {{ tool_deploy_tmp.path }}
-    #   {%- else -%}
-    #     {{ (tool_deploy_tmp.path, tool_deploy_archive.files[0].split('/')[0]) | ansible.builtin.path_join }}
-    #   {%- endif -%}
+      {%- if tool_deploy_archive.files | map('regex_replace', '/.*', '') | unique | length == 1 -%}
+        {%- if tool_deploy_archive.files[0].split('/')[0] == tool_deploy_archive.files[0] -%}
+          {{ tool_deploy_tmp.path }}
+        {%- else -%}
+          {{ (tool_deploy_tmp.path, tool_deploy_archive.files[0].split('/')[0]) | ansible.builtin.path_join }}
+        {%- endif -%}
+      {%- else -%}
+        {{ tool_deploy_tmp.path }}
+      {%- endif -%}
+
+# - name: Show variable tool_deploy_binary
+#   ansible.builtin.debug:
+#     var: tool_deploy_tmp_prefix
 
 ...
