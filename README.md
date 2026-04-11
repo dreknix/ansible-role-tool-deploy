@@ -1244,7 +1244,7 @@ tool_deploy_list:
 [alexpasmantierh / telvision](https://github.com/alexpasmantier/telvision)
 
 ``` yaml
-tv_version: 0.15.4
+tv_version: 0.15.5
 
 tool_deploy_list:
   tv:
