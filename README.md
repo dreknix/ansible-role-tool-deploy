@@ -865,7 +865,7 @@ tool_deploy_list:
       url: "https://raw.githubusercontent.com/jarun/nnn/refs/heads/master/misc/auto-completion/zsh/_nnn"
 ```
 
-### neovim / nvim
+### neovim - nvim
 
 [neovim / neovim](https://github.com/neovim/neovim)
 
@@ -1033,7 +1033,7 @@ tool_deploy_list:
 [astral-sh / ruff](https://github.com/astral-sh/ruff)
 
 ``` yaml
-ruff_version: 0.15.9
+ruff_version: 0.15.10
 
 tool_deploy_list:
   ruff:
@@ -1046,7 +1046,7 @@ tool_deploy_list:
       match: "ruff {{ ruff_version | mandatory }}"
 ```
 
-### ripgrep / rg
+### ripgrep - rg
 
 [BurntSushi / ripgrep](https://github.com/BurntSushi/ripgrep)
 
