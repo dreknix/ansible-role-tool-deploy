@@ -1,6 +1,6 @@
 ---
 
-uv_version: 0.11.6
+uv_version: 0.11.8
 
 tool_deploy_default_config_uv:
   uv:
@@ -14,5 +14,4 @@ tool_deploy_default_config_uv:
     copy_files:
       - src: uvx
         mode: u=rwx,go=rx
-
 ...

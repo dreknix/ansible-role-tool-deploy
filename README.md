@@ -1287,7 +1287,7 @@ tool_deploy_list:
 [astral-sh / uv](https://github.com/astral-sh/uv)
 
 ``` yaml
-uv_version: 0.11.6
+uv_version: 0.11.8
 
 tool_deploy_list:
   uv:
