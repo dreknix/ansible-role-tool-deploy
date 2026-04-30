@@ -1,6 +1,6 @@
 ---
 
-atuin_version: 18.13.2
+atuin_version: 18.16.0
 
 tool_deploy_default_config_atuin:
   atuin:
@@ -15,5 +15,4 @@ tool_deploy_default_config_atuin:
       generate_cmd: atuin gen-completion --shell bash
     zsh_completion:
       generate_cmd: atuin gen-completion --shell zsh
-
 ...
