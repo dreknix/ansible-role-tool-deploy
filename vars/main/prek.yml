@@ -1,6 +1,6 @@
 ---
 
-prek_version: 0.3.8
+prek_version: 0.3.11
 
 tool_deploy_default_config_prek:
   prek:
@@ -16,5 +16,4 @@ tool_deploy_default_config_prek:
       generate_cmd: sh -c "COMPLETE=bash prek"
     zsh_completion:
       generate_cmd: sh -c "COMPLETE=zsh prek"
-
 ...
