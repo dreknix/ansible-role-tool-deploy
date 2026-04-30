@@ -680,7 +680,7 @@ tool_deploy_list:
 [jesseduffield / lazydocker](https://github.com/jesseduffield/lazydocker)
 
 ``` yaml
-lazydocker_version: 0.25.0
+lazydocker_version: 0.25.2
 
 tool_deploy_list:
   lazydocker:
