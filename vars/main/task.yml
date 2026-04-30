@@ -1,6 +1,6 @@
 ---
 
-task_version: 3.49.1
+task_version: 3.50.0
 
 tool_deploy_default_config_task:
   task:
@@ -15,5 +15,4 @@ tool_deploy_default_config_task:
       src: "completion/bash/task.bash"
     zsh_completion:
       src: "completion/zsh/_task"
-
 ...
