@@ -1,6 +1,6 @@
 ---
 
-ruff_version: 0.15.10
+ruff_version: 0.15.12
 
 tool_deploy_default_config_ruff:
   ruff:
@@ -11,5 +11,4 @@ tool_deploy_default_config_ruff:
     version:
       args: --version
       match: "ruff {{ ruff_version | mandatory }}"
-
 ...
