@@ -427,7 +427,7 @@ tool_deploy_list:
 [gitlab-org / cli](https://gitlab.com/gitlab-org/cli)
 
 ``` yaml
-glab_version: 1.79.0
+glab_version: 1.93.0
 
 tool_deploy_list:
   glab:
