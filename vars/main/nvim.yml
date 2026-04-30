@@ -1,6 +1,6 @@
 ---
 
-nvim_version: 0.12.1
+nvim_version: 0.12.2
 
 tool_deploy_default_config_nvim:
   nvim:
@@ -16,5 +16,4 @@ tool_deploy_default_config_nvim:
       icon: squashfs-root/nvim.png
     man_pages:
       src: squashfs-root/usr/share/man/man1/nvim.1
-
 ...
