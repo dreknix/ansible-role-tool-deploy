@@ -1,13 +1,14 @@
 ---
 
-tv_version: 0.15.5
+tv_version: 0.15.6
 
 tool_deploy_default_config_tv:
   tv:
     action: download_archive
     github:
       repo: alexpasmantier/television
-      file: "{{ tv_version | mandatory }}/tv-{{ tv_version }}-i686-unknown-linux-gnu.tar.gz"
+      file: "{{ tv_version | mandatory }}/tv-{{ tv_version
+        }}-i686-unknown-linux-gnu.tar.gz"
     version:
       args: --version
       match: "television {{ tv_version | mandatory }}"
@@ -18,5 +19,4 @@ tool_deploy_default_config_tv:
       generate_args: completions bash
     zsh_completion:
       generate_args: completions zsh
-
 ...
