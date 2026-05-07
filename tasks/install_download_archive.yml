@@ -12,6 +12,7 @@
   ansible.builtin.set_fact:
     # check if more than one first element is existing in the file path
     # set the prefix to the temp path + common directory in archive
+    # noqa: jinja[spacing]
     tool_deploy_tmp_prefix: >-
       {%- if tool_deploy_archive.files | map('regex_replace', '/.*', '') | unique | length == 1 -%}
         {%- if tool_deploy_archive.files[0].split('/')[0] == tool_deploy_archive.files[0] -%}
