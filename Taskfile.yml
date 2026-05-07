@@ -17,8 +17,8 @@ tasks:
     desc: Lint all files
     cmds:
       - yamllint .
-      - mdl README.md
-      - ansible-lint
+      - markdownlint README.md
+      - ANSIBLE_ROLES_PATH=. ansible-lint
 
   test:
     desc: Test deployment of all tools defined in playbook
@@ -304,5 +304,4 @@ tasks:
     desc: Test deployment of tool zoxide
     cmds:
       - ansible-playbook --tag zoxide example/playbook.yml
-
 ...
