@@ -1,0 +1,4 @@
+---
+# allow to override sudo
+tool_deploy_allow_become: true
+...

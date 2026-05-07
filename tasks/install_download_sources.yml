@@ -18,7 +18,7 @@
       {%- endif -%}
 
 - name: Build from sources - {{ tool.key }}
-  become: true
+  become: "{{ tool_deploy_allow_become | bool }}"
   ansible.builtin.command:
     cmd: "{{ command }}"
     chdir: "{{ tool_deploy_tmp_prefix }}"

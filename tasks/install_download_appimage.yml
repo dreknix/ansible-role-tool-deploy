@@ -52,7 +52,7 @@
     creates: "{{ (tool_deploy_tmp_prefix, 'squashfs-root') | ansible.builtin.path_join }}"
 
 - name: Copy XDG desktop file - {{ tool.key }}
-  become: true
+  become: "{{ tool_deploy_allow_become | bool }}"
   ansible.builtin.copy:
     src: "{{ (tool_deploy_tmp_prefix | mandatory, tool.value.xdg_desktop.src) | ansible.builtin.path_join }}"
     remote_src: true
@@ -63,7 +63,7 @@
         and tool.value.xdg_desktop.src is defined
 
 - name: Copy icon file - {{ tool.key }}
-  become: true
+  become: "{{ tool_deploy_allow_become | bool }}"
   ansible.builtin.copy:
     src: "{{ (tool_deploy_tmp_prefix | mandatory, tool.value.xdg_desktop.icon) | ansible.builtin.path_join }}"
     remote_src: true
@@ -74,7 +74,7 @@
         and tool.value.xdg_desktop.icon is defined
 
 - name: Copy svg file - {{ tool.key }}
-  become: true
+  become: "{{ tool_deploy_allow_become | bool }}"
   ansible.builtin.copy:
     src: "{{ (tool_deploy_tmp_prefix | mandatory, tool.value.xdg_desktop.svg) | ansible.builtin.path_join }}"
     remote_src: true

@@ -79,13 +79,14 @@
   block:
 
     - name: Ensure dependencies are installed - {{ tool.key }}
-      become: true
+      become: "{{ tool_deploy_allow_become | bool }}"
       ansible.builtin.package:
         name: "{{ package }}"
         state: present
       loop_control:
         loop_var: package
       loop: "{{ tool.value.dependencies | default([]) }}"
+      when: tool_deploy_allow_become == "true"
 
     - name: Create temporary directory
       ansible.builtin.tempfile:
@@ -97,7 +98,7 @@
       ansible.builtin.include_tasks: install_{{ tool_deploy_action }}.yml
 
     - name: Copy binary into place - {{ tool.key }}
-      become: true
+      become: "{{ tool_deploy_allow_become | bool }}"
       vars:
         archive_binary: >-
           {%- if tool.value.binary_name_in_archive is defined -%}
@@ -114,7 +115,7 @@
             and tool_deploy_action != "download_sources"
 
     - name: Copy additional files
-      become: true
+      become: "{{ tool_deploy_allow_become | bool }}"
       ansible.builtin.copy:
         src: "{{ (tool_deploy_tmp_prefix | mandatory, copy.src) | ansible.builtin.path_join }}"
         remote_src: true
@@ -127,7 +128,7 @@
             and tool.value.copy_files is defined
 
     - name: Create links
-      become: true
+      become: "{{ tool_deploy_allow_become | bool }}"
       ansible.builtin.file:
         src: "{{ (tool_deploy_bin_path, link.src) | ansible.builtin.path_join }}"
         dest: "{{ (tool_deploy_bin_path, link.dest) | ansible.builtin.path_join }}"
@@ -139,7 +140,7 @@
             and tool.value.create_links is defined
 
     - name: Copy single man pages
-      become: true
+      become: "{{ tool_deploy_allow_become | bool }}"
       vars:
         man_suffix: >-
           {%- if manpage.endswith('gz') -%}
@@ -159,7 +160,7 @@
             and tool.value.man_pages.src is defined
 
     - name: Copy man page directories
-      become: true
+      become: "{{ tool_deploy_allow_become | bool }}"
       vars:
         man_suffix: >-
           {%- if manpage.endswith('gz') -%}
@@ -179,7 +180,7 @@
             and tool.value.man_pages.src_dir is defined
 
     - name: Download man pages
-      become: true
+      become: "{{ tool_deploy_allow_become | bool }}"
       vars:
         man_suffix: >-
           {%- if manpage.endswith('gz') -%}
@@ -200,7 +201,7 @@
             and tool.value.man_pages.url is defined
 
     - name: Copy bash completion
-      become: true
+      become: "{{ tool_deploy_allow_become | bool }}"
       ansible.builtin.copy:
         src: "{{ (tool_deploy_tmp_prefix | mandatory, tool.value.bash_completion.src) | ansible.builtin.path_join }}"
         remote_src: true
@@ -210,7 +211,7 @@
             and tool.value.bash_completion.src is defined
 
     - name: Download bash completion
-      become: true
+      become: "{{ tool_deploy_allow_become | bool }}"
       ansible.builtin.get_url:
         url: "{{ tool.value.bash_completion.url }}"
         dest: "{{ (tool_deploy_bash_completion_path, tool.key) | ansible.builtin.path_join }}"
@@ -231,7 +232,7 @@
           register: tool_deploy_bash_completion
 
         - name: Save bash completion
-          become: true
+          become: "{{ tool_deploy_allow_become | bool }}"
           ansible.builtin.copy:
             content: "{{ tool_deploy_bash_completion.stdout }}"
             dest: "{{ (tool_deploy_bash_completion_path, tool.key) | ansible.builtin.path_join }}"
@@ -251,7 +252,7 @@
           register: tool_deploy_bash_completion
 
         - name: Save bash completion
-          become: true
+          become: "{{ tool_deploy_allow_become | bool }}"
           ansible.builtin.copy:
             content: "{{ tool_deploy_bash_completion.stdout }}"
             dest: "{{ (tool_deploy_bash_completion_path, tool.key) | ansible.builtin.path_join }}"
@@ -259,7 +260,7 @@
           when: tool_deploy_bash_completion.rc == 0
 
     - name: Copy zsh completion
-      become: true
+      become: "{{ tool_deploy_allow_become | bool }}"
       ansible.builtin.copy:
         src: "{{ (tool_deploy_tmp_prefix | mandatory, tool.value.zsh_completion.src) | ansible.builtin.path_join }}"
         remote_src: true
@@ -269,7 +270,7 @@
             and tool.value.zsh_completion.src is defined
 
     - name: Download zsh completion
-      become: true
+      become: "{{ tool_deploy_allow_become | bool }}"
       ansible.builtin.get_url:
         url: "{{ tool.value.zsh_completion.url }}"
         dest: "{{ (tool_deploy_zsh_completion_path, '_' ~ tool.key) | ansible.builtin.path_join }}"
@@ -289,7 +290,7 @@
           register: tool_deploy_zsh_completion
 
         - name: Save zsh completion
-          become: true
+          become: "{{ tool_deploy_allow_become | bool }}"
           ansible.builtin.copy:
             content: "{{ tool_deploy_zsh_completion.stdout }}"
             dest: "{{ (tool_deploy_zsh_completion_path, '_' ~ tool.key) | ansible.builtin.path_join }}"
@@ -309,7 +310,7 @@
           register: tool_deploy_zsh_completion
 
         - name: Save zsh completion
-          become: true
+          become: "{{ tool_deploy_allow_become | bool }}"
           ansible.builtin.copy:
             content: "{{ tool_deploy_zsh_completion.stdout }}"
             dest: "{{ (tool_deploy_zsh_completion_path, '_' ~ tool.key) | ansible.builtin.path_join }}"
@@ -318,7 +319,7 @@
                 and tool_deploy_zsh_completion.rc == 0
 
     - name: Remove temporary directory
-      become: true
+      become: "{{ tool_deploy_allow_become | bool }}"
       ansible.builtin.file:
         path: "{{ tool_deploy_tmp.path }}"
         state: absent
