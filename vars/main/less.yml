@@ -1,13 +1,11 @@
 ---
-
 less_version: 692
 
 tool_deploy_default_config_less:
   less:
     dependencies:
       - build-essential
-      - libncurses5-dev
-      - libncursesw5-dev
+      - libncurses-dev
     action: download_sources
     url: http://greenwoodsoftware.com/less/less-{{ less_version }}.tar.gz
     version:
@@ -17,5 +15,4 @@ tool_deploy_default_config_less:
       - ./configure prefix={{ tool_deploy_prefix }}
       - make
       - make install
-
 ...
