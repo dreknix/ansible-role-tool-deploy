@@ -1,13 +1,14 @@
 ---
 
-minijinja_version: 2.19.0
+minijinja_version: 2.20.0
 
 tool_deploy_default_config_minijinja:
   minijinja-cli:
     action: download_archive
     github:
       repo: mitsuhiko/minijinja
-      file: "{{ minijinja_version | mandatory }}/minijinja-cli-x86_64-unknown-linux-gnu.tar.xz"
+      file: "{{ minijinja_version | mandatory
+        }}/minijinja-cli-x86_64-unknown-linux-gnu.tar.xz"
     version:
       args: --version
       match: "{{ minijinja_version | mandatory }}"
@@ -15,5 +16,4 @@ tool_deploy_default_config_minijinja:
       generate_args: --generate-completion bash
     zsh_completion:
       generate_args: --generate-completion zsh
-
 ...
