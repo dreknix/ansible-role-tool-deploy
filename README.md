@@ -716,12 +716,13 @@ tool_deploy_list:
 [less homepage](http://greenwoodsoftware.com/less/)
 
 ``` yaml
-less_version: 692
+less_version: 702
 
 tool_deploy_list:
   less:
     dependencies:
       - build-essential
+      - libncurses-dev
     action: download_sources
     url: http://greenwoodsoftware.com/less/less-{{ less_version }}.tar.gz
     version:
