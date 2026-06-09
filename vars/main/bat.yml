@@ -1,5 +1,4 @@
 ---
-
 bat_version: 0.26.1
 
 tool_deploy_default_config_bat:
@@ -7,7 +6,7 @@ tool_deploy_default_config_bat:
     action: download_archive
     github:
       repo: sharkdp/bat
-      file: "v{{ bat_version | mandatory }}/bat-v{{ bat_version | mandatory }}-x86_64-unknown-linux-gnu.tar.gz"
+      file: "v{{ bat_version | mandatory }}/bat-v{{ bat_version | mandatory }}-{{ ansible_facts['architecture'] }}-unknown-linux-gnu.tar.gz"
     version:
       args: --version
       match: "bat {{ bat_version | mandatory }}"
@@ -17,5 +16,4 @@ tool_deploy_default_config_bat:
       src: "autocomplete/bat.bash"
     zsh_completion:
       src: "autocomplete/bat.zsh"
-
 ...

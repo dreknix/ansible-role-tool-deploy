@@ -1,5 +1,4 @@
 ---
-
 direnv_version: 2.37.1
 
 tool_deploy_default_config_direnv:
@@ -7,7 +6,7 @@ tool_deploy_default_config_direnv:
     action: download_binary
     github:
       repo: direnv/direnv
-      file: "v{{ direnv_version | mandatory }}/direnv.linux-amd64"
+      file: "v{{ direnv_version | mandatory }}/direnv.linux-{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}"
     version:
       args: version
       match: "{{ direnv_version | mandatory }}"
@@ -17,5 +16,4 @@ tool_deploy_default_config_direnv:
         - https://raw.githubusercontent.com/direnv/direnv/refs/heads/master/man/direnv-fetchurl.1
         - https://raw.githubusercontent.com/direnv/direnv/refs/heads/master/man/direnv-stdlib.1
         - https://raw.githubusercontent.com/direnv/direnv/refs/heads/master/man/direnv.toml.1
-
 ...
