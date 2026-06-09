@@ -1,8 +1,10 @@
 ---
-
 # dictionary of tools for deployment
 tool_deploy_list: {}
 
 tool_deploy_prefix: /usr/local
 
+# will be set by the host configuration
+tool_deploy_architecture: ""
+tool_deploy_aarchitecture: ""
 ...
