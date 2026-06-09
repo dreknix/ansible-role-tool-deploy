@@ -1,5 +1,4 @@
 ---
-
 tv_version: 0.15.7
 
 tool_deploy_default_config_tv:
@@ -7,8 +6,7 @@ tool_deploy_default_config_tv:
     action: download_archive
     github:
       repo: alexpasmantier/television
-      file: "{{ tv_version | mandatory }}/tv-{{ tv_version
-        }}-i686-unknown-linux-gnu.tar.gz"
+      file: "{{ tv_version | mandatory }}/tv-{{ tv_version }}-{{ ansible_facts['architecture'] }}-unknown-linux-gnu.tar.gz"
     version:
       args: --version
       match: "television {{ tv_version | mandatory }}"

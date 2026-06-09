@@ -1,5 +1,4 @@
 ---
-
 zoxide_version: 0.9.9
 
 tool_deploy_default_config_zoxide:
@@ -7,7 +6,7 @@ tool_deploy_default_config_zoxide:
     action: download_archive
     github:
       repo: ajeetdsouza/zoxide
-      file: "v{{ zoxide_version | mandatory }}/zoxide-{{ zoxide_version | mandatory }}-x86_64-unknown-linux-musl.tar.gz"
+      file: "v{{ zoxide_version | mandatory }}/zoxide-{{ zoxide_version }}-{{ ansible_facts['architecture'] }}-unknown-linux-musl.tar.gz"
     version:
       args: --version
       match: "zoxide {{ zoxide_version | mandatory }}"
@@ -23,5 +22,4 @@ tool_deploy_default_config_zoxide:
       src: completions/zoxide.bash
     zsh_completion:
       src: completions/_zoxide
-
 ...

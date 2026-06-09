@@ -1,5 +1,4 @@
 ---
-
 task_version: 3.51.1
 
 tool_deploy_default_config_task:
@@ -7,7 +6,7 @@ tool_deploy_default_config_task:
     action: download_archive
     github:
       repo: go-task/task
-      file: "v{{ task_version | mandatory }}/task_linux_amd64.tar.gz"
+      file: "v{{ task_version | mandatory }}/task_linux_{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}.tar.gz"
     version:
       args: --version
       match: "{{ task_version | mandatory }}"

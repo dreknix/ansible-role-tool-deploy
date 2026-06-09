@@ -1,5 +1,4 @@
 ---
-
 xh_version: 0.25.3
 
 tool_deploy_default_config_xh:
@@ -7,7 +6,7 @@ tool_deploy_default_config_xh:
     action: download_archive
     github:
       repo: ducaale/xh
-      file: "v{{ xh_version | mandatory }}/xh-v{{ xh_version }}-x86_64-unknown-linux-musl.tar.gz"
+      file: "v{{ xh_version | mandatory }}/xh-v{{ xh_version }}-{{ ansible_facts['architecture'] }}-unknown-linux-musl.tar.gz"
     version:
       args: --version
       match: "xh {{ xh_version | mandatory }}"
@@ -20,5 +19,4 @@ tool_deploy_default_config_xh:
       src: completions/xh.bash
     zsh_completion:
       src: completions/_xh
-
 ...

@@ -1,5 +1,4 @@
 ---
-
 oh_my_posh_version: 27.6.0
 
 tool_deploy_default_config_oh_my_posh:
@@ -7,9 +6,8 @@ tool_deploy_default_config_oh_my_posh:
     action: download_binary
     github:
       repo: JanDeDobbeleer/oh-my-posh
-      file: "v{{ oh_my_posh_version | mandatory }}/posh-linux-amd64"
+      file: "v{{ oh_my_posh_version | mandatory }}/posh-linux-{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}"
     version:
       args: --version
       match: "{{ oh_my_posh_version | mandatory }}"
-
 ...

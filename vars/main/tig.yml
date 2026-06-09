@@ -1,5 +1,4 @@
 ---
-
 tig_version: 2.6.0
 
 tool_deploy_default_config_tig:
@@ -11,7 +10,7 @@ tool_deploy_default_config_tig:
     action: download_sources
     github:
       repo: jonas/tig
-      file: "tig-{{ tig_version | mandatory }}/tig-{{ tig_version | mandatory }}.tar.gz"
+      file: "tig-{{ tig_version | mandatory }}/tig-{{ tig_version }}.tar.gz"
     version:
       args: --version
       match: "tig version {{ tig_version | mandatory }}"
@@ -20,5 +19,4 @@ tool_deploy_default_config_tig:
       - make
       - make install
       - make install-doc-man
-
 ...

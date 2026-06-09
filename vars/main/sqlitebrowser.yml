@@ -1,5 +1,4 @@
 ---
-
 sqlitebrowser_version: 3.13.1
 
 tool_deploy_default_config_sqlitebrowser:
@@ -14,5 +13,4 @@ tool_deploy_default_config_sqlitebrowser:
     xdg_desktop:
       src: squashfs-root/sqlitebrowser.desktop
       svg: squashfs-root/sqlitebrowser.svg
-
 ...

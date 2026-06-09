@@ -1,5 +1,4 @@
 ---
-
 vhs_version: 0.11.0
 
 tool_deploy_default_config_vhs:
@@ -7,7 +6,7 @@ tool_deploy_default_config_vhs:
     action: download_archive
     github:
       repo: charmbracelet/vhs
-      file: "v{{ vhs_version | mandatory }}/vhs_{{ vhs_version }}_Linux_x86_64.tar.gz"
+      file: "v{{ vhs_version | mandatory }}/vhs_{{ vhs_version }}_Linux_{{ ansible_facts['architecture'] }}.tar.gz"
     version:
       args: --version
       match: "vhs version v{{ vhs_version | mandatory }}"
@@ -18,5 +17,4 @@ tool_deploy_default_config_vhs:
       src: completions/vhs.bash
     zsh_completion:
       src: completions/vhs.zsh
-
 ...

@@ -1,5 +1,4 @@
 ---
-
 tmux_version: 3.6b
 
 tool_deploy_default_config_tmux:
@@ -13,8 +12,7 @@ tool_deploy_default_config_tmux:
     action: download_sources
     github:
       repo: tmux/tmux
-      file: "{{ tmux_version | mandatory }}/tmux-{{ tmux_version | mandatory
-        }}.tar.gz"
+      file: "{{ tmux_version | mandatory }}/tmux-{{ tmux_version }}.tar.gz"
     version:
       args: -V
       match: "tmux {{ tmux_version | mandatory }}"

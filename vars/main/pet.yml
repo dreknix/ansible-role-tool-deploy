@@ -1,5 +1,4 @@
 ---
-
 pet_version: 1.0.1
 
 tool_deploy_default_config_pet:
@@ -7,11 +6,10 @@ tool_deploy_default_config_pet:
     action: download_archive
     github:
       repo: knqyf263/pet
-      file: "v{{ pet_version | mandatory }}/pet_{{ pet_version | mandatory }}_linux_amd64.tar.gz"
+      file: "v{{ pet_version | mandatory }}/pet_{{ pet_version | mandatory }}_linux_{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}.tar.gz"
     version:
       args: version
       match: "pet version {{ pet_version | mandatory }}"
     zsh_completion:
       src: "misc/completions/zsh/_pet"
-
 ...

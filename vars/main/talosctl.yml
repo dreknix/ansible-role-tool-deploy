@@ -1,5 +1,4 @@
 ---
-
 talosctl_version: 1.11.5
 
 tool_deploy_default_config_talosctl:
@@ -7,7 +6,7 @@ tool_deploy_default_config_talosctl:
     action: download_binary
     github:
       repo: siderolabs/talos
-      file: "v{{ talosctl_version | mandatory }}/talosctl-linux-amd64"
+      file: "v{{ talosctl_version | mandatory }}/talosctl-linux-{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}"
     version:
       args: version --client
       match: "{{ talosctl_version | mandatory }}"

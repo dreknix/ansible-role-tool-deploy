@@ -1,5 +1,4 @@
 ---
-
 restic_version: 0.18.1
 
 tool_deploy_default_config_restic:
@@ -7,7 +6,7 @@ tool_deploy_default_config_restic:
     action: download_binary
     github:
       repo: restic/restic
-      file: "v{{ restic_version | mandatory }}/restic_{{ restic_version | mandatory }}_linux_amd64.bz2"
+      file: "v{{ restic_version | mandatory }}/restic_{{ restic_version }}_linux_{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}.bz2"
     version:
       args: version
       match: "restic {{ restic_version | mandatory }}"
@@ -54,5 +53,4 @@ tool_deploy_default_config_restic:
       generate_args: generate --bash-completion /dev/stdout
     zsh_completion:
       generate_args: generate --zsh-completion /dev/stdout
-
 ...
