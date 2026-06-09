@@ -6,7 +6,7 @@ tool_deploy_default_config_pup:
     action: download_archive
     github:
       repo: gromgit/pup
-      file: "v{{ pup_version | mandatory }}/pup_Linux_{{ ansible_facts['architecture'] }}.tar.gz"
+      file: "v{{ pup_version | mandatory }}/pup_Linux_{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}.tar.gz"
     version:
       args: --version
       match: "{{ pup_version | mandatory }}"
