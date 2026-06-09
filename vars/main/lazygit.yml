@@ -6,7 +6,7 @@ tool_deploy_default_config_lazygit:
     action: download_archive
     github:
       repo: jesseduffield/lazygit
-      file: "v{{ lazygit_version | mandatory }}/lazygit_{{ lazygit_version }}_Linux_{{ ansible_facts['architecture'] }}.tar.gz"
+      file: "v{{ lazygit_version | mandatory }}/lazygit_{{ lazygit_version }}_Linux_.{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'x86_64' }}tar.gz"
     version:
       args: --version
       match: "version={{ lazygit_version | mandatory }}"

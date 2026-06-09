@@ -6,7 +6,7 @@ tool_deploy_default_config_lazydocker:
     action: download_archive
     github:
       repo: jesseduffield/lazydocker
-      file: "v{{ lazydocker_version | mandatory }}/lazydocker_{{ lazydocker_version }}_Linux_{{ ansible_facts['architecture'] }}.tar.gz"
+      file: "v{{ lazydocker_version | mandatory }}/lazydocker_{{ lazydocker_version }}_Linux_{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'x86_64' }}.tar.gz"
     version:
       args: --version
       match: "Version: {{ lazydocker_version | mandatory }}"
