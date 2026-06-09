@@ -1,5 +1,4 @@
 ---
-
 glab_version: 1.93.0
 
 tool_deploy_default_config_glab:
@@ -7,8 +6,7 @@ tool_deploy_default_config_glab:
     action: download_archive
     gitlab:
       repo: gitlab-org/cli
-      file: "v{{ glab_version | mandatory }}/downloads/glab_{{ glab_version
-        }}_linux_amd64.tar.gz"
+      file: "v{{ glab_version | mandatory }}/downloads/glab_{{ glab_version }}_linux_{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}.tar.gz"
     binary_name_in_archive: bin/glab
     # TODO man pages only in deb archive
     version:

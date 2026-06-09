@@ -1,5 +1,4 @@
 ---
-
 minijinja_version: 2.20.0
 
 tool_deploy_default_config_minijinja:
@@ -7,8 +6,7 @@ tool_deploy_default_config_minijinja:
     action: download_archive
     github:
       repo: mitsuhiko/minijinja
-      file: "{{ minijinja_version | mandatory
-        }}/minijinja-cli-x86_64-unknown-linux-gnu.tar.xz"
+      file: "{{ minijinja_version | mandatory }}/minijinja-cli-{{ ansible_facts['architecture'] }}-unknown-linux-gnu.tar.xz"
     version:
       args: --version
       match: "{{ minijinja_version | mandatory }}"

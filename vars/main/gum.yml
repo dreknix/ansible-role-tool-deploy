@@ -1,5 +1,4 @@
 ---
-
 gum_version: 0.17.0
 
 tool_deploy_default_config_gum:
@@ -7,7 +6,7 @@ tool_deploy_default_config_gum:
     action: download_archive
     github:
       repo: charmbracelet/gum
-      file: "v{{ gum_version | mandatory }}/gum_{{ gum_version }}_Linux_x86_64.tar.gz"
+      file: "v{{ gum_version | mandatory }}/gum_{{ gum_version }}_Linux_{{ ansible_facts['architecture'] }}.tar.gz"
     version:
       args: --version
       match: "gum version v{{ gum_version | mandatory }}"
@@ -18,5 +17,4 @@ tool_deploy_default_config_gum:
       src: completions/gum.bash
     zsh_completion:
       src: completions/gum.zsh
-
 ...

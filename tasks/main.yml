@@ -4,13 +4,6 @@
 #   ansible.builtin.debug:
 #     msg: Inside role tool_deploy
 
-- name: Set tool deploy architecture
-  ansible.builtin.set_fact:
-    tool_deploy_architecture: >-
-      {{ ansible_facts["architecture"] }}
-    tool_deploy_aarchitecture: >-
-      {{ "aarch64" if ansible_facts["architecture"] == "aarch64" else "amd64" }}
-
 - name: Set tool deploy prefix variables
   ansible.builtin.set_fact:
     tool_deploy_share_prefix: >-

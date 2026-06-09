@@ -1,5 +1,4 @@
 ---
-
 glow_version: 2.1.2
 
 tool_deploy_default_config_glow:
@@ -7,7 +6,7 @@ tool_deploy_default_config_glow:
     action: download_archive
     github:
       repo: charmbracelet/glow
-      file: "v{{ glow_version | mandatory }}/glow_{{ glow_version }}_Linux_x86_64.tar.gz"
+      file: "v{{ glow_version | mandatory }}/glow_{{ glow_version }}_Linux_{{ ansible_facts['architecture'] }}.tar.gz"
     version:
       args: --version
       match: "glow version {{ glow_version | mandatory }}"
@@ -18,5 +17,4 @@ tool_deploy_default_config_glow:
       src: completions/glow.bash
     zsh_completion:
       src: completions/glow.zsh
-
 ...

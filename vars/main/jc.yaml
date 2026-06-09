@@ -1,5 +1,4 @@
 ---
-
 jc_version: 1.25.6
 
 tool_deploy_default_config_jc:
@@ -7,7 +6,7 @@ tool_deploy_default_config_jc:
     action: download_archive
     github:
       repo: kellyjonbrazil/jc
-      file: "v{{ jc_version | mandatory }}/jc-{{ jc_version }}-linux-x86_64.tar.gz"
+      file: "v{{ jc_version | mandatory }}/jc-{{ jc_version }}-linux-{{ ansible_facts['architecture'] }}.tar.gz"
     version:
       args: --version
       match: "jc version:  {{ jc_version | mandatory }}"
@@ -15,5 +14,4 @@ tool_deploy_default_config_jc:
       generate_args: --bash-comp
     zsh_completion:
       generate_args: --zsh-comp
-
 ...

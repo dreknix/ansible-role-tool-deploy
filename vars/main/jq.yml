@@ -1,5 +1,4 @@
 ---
-
 jq_version: 1.8.1
 
 tool_deploy_default_config_jq:
@@ -7,9 +6,8 @@ tool_deploy_default_config_jq:
     action: download_binary
     github:
       repo: jqlang/jq
-      file: "jq-{{ jq_version | mandatory }}/jq-linux-amd64"
+      file: "jq-{{ jq_version | mandatory }}/jq-linux-{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}"
     version:
       args: --version
       match: "jq-{{ jq_version | mandatory }}"
-
 ...

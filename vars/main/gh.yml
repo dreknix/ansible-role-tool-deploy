@@ -1,5 +1,4 @@
 ---
-
 gh_version: 2.83.1
 
 tool_deploy_default_config_gh:
@@ -7,7 +6,7 @@ tool_deploy_default_config_gh:
     action: download_archive
     github:
       repo: cli/cli
-      file: "v{{ gh_version | mandatory }}/gh_{{ gh_version }}_linux_amd64.tar.gz"
+      file: "v{{ gh_version | mandatory }}/gh_{{ gh_version }}_linux_{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}.tar.gz"
     binary_name_in_archive: bin/gh
     version:
       args: --version
@@ -18,5 +17,4 @@ tool_deploy_default_config_gh:
       generate_args: completion -s bash
     zsh_completion:
       generate_args: completion -s zsh
-
 ...

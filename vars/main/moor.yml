@@ -1,5 +1,4 @@
 ---
-
 moor_version: 2.9.1
 
 tool_deploy_default_config_moor:
@@ -7,12 +6,11 @@ tool_deploy_default_config_moor:
     action: download_binary
     github:
       repo: walles/moor
-      file: "v{{ moor_version | mandatory }}/moor-v{{ moor_version }}-linux-amd64"
+      file: "v{{ moor_version | mandatory }}/moor-v{{ moor_version }}-linux-{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}amd64"
     version:
       args: --version
       match: "{{ moor_version | mandatory }}"
     man_pages:
       url:
         - https://raw.githubusercontent.com/walles/moor/refs/heads/master/moor.1
-
 ...

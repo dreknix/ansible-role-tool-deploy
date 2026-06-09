@@ -1,5 +1,4 @@
 ---
-
 fd_version: 10.4.2
 
 tool_deploy_default_config_fd:
@@ -7,7 +6,7 @@ tool_deploy_default_config_fd:
     action: download_archive
     github:
       repo: sharkdp/fd
-      file: "v{{ fd_version | mandatory }}/fd-v{{ fd_version | mandatory }}-x86_64-unknown-linux-gnu.tar.gz"
+      file: "v{{ fd_version | mandatory }}/fd-v{{ fd_version }}-{{ ansible_facts['architecture'] }}-unknown-linux-gnu.tar.gz"
     version:
       args: --version
       match: "fd {{ fd_version | mandatory }}"
@@ -17,5 +16,4 @@ tool_deploy_default_config_fd:
       src: "autocomplete/fd.bash"
     zsh_completion:
       src: "autocomplete/_fd"
-
 ...

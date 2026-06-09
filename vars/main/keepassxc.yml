@@ -1,5 +1,4 @@
 ---
-
 keepassxc_version: 2.7.10
 
 tool_deploy_default_config_keepassxc:
@@ -7,12 +6,11 @@ tool_deploy_default_config_keepassxc:
     action: download_appimage
     github:
       repo: keepassxreboot/keepassxc
-      file: "{{ keepassxc_version | mandatory }}/KeePassXC-{{ keepassxc_version }}-x86_64.AppImage"
+      file: "{{ keepassxc_version | mandatory }}/KeePassXC-{{ keepassxc_version }}-{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'x86_64' }}.AppImage"
     version:
       args: --version
       match: "KeePassXC {{ keepassxc_version | mandatory }}"
     xdg_desktop:
       src: squashfs-root/org.keepassxc.KeePassXC.desktop
       svg: squashfs-root/keepassxc.svg
-
 ...

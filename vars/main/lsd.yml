@@ -1,5 +1,4 @@
 ---
-
 lsd_version: 1.2.0
 
 tool_deploy_default_config_lsd:
@@ -7,7 +6,7 @@ tool_deploy_default_config_lsd:
     action: download_archive
     github:
       repo: lsd-rs/lsd
-      file: v{{ lsd_version | mandatory }}/lsd-v{{ lsd_version | mandatory }}-x86_64-unknown-linux-gnu.tar.gz
+      file: v{{ lsd_version | mandatory }}/lsd-v{{ lsd_version | mandatory }}-{{ ansible_facts['architecture'] }}-unknown-linux-gnu.tar.gz
     version:
       args: --version
       match: "lsd {{ lsd_version | mandatory }}"
@@ -17,5 +16,4 @@ tool_deploy_default_config_lsd:
       src: autocomplete/lsd.bash-completion
     zsh_completion:
       src: autocomplete/_lsd
-
 ...
