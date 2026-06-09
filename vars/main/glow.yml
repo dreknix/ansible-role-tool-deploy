@@ -6,7 +6,7 @@ tool_deploy_default_config_glow:
     action: download_archive
     github:
       repo: charmbracelet/glow
-      file: "v{{ glow_version | mandatory }}/glow_{{ glow_version }}_Linux_{{ ansible_facts['architecture'] }}.tar.gz"
+      file: "v{{ glow_version | mandatory }}/glow_{{ glow_version }}_Linux_{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'x86_64' }}.tar.gz"
     version:
       args: --version
       match: "glow version {{ glow_version | mandatory }}"
