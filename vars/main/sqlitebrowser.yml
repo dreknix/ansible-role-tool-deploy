@@ -3,6 +3,8 @@ sqlitebrowser_version: 3.13.1
 
 tool_deploy_default_config_sqlitebrowser:
   sqlitebrowser:
+    dependencies:
+      - fuse3
     action: download_appimage
     github:
       repo: sqlitebrowser/sqlitebrowser

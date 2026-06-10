@@ -3,6 +3,8 @@ keepassxc_version: 2.7.10
 
 tool_deploy_default_config_keepassxc:
   keepassxc:
+    dependencies:
+      - fuse3
     action: download_appimage
     github:
       repo: keepassxreboot/keepassxc

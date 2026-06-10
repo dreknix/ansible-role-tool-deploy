@@ -3,6 +3,8 @@ nvim_version: 0.12.2
 
 tool_deploy_default_config_nvim:
   nvim:
+    dependencies:
+      - fuse3
     action: download_appimage
     github:
       repo: neovim/neovim
