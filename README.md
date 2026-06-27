@@ -1257,14 +1257,15 @@ tool_deploy_list:
 [alexpasmantierh / telvision](https://github.com/alexpasmantier/telvision)
 
 ``` yaml
-tv_version: 0.15.7
+tv_version: 0.15.9
 
 tool_deploy_list:
   tv:
     action: download_archive
     github:
       repo: alexpasmantier/television
-      file: "{{ tv_version | mandatory }}/tv-{{ tv_version }}-i686-unknown-linux-gnu.tar.gz"
+      file: "{{ tv_version | mandatory }}/tv-{{ tv_version }}-{{
+        ansible_facts['architecture'] }}-unknown-linux-gnu.tar.gz"
     version:
       args: --version
       match: "telvision {{ tv_version | mandatory }}"
