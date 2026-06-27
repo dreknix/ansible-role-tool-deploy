@@ -785,14 +785,15 @@ tool_deploy_list:
 [mitsuhiko / minijinja](https://github.com/mitsuhiko/minijinja)
 
 ``` yaml
-minijinja_version: 2.20.0
+minijinja_version: 2.21.0
 
 tool_deploy_list:
   minijinja-cli:
     action: download_archive
     github:
       repo: mitsuhiko/minijinja
-      file: "{{ minijinja_version | mandatory }}/minijinja-cli-x86_64-unknown-linux-gnu.tar.xz"
+      file: "{{ minijinja_version | mandatory }}/minijinja-cli-{{
+        ansible_facts['architecture'] }}-unknown-linux-gnu.tar.xz"
     version:
       args: --version
       match: "{{ minijinja_version | mandatory }}"
