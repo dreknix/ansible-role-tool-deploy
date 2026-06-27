@@ -1388,14 +1388,15 @@ tool_deploy_list:
 [mikefarah / yq](https://github.com/mikefarah/yq)
 
 ``` yaml
-yq_version: 4.53.2
+yq_version: 4.53.3
 
 tool_deploy_list:
   yq:
     action: download_binary
     github:
       repo: mikefarah/yq
-      file: "v{{ yq_version | mandatory }}/yq_linux_amd64"
+      file: "v{{ yq_version | mandatory }}/yq_linux_{{ 'arm64' if
+        ansible_facts['architecture'] == 'aarch64' else 'amd64' }}"
     version:
       args: --version
       match: "version v{{ yq_version | mandatory }}"
