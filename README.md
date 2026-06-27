@@ -604,14 +604,15 @@ tool_deploy_list:
 [kellyjonbrazil / jc](https://github.com/kellyjonbrazil/jc)
 
 ``` yaml
-jc_version: 1.25.6
+jc_version: 1.25.7
 
 tool_deploy_list:
   jc:
     action: download_archive
     github:
       repo: kellyjonbrazil/jc
-      file: "v{{ jc_version | mandatory }}/jc-{{ jc_version }}-linux-x86_64.tar.gz"
+      file: "v{{ jc_version | mandatory }}/jc-{{ jc_version }}-linux-{{
+        ansible_facts['architecture'] }}.tar.gz"
     version:
       args: --version
       match: "{{ jc_version | mandatory }}"

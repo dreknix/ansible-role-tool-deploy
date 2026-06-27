@@ -1,12 +1,13 @@
 ---
-jc_version: 1.25.6
+jc_version: 1.25.7
 
 tool_deploy_default_config_jc:
   jc:
     action: download_archive
     github:
       repo: kellyjonbrazil/jc
-      file: "v{{ jc_version | mandatory }}/jc-{{ jc_version }}-linux-{{ ansible_facts['architecture'] }}.tar.gz"
+      file: "v{{ jc_version | mandatory }}/jc-{{ jc_version }}-linux-{{
+        ansible_facts['architecture'] }}.tar.gz"
     version:
       args: --version
       match: "jc version:  {{ jc_version | mandatory }}"
