@@ -1034,14 +1034,15 @@ tool_deploy_list:
 [astral-sh / ruff](https://github.com/astral-sh/ruff)
 
 ``` yaml
-ruff_version: 0.15.16
+ruff_version: 0.15.20
 
 tool_deploy_list:
   ruff:
     action: download_archive
     github:
       repo: astral-sh/ruff
-      file: "{{ ruff_version | mandatory }}/ruff-x86_64-unknown-linux-gnu.tar.gz"
+      file: "{{ ruff_version | mandatory }}/ruff-{{ ansible_facts['architecture']
+        }}-unknown-linux-gnu.tar.gz"
     version:
       args: --version
       match: "ruff {{ ruff_version | mandatory }}"
