@@ -871,14 +871,17 @@ tool_deploy_list:
 [neovim / neovim](https://github.com/neovim/neovim)
 
 ``` yaml
-nvim_version: 0.12.2
+nvim_version: 0.12.3
 
 tool_deploy_list:
   nvim:
+    dependencies:
+      - fuse3
     action: download_appimage
     github:
       repo: neovim/neovim
-      file: "v{{ nvim_version | mandatory }}/nvim-linux-x86_64.appimage"
+      file: "v{{ nvim_version | mandatory }}/nvim-linux-{{ 'arm64' if
+        ansible_facts['architecture'] == 'aarch64' else 'x86_64' }}.appimage"
     version:
       args: --version
       match: "NVIM v{{ nvim_version | mandatory }}"
