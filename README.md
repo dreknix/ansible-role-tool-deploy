@@ -1342,14 +1342,15 @@ tool_deploy_list:
 [ducaale / xh](https://github.com/ducaale/xh)
 
 ``` yaml
-xh_version: 0.25.3
+xh_version: 0.26.1
 
 tool_deploy_list:
   xh:
     action: download_archive
     github:
       repo: ducaale/xh
-      file: "v{{ xh_version | mandatory }}/xh-{{ xh_version }}-x86_64-unknown-linux-musl.tar.gz"
+      file: "v{{ xh_version | mandatory }}/xh-v{{ xh_version }}-{{
+        ansible_facts['architecture'] }}-unknown-linux-musl.tar.gz"
     version:
       args: --version
       match: "xh {{ xh_version | mandatory }}"
