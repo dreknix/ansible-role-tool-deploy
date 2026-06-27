@@ -1288,14 +1288,15 @@ tool_deploy_list:
 [astral-sh / uv](https://github.com/astral-sh/uv)
 
 ``` yaml
-uv_version: 0.11.19
+uv_version: 0.11.25
 
 tool_deploy_list:
   uv:
     action: download_archive
     github:
       repo: astral-sh/uv
-      file: "{{ uv_version | mandatory }}/uv-x86_64-unknown-linux-gnu.tar.gz"
+      file: "{{ uv_version | mandatory }}/uv-{{ ansible_facts['architecture']
+        }}-unknown-linux-gnu.tar.gz"
     version:
       args: --version
       match: "uv {{ uv_version | mandatory }}"
