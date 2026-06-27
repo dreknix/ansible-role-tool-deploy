@@ -1205,7 +1205,7 @@ tool_deploy_list:
     action: download_sources
     github:
       repo: jonas/tig
-      file: "tig-{{ tig_version | mandatory }}/tig-{{ tig_version | mandatory }}.tar.gz"
+      file: "tig-{{ tig_version | mandatory }}/tig-{{ tig_version }}.tar.gz"
     version:
       args: --version
       match: "tig version {{ tig_version | mandatory }}"
