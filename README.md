@@ -979,14 +979,16 @@ tool_deploy_list:
 [restic / restic](https://github.com/restic/restic)
 
 ``` yaml
-restic_version: 0.18.1
+restic_version: 0.19.0
 
 tool_deploy_list:
   restic:
     action: download_binary
     github:
       repo: restic/restic
-      file: "v{{ restic_version | mandatory }}/restic_{{ restic_version | mandatory }}_linux_amd64.bz2"
+      file: "v{{ restic_version | mandatory }}/restic_{{ restic_version }}_linux_{{
+        'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64'
+        }}.bz2"
     version:
       args: version
       match: "restic {{ restic_version | mandatory }}"
