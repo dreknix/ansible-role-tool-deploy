@@ -1,5 +1,5 @@
 ---
-prek_version: 0.4.4
+prek_version: 0.4.5
 
 tool_deploy_default_config_prek:
   prek:
@@ -7,7 +7,8 @@ tool_deploy_default_config_prek:
     github:
       repo: j178/prek
       file: >-
-        v{{ prek_version | mandatory }}/prek-{{ ansible_facts['architecture'] }}-unknown-linux-gnu.tar.gz
+        v{{ prek_version | mandatory }}/prek-{{ ansible_facts["architecture"]
+        }}-unknown-linux-gnu.tar.gz
     version:
       args: --version
       match: "prek {{ prek_version | mandatory }}"

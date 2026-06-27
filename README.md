@@ -940,7 +940,7 @@ tool_deploy_list:
 [j178 / prek](https://github.com/j178/prek)
 
 ``` yaml
-prek_version: 0.4.4
+prek_version: 0.4.5
 
 tool_deploy_list:
   prek:
@@ -948,7 +948,8 @@ tool_deploy_list:
     github:
       repo: j178/prek
       file: >-
-        v{{ prek_version | mandatory }}/prek-x86_64-unknown-linux-gnu.tar.gz
+        v{{ prek_version | mandatory }}/prek-{{ ansible_facts["architecture"]
+        }}-unknown-linux-gnu.tar.gz
     version:
       args: --version
       match: "prek {{ prek_version | mandatory }}"
