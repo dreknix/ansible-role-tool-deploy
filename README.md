@@ -30,7 +30,7 @@ installed. The installation can be forced with the flag `force_install`.
   vars:
 
     delta_version: 0.19.1
-    jq_version: 1.8.1
+    jq_version: 1.8.2
     task_version: 3.51.1
 
     tool_deploy_list:
@@ -56,7 +56,8 @@ installed. The installation can be forced with the flag `force_install`.
         github:
           repo: jqlang/jq
           file: >-
-            jq-{{ jq_version }}/jq-linux-amd64
+            jq-{{ jq_version | mandatory }}/jq-linux-{{ "arm64" if
+            ansible_facts["architecture"] == "aarch64" else "amd64" }}
         version:
           args: --version
           match: "jq-{{ jq_version }}"
@@ -92,7 +93,7 @@ equivalent to the following playbook definition:
   hosts: '{{ target | default("all") }}'
   vars:
     delta_version: 0.19.1
-    jq_version: 1.8.1
+    jq_version: 1.8.2
     task_version: 3.51.1
 
   pre_tasks:
@@ -621,17 +622,19 @@ tool_deploy_list:
 [jqlang / jq](https://github.com/jqlang/jq)
 
 ``` yaml
-jq_version: 1.8.1
+jq_version: 1.8.2
 
 tool_deploy_list:
   jq:
     action: download_binary
     github:
       repo: jqlang/jq
-      file: "jq-{{ jq_version }}/jq-linux-amd64"
+      file: >-
+        jq-{{ jq_version | mandatory }}/jq-linux-{{ "arm64" if
+        ansible_facts["architecture"] == "aarch64" else "amd64" }}
     version:
       args: --version
-      match: "jq-{{ jq_version }}"
+      match: "jq-{{ jq_version | mandatory }}"
 ```
 
 ### KeePassXC
