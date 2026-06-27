@@ -1,5 +1,5 @@
 ---
-tmux_version: 3.6b
+tmux_version: 3.7
 
 tool_deploy_default_config_tmux:
   tmux:
