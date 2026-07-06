@@ -1,5 +1,5 @@
 ---
-nvim_version: 0.12.3
+nvim_version: 0.12.4
 
 tool_deploy_default_config_nvim:
   nvim:
