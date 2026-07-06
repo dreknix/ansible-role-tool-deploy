@@ -1417,14 +1417,16 @@ tool_deploy_list:
 [ajeetdsouza / zoxide](https://github.com/ajeetdsouza/zoxide)
 
 ``` yaml
-zoxide_version: 0.9.9
+zoxide_version: 0.10.0
 
 tool_deploy_list:
   zoxide:
     action: download_archive
     github:
       repo: ajeetdsouza/zoxide
-      file: "v{{ zoxide_version }}/zoxide-{{ zoxide_version }}-x86_64-unknown-linux-musl.tar.gz"
+      file: >-
+        v{{ zoxide_version | mandatory }}/zoxide-{{ zoxide_version }}-{{
+        ansible_facts["architecture"] }}-unknown-linux-musl.tar.gz
     version:
       args: --version
       match: "zoxide {{ zoxide_version }}"
