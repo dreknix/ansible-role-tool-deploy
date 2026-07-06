@@ -704,14 +704,16 @@ tool_deploy_list:
 [jesseduffield / lazygit](https://github.com/jesseduffield/lazygit)
 
 ``` yaml
-lazygit_version: 0.62.2
+lazygit_version: 0.63.0
 
 tool_deploy_list:
   lazygit:
     action: download_archive
     github:
       repo: jesseduffield/lazygit
-      file: "v{{ lazygit_version | mandatory }}/lazygit_{{ lazygit_version | mandatory }}_Linux_x86_64.tar.gz"
+      file: >-
+        v{{ lazygit_version | mandatory }}/lazygit_{{ lazygit_version }}_Linux_{{
+        "arm64" if ansible_facts["architecture"] == "aarch64" else "x86_64" }}.tar.gz
     version:
       args: --version
       match: "version={{ lazygit_version | mandatory }}"
