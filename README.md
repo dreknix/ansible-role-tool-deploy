@@ -984,7 +984,7 @@ tool_deploy_list:
 [restic / restic](https://github.com/restic/restic)
 
 ``` yaml
-restic_version: 0.19.0
+restic_version: 0.19.1
 
 tool_deploy_list:
   restic:
