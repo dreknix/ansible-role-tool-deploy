@@ -31,7 +31,7 @@ installed. The installation can be forced with the flag `force_install`.
 
     delta_version: 0.19.1
     jq_version: 1.8.2
-    task_version: 3.51.1
+    task_version: 3.52.0
 
     tool_deploy_list:
 
@@ -65,12 +65,14 @@ installed. The installation can be forced with the flag `force_install`.
       task:
         # force_install: true
         action: download_archive
-        github_repo: go-task/task
-        release_file: >-
-          v{{ task_version }}/task_linux_amd64.tar.gz
+        github:
+          repo: go-task/task
+          file: >-
+            v{{ task_version | mandatory }}/task_linux_{{ "arm64" if
+            ansible_facts["architecture"] == "aarch64" else "amd64" }}.tar.gz
         version:
           args: --version
-          match: "Task version: v{{ task_version }}"
+          match: "{{ task_version | mandatory }}"
         bash_completion:
           src: completion/bash/task.bash
         zsh_completion:
@@ -94,7 +96,7 @@ equivalent to the following playbook definition:
   vars:
     delta_version: 0.19.1
     jq_version: 1.8.2
-    task_version: 3.51.1
+    task_version: 3.52.0
 
   pre_tasks:
     - name: Set dictionary 'tool_deploy_list'
@@ -1160,14 +1162,16 @@ tool_deploy_list:
 [go-task / task](https://github.com/go-task/task)
 
 ``` yaml
-task_version: 3.51.1
+task_version: 3.52.0
 
 tool_deploy_list:
   task:
     action: download_archive
     github:
       repo: go-task/task
-      file: "v{{ task_version }}/task_linux_amd64.tar.gz"
+      file: >-
+        v{{ task_version | mandatory }}/task_linux_{{ "arm64" if
+        ansible_facts["architecture"] == "aarch64" else "amd64" }}.tar.gz
     version:
       args: --version
       match: "{{ task_version }}"
