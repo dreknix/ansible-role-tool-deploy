@@ -364,10 +364,12 @@ tool_deploy_list:
     action: download_archive
     github:
       repo: junegunn/fzf
-      file: "v{{ fzf_version }}/fzf-{{ fzf_version }}-linux_amd64.tar.gz"
+      file: >-
+        v{{ fzf_version | mandatory }}/fzf-{{ fzf_version }}-linux_{{ "arm64"
+        if ansible_facts["architecture"] == "aarch64" else "amd64" }}.tar.gz
     version:
       args: --version
-      match: "{{ fzf_version }} ("
+      match: "{{ fzf_version | mandatory }} ("
     man_pages:
       url: https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/man/man1/fzf.1
     bash_completion:

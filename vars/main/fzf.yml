@@ -1,12 +1,14 @@
 ---
-fzf_version: 0.73.1
+fzf_version: 0.74.0
 
 tool_deploy_default_config_fzf:
   fzf:
     action: download_archive
     github:
       repo: junegunn/fzf
-      file: "v{{ fzf_version | mandatory }}/fzf-{{ fzf_version }}-linux_{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}.tar.gz"
+      file: >-
+        v{{ fzf_version | mandatory }}/fzf-{{ fzf_version }}-linux_{{ "arm64"
+        if ansible_facts["architecture"] == "aarch64" else "amd64" }}.tar.gz
     version:
       args: --version
       match: "{{ fzf_version | mandatory }} ("
