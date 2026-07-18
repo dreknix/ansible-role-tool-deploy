@@ -1094,14 +1094,17 @@ tool_deploy_list:
 [BurntSushi / ripgrep](https://github.com/BurntSushi/ripgrep)
 
 ``` yaml
-rg_version: 15.1.0
+rg_version: 15.2.0
 
 tool_deploy_list:
   rg:
     action: download_archive
     github:
       repo: BurntSushi/ripgrep
-      file: "{{ rg_version }}/ripgrep-{{ rg_version }}-x86_64-unknown-linux-musl.tar.gz"
+      file: >-
+        {{ rg_version | mandatory }}/ripgrep-{{ rg_version }}-{{
+          "aarch64-unknown-linux-gnu" if ansible_facts["architecture"] ==
+          "aarch64" else "x86_64-unknown-linux-musl" }}.tar.gz"
     version:
       args: --version
       match: "ripgrep {{ rg_version }} ("
