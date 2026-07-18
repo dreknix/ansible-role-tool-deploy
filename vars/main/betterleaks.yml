@@ -1,5 +1,5 @@
 ---
-betterleaks_version: 1.6.1
+betterleaks_version: 1.6.0
 
 tool_deploy_default_config_betterleaks:
   betterleaks:
@@ -13,4 +13,8 @@ tool_deploy_default_config_betterleaks:
     version:
       args: --version
       match: "betterleaks version {{ betterleaks_version | mandatory }}"
+    bash_completion:
+      generate_args: completion bash
+    zsh_completion:
+      generate_args: completion zsh
 ...

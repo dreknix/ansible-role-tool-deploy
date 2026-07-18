@@ -227,6 +227,10 @@ tool_deploy_list:
     version:
       args: --version
       match: "betterleaks version {{ betterleaks_version | mandatory }}"
+    bash_completion:
+      generate_args: completion bash
+    zsh_completion:
+      generate_args: completion zsh
 ```
 
 ### delta
