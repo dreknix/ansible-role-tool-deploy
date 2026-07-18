@@ -1,5 +1,5 @@
 ---
-betterleaks_version: 1.6.0
+betterleaks_version: 1.6.1
 
 tool_deploy_default_config_betterleaks:
   betterleaks:
