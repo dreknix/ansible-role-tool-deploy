@@ -1,12 +1,13 @@
 ---
-ruff_version: 0.15.20
+ruff_version: 0.15.22
 
 tool_deploy_default_config_ruff:
   ruff:
     action: download_archive
     github:
       repo: astral-sh/ruff
-      file: "{{ ruff_version | mandatory }}/ruff-{{ ansible_facts['architecture']
+      file:
+        "{{ ruff_version | mandatory }}/ruff-{{ ansible_facts['architecture']
         }}-unknown-linux-gnu.tar.gz"
     version:
       args: --version
