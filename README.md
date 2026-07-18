@@ -1117,14 +1117,16 @@ tool_deploy_list:
 [joshmedeski / sesh](https://github.com/joshmedeski/sesh)
 
 ``` yaml
-sesh_version: 2.26.1
+sesh_version: 2.27.0
 
 tool_deploy_list:
   sesh:
     action: download_archive
     github:
       repo: joshmedeski/sesh
-      file: "v{{ sesh_version | mandatory }}/sesh_Linux_x86_64.tar.gz"
+      file: >-
+        v{{ sesh_version | mandatory }}/sesh_Linux_{{
+          ansible_facts['architecture'] }}.tar.gz
     version:
       args: --version
       match: "sesh version {{ sesh_version | mandatory }}"
