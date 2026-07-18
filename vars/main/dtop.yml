@@ -1,0 +1,16 @@
+---
+dtop_version: 0.7.9
+
+tool_deploy_default_config_dtop:
+  dtop:
+    action: download_archive
+    github:
+      repo: amir20/dtop
+      file: >-
+        v{{ dtop_version | mandatory }}/dtop-{{
+          'arm64' if ansible_facts['architecture'] == 'aarch64' else 'x86_64'
+        }}-unknown-linux-gnu.tar.gz
+    version:
+      args: --version
+      match: "dtop {{ dtop_version | mandatory }}"
+...

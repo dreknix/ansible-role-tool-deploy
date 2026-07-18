@@ -1,5 +1,4 @@
 ---
-
 - name: Test role with README example
   hosts: '{{ target | default("all") }}'
   vars:
@@ -62,6 +61,16 @@
   tags:
     - tools
     - dive
+
+- name: Test role with dtop
+  hosts: '{{ target | default("all") }}'
+  vars:
+    tool_deploy_list: "{{ tool_deploy_default_config_dtop }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - dtop
 
 - name: Test role with docker-credential-pass
   hosts: '{{ target | default("all") }}'
@@ -572,5 +581,4 @@
   tags:
     - tools
     - zoxide
-
 ...

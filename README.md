@@ -272,6 +272,27 @@ tool_deploy_list:
       match: "dive {{ dive_version | mandatory }}"
 ```
 
+### dtop
+
+[amir20 / dtop](https://github.com/amir20/dtop)
+
+``` yaml
+dtop_version: 0.7.9
+
+tool_deploy_list:
+  dtop:
+    action: download_archive
+    github:
+      repo: amir20/dtop
+      file: >-
+        v{{ dtop_version | mandatory }}/dtop-{{
+          'arm64' if ansible_facts['architecture'] == 'aarch64' else 'x86_64'
+        }}-unknown-linux-gnu.tar.gz
+    version:
+      args: --version
+      match: "dtop {{ dtop_version | mandatory }}"
+```
+
 ### docker-credential-pass
 
 [docker / docker-credential-helpers](https://github.com/docker/docker-credential-helpers)
