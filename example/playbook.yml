@@ -32,6 +32,16 @@
     - tools
     - bat
 
+- name: Test role with betterleaks
+  hosts: '{{ target | default("all") }}'
+  vars:
+    tool_deploy_list: "{{ tool_deploy_default_config_betterleaks }}"
+  roles:
+    - role: tool_deploy
+  tags:
+    - tools
+    - betterleaks
+
 - name: Test role with delta
   hosts: '{{ target | default("all") }}'
   vars:

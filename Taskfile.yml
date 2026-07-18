@@ -39,6 +39,11 @@ tasks:
     cmds:
       - ansible-playbook --tag bat example/playbook.yml
 
+  test:betterleaks:
+    desc: Test deployment of tool betterleaks
+    cmds:
+      - ansible-playbook --tag betterleaks example/playbook.yml
+
   test:delta:
     desc: Test deployment of tool delta
     cmds:

@@ -208,6 +208,27 @@ tool_deploy_list:
       src: autocomplete/bat.zsh
 ```
 
+### betterleaks
+
+[betterleaks / betterleaks](https://github.com/betterleaks/betterleaks)
+
+``` yaml
+betterleaks_version: 1.6.1
+
+tool_deploy_list:
+  betterleaks:
+    action: download_archive
+    github:
+      repo: betterleaks/betterleaks
+      file: >-
+        v{{ betterleaks_version | mandatory }}/betterleaks_{{
+          betterleaks_version }}_linux_{{ 'arm64' if
+          ansible_facts['architecture'] == 'arm64' else 'x64' }}.tar.gz
+    version:
+      args: --version
+      match: "betterleaks version {{ betterleaks_version | mandatory }}"
+```
+
 ### delta
 
 [dandavison / delta](https://github.com/dandavison/delta)
