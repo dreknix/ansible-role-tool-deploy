@@ -1,12 +1,14 @@
 ---
-atuin_version: 18.16.1
+atuin_version: 18.17.1
 
 tool_deploy_default_config_atuin:
   atuin:
     action: download_archive
     github:
       repo: atuinsh/atuin
-      file: "v{{ atuin_version | mandatory }}/atuin-{{ ansible_facts['architecture'] }}-unknown-linux-gnu.tar.gz"
+      file: >-
+        v{{ atuin_version | mandatory }}/atuin-{{
+          ansible_facts['architecture'] }}-unknown-linux-gnu.tar.gz
     version:
       args: --version
       match: "atuin {{ atuin_version | mandatory }}"

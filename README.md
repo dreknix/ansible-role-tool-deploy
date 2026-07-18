@@ -165,14 +165,16 @@ in playbooks.
 [atuinsh / atuin](https://github.com/atuinsh/atuin)
 
 ``` yaml
-atuin_version: 18.16.1
+atuin_version: 18.17.1
 
 tool_deploy_list:
   atuin:
     action: download_archive
     github:
       repo: atuinsh/atuin
-      file: "v{{ atuin_version | mandatory }}/atuin-x86_64-unknown-linux-gnu.tar.gz"
+      file: >-
+        v{{ atuin_version | mandatory }}/atuin-{{
+          ansible_facts['architecture'] }}-unknown-linux-gnu.tar.gz
     version:
       args: --version
       match: "atuin {{ atuin_version | mandatory }}"
