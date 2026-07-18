@@ -1319,7 +1319,9 @@ tool_deploy_list:
     action: download_archive
     github:
       repo: astral-sh/ty
-      file: "{{ ty_version | mandatory }}/ty-x86_64-unknown-linux-gnu.tar.gz"
+      file: >-
+        {{ ty_version | mandatory }}/ty-{{ ansible_facts['architecture']
+        }}-unknown-linux-gnu.tar.gz
     version:
       args: --version
       match: "ty {{ ty_version | mandatory }}"
