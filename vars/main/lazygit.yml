@@ -1,5 +1,5 @@
 ---
-lazygit_version: 0.63.0
+lazygit_version: 0.63.1
 
 tool_deploy_default_config_lazygit:
   lazygit:
@@ -7,8 +7,9 @@ tool_deploy_default_config_lazygit:
     github:
       repo: jesseduffield/lazygit
       file: >-
-        v{{ lazygit_version | mandatory }}/lazygit_{{ lazygit_version }}_Linux_{{
-        "arm64" if ansible_facts["architecture"] == "aarch64" else "x86_64" }}.tar.gz
+        v{{ lazygit_version | mandatory }}/lazygit_{{ lazygit_version
+          }}_Linux_{{ "arm64" if ansible_facts["architecture"] == "aarch64"
+          else "x86_64" }}.tar.gz
     version:
       args: --version
       match: "version={{ lazygit_version | mandatory }}"
