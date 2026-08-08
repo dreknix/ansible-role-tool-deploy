@@ -594,14 +594,16 @@ tool_deploy_list:
 [hadolint / hadolint](https://github.com/hadolint/hadolint)
 
 ``` yaml
-hadolint_version: 2.14.0
+hadolint_version: 2.15.1
 
 tool_deploy_list:
   hadolint:
     action: download_binary
     github:
       repo: hadolint/hadolint
-      file: "v{{ hadolint_version | mandatory }}/hadolint-Linux-x86_64"
+      file: >-
+        v{{ hadolint_version | mandatory }}/hadolint-Linux-{{
+        "arm64" if ansible_facts["architecture"] == "aarch64" else "x86_64" }}
     version:
       args: --version
       match: "Haskell Dockerfile Linter {{ hadolint_version | mandatory }}"
