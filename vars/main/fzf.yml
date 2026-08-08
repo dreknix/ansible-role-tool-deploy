@@ -1,5 +1,5 @@
 ---
-fzf_version: 0.74.0
+fzf_version: 0.74.2
 
 tool_deploy_default_config_fzf:
   fzf:
