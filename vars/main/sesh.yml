@@ -1,5 +1,5 @@
 ---
-sesh_version: 2.27.0
+sesh_version: 2.28.0
 
 tool_deploy_default_config_sesh:
   sesh:
