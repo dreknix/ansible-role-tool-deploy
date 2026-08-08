@@ -1100,7 +1100,7 @@ tool_deploy_list:
 [astral-sh / ruff](https://github.com/astral-sh/ruff)
 
 ``` yaml
-ruff_version: 0.15.22
+ruff_version: 0.16.2
 
 tool_deploy_list:
   ruff:
