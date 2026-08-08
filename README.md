@@ -213,7 +213,7 @@ tool_deploy_list:
 [betterleaks / betterleaks](https://github.com/betterleaks/betterleaks)
 
 ``` yaml
-betterleaks_version: 1.6.1
+betterleaks_version: 1.7.3
 
 tool_deploy_list:
   betterleaks:
