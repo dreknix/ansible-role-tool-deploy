@@ -754,7 +754,7 @@ tool_deploy_list:
 [jesseduffield / lazygit](https://github.com/jesseduffield/lazygit)
 
 ``` yaml
-lazygit_version: 0.63.1
+lazygit_version: 0.64.0
 
 tool_deploy_list:
   lazygit:
@@ -995,7 +995,7 @@ tool_deploy_list:
 [j178 / prek](https://github.com/j178/prek)
 
 ``` yaml
-prek_version: 0.4.10
+prek_version: 0.4.12
 
 tool_deploy_list:
   prek:
