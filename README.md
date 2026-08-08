@@ -165,7 +165,7 @@ in playbooks.
 [atuinsh / atuin](https://github.com/atuinsh/atuin)
 
 ``` yaml
-atuin_version: 18.17.1
+atuin_version: 18.19.0
 
 tool_deploy_list:
   atuin:
