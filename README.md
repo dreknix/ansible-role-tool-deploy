@@ -529,14 +529,17 @@ tool_deploy_list:
 [gopasspw / gopass](https://github.com/gopasspw/gopass)
 
 ``` yaml
-gopass_version: 1.16.1
+gopass_version: 1.17.0
 
 tool_deploy_list:
   gopass:
     action: download_archive
     github:
       repo: gopasspw/gopass
-      file: "v{{ gopass_version | mandatory }}/gopass-{{ gopass_version | mandatory }}-linux-amd64.tar.gz"
+      file: >-
+        v{{ gopass_version | mandatory }}/gopass-{{ gopass_version
+        }}-linux-{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else
+        'amd64' }}.tar.gz
     version:
       args: version
       match: "gopass {{ gopass_version | mandatory }}"
@@ -551,16 +554,19 @@ tool_deploy_list:
 [gopasspw / gopass-jsonapi](https://github.com/gopasspw/gopass-jsonapi)
 
 ``` yaml
-gopass_jsonapi_version: 1.16.1
+gopass_jsonapi_version: 1.17.0
 
 tool_deploy_list:
   gopass-jsonapi:
     action: download_archive
     github:
       repo: gopasspw/gopass-jsonapi
-      file: "v{{ gopass_jsonapi_version | mandatory }}/gopass-jsonapi-{{ gopass_jsonapi_version }}-linux-amd64.tar.gz"
+      file: >-
+        v{{ gopass_jsonapi_version | mandatory }}/gopass-jsonapi-{{
+        gopass_jsonapi_version }}-linux-{{ 'arm64'
+        if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}.tar.gz
     version:
-      args: version
+      args: --version
       match: "gopass-jsonapi version {{ gopass_jsonapi_version | mandatory }}"
 ```
 

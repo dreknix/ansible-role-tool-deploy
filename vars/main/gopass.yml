@@ -1,12 +1,15 @@
 ---
-gopass_version: 1.16.1
+gopass_version: 1.17.0
 
 tool_deploy_default_config_gopass:
   gopass:
     action: download_archive
     github:
       repo: gopasspw/gopass
-      file: "v{{ gopass_version | mandatory }}/gopass-{{ gopass_version }}-linux-{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}.tar.gz"
+      file: >-
+        v{{ gopass_version | mandatory }}/gopass-{{ gopass_version
+        }}-linux-{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else
+        'amd64' }}.tar.gz
     version:
       args: version
       match: "gopass {{ gopass_version | mandatory }}"
