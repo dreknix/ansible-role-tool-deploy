@@ -361,17 +361,19 @@ tool_deploy_list:
 [sharkdp / fd](https://github.com/sharkdp/fd)
 
 ``` yaml
-fd_version: 10.4.2
+fd_version: 10.5.0
 
 tool_deploy_list:
   fd:
     action: download_archive
     github:
       repo: sharkdp/fd
-      file: "v{{ fd_version }}/fd-v{{ fd_version }}-x86_64-unknown-linux-gnu.tar.gz"
+      file: >-
+        v{{ fd_version | mandatory }}/fd-v{{ fd_version }}-{{
+        ansible_facts['architecture'] }}-unknown-linux-gnu.tar.gz
     version:
       args: --version
-      match: "fd {{ fd_version }}"
+      match: "fd {{ fd_version | mandatory }}"
     man_pages:
       src: fd.1
     bash_completion:

@@ -1,12 +1,14 @@
 ---
-fd_version: 10.4.2
+fd_version: 10.5.0
 
 tool_deploy_default_config_fd:
   fd:
     action: download_archive
     github:
       repo: sharkdp/fd
-      file: "v{{ fd_version | mandatory }}/fd-v{{ fd_version }}-{{ ansible_facts['architecture'] }}-unknown-linux-gnu.tar.gz"
+      file: >-
+        v{{ fd_version | mandatory }}/fd-v{{ fd_version }}-{{
+        ansible_facts['architecture'] }}-unknown-linux-gnu.tar.gz
     version:
       args: --version
       match: "fd {{ fd_version | mandatory }}"
