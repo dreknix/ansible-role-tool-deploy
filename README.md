@@ -304,7 +304,7 @@ tool_deploy_list:
 [amir20 / dtop](https://github.com/amir20/dtop)
 
 ``` yaml
-dtop_version: 0.8.0
+dtop_version: 0.9.1
 
 tool_deploy_list:
   dtop:
