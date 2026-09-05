@@ -7,7 +7,8 @@ tool_deploy_default_config_delta:
     github:
       repo: dandavison/delta
       file: >-
-        {{ delta_version | mandatory }}/delta-{{ delta_version }}-{{ ansible_facts['architecture'] }}-unknown-linux-gnu.tar.gz
+        {{ delta_version | mandatory }}/delta-{{ delta_version }}-{{
+        ansible_facts['architecture'] }}-unknown-linux-gnu.tar.gz
     version:
       args: --version
       match: "delta {{ delta_version | mandatory }}"
