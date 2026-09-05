@@ -1450,7 +1450,7 @@ tool_deploy_list:
 [sibprogrammer / xq](https://github.com/sibprogrammer/xq)
 
 ``` yaml
-xq_version: 1.3.0
+xq_version: 1.5.1
 
 tool_deploy_list:
   xq:
@@ -1470,7 +1470,7 @@ tool_deploy_list:
 [mikefarah / yq](https://github.com/mikefarah/yq)
 
 ``` yaml
-yq_version: 4.53.3
+yq_version: 4.53.6
 
 tool_deploy_list:
   yq:
