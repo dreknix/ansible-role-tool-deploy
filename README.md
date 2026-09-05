@@ -770,7 +770,7 @@ tool_deploy_list:
 [jesseduffield / lazygit](https://github.com/jesseduffield/lazygit)
 
 ``` yaml
-lazygit_version: 0.64.1
+lazygit_version: 0.65.0
 
 tool_deploy_list:
   lazygit:
