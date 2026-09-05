@@ -31,7 +31,7 @@ installed. The installation can be forced with the flag `force_install`.
 
     delta_version: 0.19.1
     jq_version: 1.8.2
-    task_version: 3.52.0
+    task_version: 3.53.1
 
     tool_deploy_list:
 
@@ -41,7 +41,8 @@ installed. The installation can be forced with the flag `force_install`.
         github:
           repo: dandavison/delta
           file: >-
-            {{ delta_version }}/delta-{{ delta_version }}-x86_64-unknown-linux-gnu.tar.gz
+              {{ delta_version | mandatory }}/delta-{{ delta_version }}-{{
+              ansible_facts['architecture'] }}-unknown-linux-gnu.tar.gz
         version:
           args: --version
           match: "delta {{ delta_version }}"
@@ -96,7 +97,7 @@ equivalent to the following playbook definition:
   vars:
     delta_version: 0.19.1
     jq_version: 1.8.2
-    task_version: 3.52.0
+    task_version: 3.53.1
 
   pre_tasks:
     - name: Set dictionary 'tool_deploy_list'
@@ -1228,7 +1229,7 @@ tool_deploy_list:
 [go-task / task](https://github.com/go-task/task)
 
 ``` yaml
-task_version: 3.52.0
+task_version: 3.53.1
 
 tool_deploy_list:
   task:
@@ -1240,7 +1241,7 @@ tool_deploy_list:
         ansible_facts["architecture"] == "aarch64" else "amd64" }}.tar.gz
     version:
       args: --version
-      match: "{{ task_version }}"
+      match: "{{ task_version | mandatory }}"
     bash_completion:
       src: completion/bash/task.bash
     zsh_completion:
