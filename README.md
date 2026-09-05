@@ -1457,7 +1457,9 @@ tool_deploy_list:
     action: download_archive
     github:
       repo: sibprogrammer/xq
-      file: "v{{ xq_version | mandatory }}/xq_{{ xq_version | mandatory }}_linux_amd64.tar.gz"
+      file: >-
+        v{{ xq_version | mandatory }}/xq_{{ xq_version }}_linux_{{ 'arm64'
+        if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}.tar.gz
     version:
       args: --version
       match: "xq version {{ xq_version | mandatory }}"
