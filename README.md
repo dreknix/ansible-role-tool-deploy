@@ -577,14 +577,16 @@ tool_deploy_list:
 [charmbracelet / gum](https://github.com/charmbracelet/gum)
 
 ``` yaml
-gum_version: 0.17.0
+gum_version: 2.0.0
 
 tool_deploy_list:
   gum:
     action: download_archive
     github:
       repo: charmbracelet/gum
-      file: "v{{ gum_version | mandatory }}/gum_{{ gum_version }}_Linux_x86_64.tar.gz"
+      file: >-
+        v{{ gum_version | mandatory }}/gum_{{ gum_version }}_Linux_{{ 'arm64'
+        if ansible_facts['architecture'] == 'aarch64' else 'x86_64' }}.tar.gz
     version:
       args: --version
       match: "gum version v{{ gum_version | mandatory }}"
