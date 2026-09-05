@@ -1304,7 +1304,7 @@ tool_deploy_list:
 [tmux / tmux](https://github.com/tmux/tmux)
 
 ``` yaml
-tmux_version: 3.7b
+tmux_version: 3.7c
 
 tool_deploy_list:
   tmux:
