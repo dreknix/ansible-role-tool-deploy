@@ -507,14 +507,17 @@ tool_deploy_list:
 [charmbracelet / glow](https://github.com/charmbracelet/glow)
 
 ``` yaml
-glow_version: 2.1.2
+glow_version: 3.0.0
 
 tool_deploy_list:
   glow:
     action: download_archive
     github:
       repo: charmbracelet/glow
-      file: "v{{ glow_version | mandatory }}/glow_{{ glow_version }}_Linux_x86_64.tar.gz"
+      file: >-
+        v{{ glow_version | mandatory }}/glow_{{ glow_version }}_Linux_{{
+        'arm64' if ansible_facts['architecture'] == 'aarch64' else 'x86_64'
+        }}.tar.gz
     version:
       args: --version
       match: "glow version {{ glow_version | mandatory }}"
