@@ -901,14 +901,16 @@ tool_deploy_list:
 [walles / moor](https://github.com/walles/moor)
 
 ``` yaml
-moor_version: 2.9.1
+moor_version: 2.19.4
 
 tool_deploy_list:
   moor:
     action: download_binary
     github:
       repo: walles/moor
-      file: "v{{ moor_version | mandatory }}/moor-v{{ moor_version }}-linux-amd64"
+      file: >-
+        v{{ moor_version | mandatory }}/moor-v{{ moor_version }}-linux-{{
+        'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}
     version:
       args: --version
       match: "{{ moor_version | mandatory }}"
