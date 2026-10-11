@@ -583,7 +583,7 @@ tool_deploy_list:
 [charmbracelet / gum](https://github.com/charmbracelet/gum)
 
 ``` yaml
-gum_version: 2.0.0
+gum_version: 2.0.2
 
 tool_deploy_list:
   gum:
