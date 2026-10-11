@@ -391,11 +391,15 @@ tool_deploy_list:
 
 ``` yaml
 fx_version: 39.2.0
+
+tool_deploy_list:
   fx:
     action: download_binary
     github:
       repo: antonmedv/fx
-      file: "{{ fx_version | mandatory }}/fx_linux_amd64"
+      file: >-
+        {{ fx_version | mandatory }}/fx_linux_{{ 'arm64' if
+        ansible_facts['architecture'] == 'aarch64' else 'amd64' }}
     version:
       args: --version
       match: "{{ fx_version | mandatory }}"
@@ -403,8 +407,6 @@ fx_version: 39.2.0
       generate_args: --comp bash
     zsh_completion:
       generate_args: --comp zsh
-
-tool_deploy_list:
 ```
 
 ### fzf
