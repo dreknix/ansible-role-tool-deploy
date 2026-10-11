@@ -1361,7 +1361,7 @@ tool_deploy_list:
 [astral-sh / ty](https://github.com/astral-sh/ty)
 
 ``` yaml
-ty_version: 0.0.61
+ty_version: 0.0.86
 
 tool_deploy_list:
   ty:
