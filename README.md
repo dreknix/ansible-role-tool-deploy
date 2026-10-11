@@ -676,18 +676,23 @@ tool_deploy_list:
 [kellyjonbrazil / jc](https://github.com/kellyjonbrazil/jc)
 
 ``` yaml
-jc_version: 1.25.7
+jc_version: 1.26.0
 
 tool_deploy_list:
   jc:
     action: download_archive
     github:
       repo: kellyjonbrazil/jc
-      file: "v{{ jc_version | mandatory }}/jc-{{ jc_version }}-linux-{{
-        ansible_facts['architecture'] }}.tar.gz"
+      file: >-
+        v{{ jc_version | mandatory }}/jc-{{ jc_version }}-linux-{{
+        ansible_facts['architecture'] }}.tar.gz
     version:
       args: --version
       match: "{{ jc_version | mandatory }}"
+    bash_completion:
+      generate_args: --bash-comp
+    zsh_completion:
+      generate_args: --zsh-comp
 ```
 
 ### jq
