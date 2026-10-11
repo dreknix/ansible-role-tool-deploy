@@ -1,5 +1,5 @@
 ---
-gopass_jsonapi_version: 1.17.0
+gopass_jsonapi_version: 1.17.4
 
 tool_deploy_default_config_gopass_jsonapi:
   gopass-jsonapi:
