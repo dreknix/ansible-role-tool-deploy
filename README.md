@@ -29,7 +29,7 @@ installed. The installation can be forced with the flag `force_install`.
   hosts: '{{ target | default("all") }}'
   vars:
 
-    delta_version: 0.19.1
+    delta_version: 0.20.1
     jq_version: 1.8.2
     task_version: 3.53.1
 
@@ -95,7 +95,7 @@ equivalent to the following playbook definition:
 - name: Deploying tools
   hosts: '{{ target | default("all") }}'
   vars:
-    delta_version: 0.19.1
+    delta_version: 0.20.1
     jq_version: 1.8.2
     task_version: 3.53.1
 
@@ -239,7 +239,7 @@ tool_deploy_list:
 [dandavison / delta](https://github.com/dandavison/delta)
 
 ``` yaml
-delta_version: 0.19.1
+delta_version: 0.20.1
 
 tool_deploy_list:
   delta:

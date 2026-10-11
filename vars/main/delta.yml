@@ -1,5 +1,5 @@
 ---
-delta_version: 0.19.1
+delta_version: 0.20.1
 
 tool_deploy_default_config_delta:
   delta:
