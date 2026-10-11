@@ -31,7 +31,7 @@ installed. The installation can be forced with the flag `force_install`.
 
     delta_version: 0.20.1
     jq_version: 1.8.2
-    task_version: 3.53.1
+    task_version: 3.54.0
 
     tool_deploy_list:
 
@@ -97,7 +97,7 @@ equivalent to the following playbook definition:
   vars:
     delta_version: 0.20.1
     jq_version: 1.8.2
-    task_version: 3.53.1
+    task_version: 3.54.0
 
   pre_tasks:
     - name: Set dictionary 'tool_deploy_list'
@@ -1236,7 +1236,7 @@ tool_deploy_list:
 [go-task / task](https://github.com/go-task/task)
 
 ``` yaml
-task_version: 3.53.1
+task_version: 3.54.0
 
 tool_deploy_list:
   task:
