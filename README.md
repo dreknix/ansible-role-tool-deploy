@@ -410,7 +410,7 @@ tool_deploy_list:
 [junegunn / fzf](https://github.com/junegunn/fzf)
 
 ``` yaml
-fzf_version: 0.74.3
+fzf_version: 0.74.5
 
 tool_deploy_list:
   fzf:
