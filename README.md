@@ -1407,7 +1407,7 @@ tool_deploy_list:
 [charmbracelet / vhs](https://github.com/charmbracelet/vhs)
 
 ``` yaml
-vhs_version: 0.11.0
+vhs_version: 0.12.1
 
 tool_deploy_list:
   vhs:
