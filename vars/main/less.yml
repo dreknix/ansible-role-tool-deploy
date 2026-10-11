@@ -1,6 +1,5 @@
 ---
-
-less_version: 704
+less_version: 710
 
 tool_deploy_default_config_less:
   less:

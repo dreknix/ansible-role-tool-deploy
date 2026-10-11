@@ -791,7 +791,7 @@ tool_deploy_list:
 [less homepage](http://greenwoodsoftware.com/less/)
 
 ``` yaml
-less_version: 704
+less_version: 710
 
 tool_deploy_list:
   less:
