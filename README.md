@@ -1166,7 +1166,7 @@ tool_deploy_list:
 [joshmedeski / sesh](https://github.com/joshmedeski/sesh)
 
 ``` yaml
-sesh_version: 2.28.0
+sesh_version: 2.32.0
 
 tool_deploy_list:
   sesh:
