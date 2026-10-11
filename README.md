@@ -263,14 +263,16 @@ tool_deploy_list:
 [direnv / direnv](https://github.com/direnv/direnv)
 
 ``` yaml
-direnv_version: 2.37.1
+direnv_version: 2.38.2
 
 tool_deploy_list:
   direnv:
     action: download_binary
     github:
       repo: direnv/direnv
-      file: "v{{ direnv_version }}/direnv.linux-amd64"
+      file: >-
+        v{{ direnv_version | mandatory }}/direnv.linux-{{
+        'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}
     version:
       args: version
       match: "{{ direnv_version }}"
