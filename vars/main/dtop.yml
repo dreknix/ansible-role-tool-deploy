@@ -1,5 +1,5 @@
 ---
-dtop_version: 0.9.4
+dtop_version: 0.11.1
 
 tool_deploy_default_config_dtop:
   dtop:
