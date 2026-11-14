@@ -214,7 +214,7 @@ tool_deploy_list:
 [betterleaks / betterleaks](https://github.com/betterleaks/betterleaks)
 
 ``` yaml
-betterleaks_version: 1.9.0
+betterleaks_version: 1.10.1
 
 tool_deploy_list:
   betterleaks:
