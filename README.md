@@ -910,7 +910,7 @@ tool_deploy_list:
 [walles / moor](https://github.com/walles/moor)
 
 ``` yaml
-moor_version: 2.19.4
+moor_version: 2.19.7
 
 tool_deploy_list:
   moor:
