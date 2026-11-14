@@ -676,7 +676,7 @@ tool_deploy_list:
 [kellyjonbrazil / jc](https://github.com/kellyjonbrazil/jc)
 
 ``` yaml
-jc_version: 1.26.0
+jc_version: 1.26.2
 
 tool_deploy_list:
   jc:
