@@ -390,7 +390,7 @@ tool_deploy_list:
 [antonmedv / fx](https://github.com/antonmedv/fx)
 
 ``` yaml
-fx_version: 39.2.0
+fx_version: 40.0.1
 
 tool_deploy_list:
   fx:
